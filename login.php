@@ -2,7 +2,7 @@
 $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Login details incorrect!</div>';
 
 // Connect database
-$conn = new mysqli('localhost', 'root', '', 'onboard');
+//$conn = new mysqli('localhost', 'root', '', 'onboard');
 // Turn on error reporting
 error_reporting(E_ALL ^ E_NOTICE);
 // Check database connection
