@@ -1,41 +1,39 @@
 <?php
-$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Login details incorrect!</div>';
-
+session_start();
 // Connect database
-//$conn = new mysqli('localhost', 'root', '', 'onboard');
-// Turn on error reporting
-error_reporting(E_ALL ^ E_NOTICE);
-// Check database connection
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to database:" . mysqli_connect_error();
-    exit();
-}
+include('./config/db.php');
 
 // Login script
 if (isset($_POST['login_btn'])) {
 
     $agentID    = $conn->real_escape_string($_POST['agentID']);
     $password   = $conn->real_escape_string($_POST['password']);
+    $firstName   = $conn->real_escape_string($_POST['firstName']);
+    $lastName   = $conn->real_escape_string($_POST['lastName']);
+    $email      = $conn->real_escape_string($_POST['email']);
 
         $password = sha1($password);
         $query = "SELECT * FROM agents WHERE agentID='$agentID' AND password='$password'";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
-            $fullName = $row['fullName'];
+            $firstName = $row['firstName'];
+            $lastName = $row['lastName'];
             $email    = $row['email'];
             $agentID  = $row['agentID'];
+            $id       = $row['id'];
         }if (mysqli_num_rows($result) == 1) {
             $_SESSION['agentID'] = $agentID;
-            $_SESSION['fullName'] = $fullName;
+            $_SESSION['firstName'] = $firstName;
+            $_SESSION['lastName'] = $lastName;
+            $_SESSION['email'] = $email;
+            $_SESSION['id']     = $id;
             header('location: dashboard');
     }else {
-            echo $_SESSION['message'];
+            $_SESSION['message_title'] = "Incorrect Details";
+            $_SESSION['message'] = "Please login with correct credentials!";
     }
 }
-
-
 ?>
-
 <html lang="en">
 
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
@@ -50,10 +48,20 @@ if (isset($_POST['login_btn'])) {
         <link rel="shortcut icon" href="https://i.imgur.com/muLDDf6.png"/>
         <!-- stylesheet -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="assets/fonts/icomoon/style.css">
-        <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/fonts1/icomoon/style.css">
+        <link rel="stylesheet" href="assets/css1/owl.carousel.min.css">
+        <link rel="stylesheet" href="assets/css1/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css1/style.css">
+        <style>
+            .footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                color: white;
+                text-align: center;
+            }
+        </style>
     </head>
 <body>
 
@@ -69,12 +77,11 @@ if (isset($_POST['login_btn'])) {
                             <div class="mb-4">
                                 <h3><strong>Sign in</strong></h3>
                                 <p class="mb-4">Sign in using your correct credentials.</p>
-                                <?php $_SESSION['message'] ?>
                             </div>
-                            <form action="<? echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" autocomplete="off">
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" autocomplete="off">
                                 <div class="form-group first mb-3">
                                     <label for="username">Agent ID</label>
-                                    <input type="text" name="agentID" required class="form-control" id="agentID">
+                                    <input type="text" name="agentID" onkeyup="this.value = this.value.toUpperCase();" required class="form-control" id="agentID">
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Password</label>
@@ -84,7 +91,7 @@ if (isset($_POST['login_btn'])) {
                                 <input type="submit" name="login_btn" value="Log In" class="btn btn-block btn-primary">
 
                                 <div class="align-items-center text-center mt-2">
-                                    <span class="ml-auto"><a href="password-reset" class="forgot-pass">Forgot Password</a></span>
+                                    <span class="ml-auto"><a href="password-retrieval.php" class="forgot-pass" style="text-decoration: none">Forgot Password</a></span>
                                 </div>
 
                             </form>
@@ -97,11 +104,34 @@ if (isset($_POST['login_btn'])) {
         </div>
     </div>
 
-    <!-- Footer -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+<!-- Footer -->
+<div class="footer">
+    <a href="https://www.hiil.org/" target="_blank">
+        <img src="./assets/images/footer-logo.png" style="width: 130px; padding-bottom: 20px;">
+    </a>
+</div>
+<script src="assets/js1/jquery-3.3.1.min.js"></script>
+<script src="assets/js1/popper.min.js"></script>
+<script src="assets/js1/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<?php
+if (isset($_SESSION['message']))
+{
+?>
+<script>
+    swal({
+        title: "<?php echo $_SESSION['message_title']; ?>",
+        text: "<?php echo $_SESSION['message']; ?>",
+        icon: "error",
+        buttons: false,
+        timer: 2000
+    });
+</script>
+<?php
+unset($_SESSION['message']);
+}
+?>
+<script src="assets/js1/main.js"></script>
 </body>
 </html>
 
