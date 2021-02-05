@@ -55,8 +55,8 @@ include('./config/db.php');
                                             // output data of each row
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 $reportID       = $row['reportID'];
-                                                $emFirstname    = $row['emFirstname'];
-                                                $emLastname     = $row['emLastname'];
+                                                $rpFirstname    = $row['rpFirstname'];
+                                                $rpLastname     = $row['erLastname'];
                                                 $status         = $row['status'];
                                                 switch ($status) {
                                                     case "Pending";
@@ -72,7 +72,7 @@ include('./config/db.php');
 
                                                 echo "<tr>";
                                                 echo "<td class=\"budget\">" . $reportID . "</td>";
-                                                echo "<td class=\"budget\">" . $emFirstname . " " . $emLastname . "</td>";
+                                                echo "<td class=\"budget\">" . $rpFirstname . " " . $rpLastname . "</td>";
                                                 echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                 echo "<td class='text-right'>"
