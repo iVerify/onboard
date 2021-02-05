@@ -47,41 +47,59 @@ if (isset($_POST['password_rest_btn'])) {
     <link rel="stylesheet" href="assets/css1/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css1/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css1/style.css">
+    <style>
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
-<div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="assets/images/imgpas.svg" alt="Image" class="img-fluid">
-            </div>
-            <div class="col-md-6 contents" style="padding-top: 50px;">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 text-center">
-                        <div class="mb-4">
-                            <h3><strong>Password Retrieval</strong></h3>
-                            <p class="mb-4">Use your Agent ID to reset your password.</p>
+<div id="wrapper">
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="assets/images/imgpas.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents" style="padding-top: 50px;">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="mb-4">
+                                <h3><strong>Password Retrieval</strong></h3>
+                                <p class="mb-4">Use your Agent ID to reset your password.</p>
+                            </div>
+                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" autocomplete="off">
+                                <div class="form-group first mb-3">
+                                    <label for="username">Agent ID</label>
+                                    <input type="text" name="agentID" onkeyup="this.value = this.value.toUpperCase();" required class="form-control" id="agentID">
+                                </div>
+                                <input type="submit" name="password_rest_btn" value="Retrieve Password" class="btn btn-block btn-primary">
+
+                                <div class="align-items-center text-center mt-2">
+                                    <span class="ml-auto"><a href="login" class="forgot-pass" style="text-decoration: none">Sign in</a></span>
+                                </div>
+
+                            </form>
                         </div>
-                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" autocomplete="off">
-                            <div class="form-group first mb-3">
-                                <label for="username">Agent ID</label>
-                                <input type="text" name="agentID" onkeyup="this.value = this.value.toUpperCase();" required class="form-control" id="agentID">
-                            </div>
-                            <input type="submit" name="password_rest_btn" value="Retrieve Password" class="btn btn-block btn-primary">
-
-                            <div class="align-items-center text-center mt-2">
-                                <span class="ml-auto"><a href="login" class="forgot-pass" style="text-decoration: none">Sign in</a></span>
-                            </div>
-
-                        </form>
                     </div>
+
                 </div>
 
             </div>
-
         </div>
     </div>
+<!-- Footer -->
+<div class="footer">
+    <a href="https://www.hiil.org/" target="_blank">
+        <img class="footerlogo" src="./assets/images/footer-logo.png" style="width: 130px;">
+    </a>
+</div>
 </div>
 
 <!-- Footer -->

@@ -1,3 +1,9 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   background-color: #eefafa;
@@ -5,6 +11,12 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
+  height: 100%;
+  margin: 0;
+}
+#wrapper {
+  min-height: 100%;
+  position: relative;
 }
 
 p {
