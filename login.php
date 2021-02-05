@@ -60,6 +60,8 @@ if (isset($_POST['login_btn'])) {
                 width: 100%;
                 color: white;
                 text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
             }
         </style>
     </head>
@@ -102,14 +104,14 @@ if (isset($_POST['login_btn'])) {
 
             </div>
         </div>
+        <!-- Footer -->
+        <div class="footer">
+            <a href="https://www.hiil.org/" target="_blank">
+                <img src="./assets/images/footer-logo.png" style="width: 130px;">
+            </a>
+        </div>
     </div>
 
-<!-- Footer -->
-<div class="footer">
-    <a href="https://www.hiil.org/" target="_blank">
-        <img src="./assets/images/footer-logo.png" style="width: 130px; padding-bottom: 20px;">
-    </a>
-</div>
 <script src="assets/js1/jquery-3.3.1.min.js"></script>
 <script src="assets/js1/popper.min.js"></script>
 <script src="assets/js1/bootstrap.min.js"></script>
