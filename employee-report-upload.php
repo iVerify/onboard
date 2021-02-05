@@ -137,7 +137,7 @@ if(isset($_POST['employee_btn'])) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label for="example-date-input" class="form-control-label">Date of Visitation</label>
-                                                <input class="form-control" type="date" required placeholder="2018-11-23" name="emVisitDate">
+                                                <input class="form-control" type="date" required placeholder="2018-11-23" name="rpVisitDate">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
