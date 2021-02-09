@@ -18,7 +18,7 @@ include('./config/db.php');
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Employee Verifications
+                        Guarantor Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -49,43 +49,43 @@ include('./config/db.php');
                                             </thead>
                                             <tbody class="list">
                                             <?php
-                                            $select_query = "SELECT * FROM employee order by date ASC";
+                                            $select_query = "SELECT * FROM guarantor order by date ASC";
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
-                                            // output data of each row
-                                            while($row = mysqli_fetch_assoc($result)) {
-                                                $reportID       = $row['reportID'];
-                                                $rpFirstName    = $row['rpFirstName'];
-                                                $rpLastName     = $row['rpLastName'];
-                                                $status         = $row['status'];
-                                                switch ($status) {
-                                                    case "Pending";
-                                                        $class  = 'bg-warning';
-                                                        break;
-                                                    case "Approved";
-                                                        $class  = 'bg-success';
-                                                        break;
-                                                    default:
-                                                        $class  = '';
+                                                // output data of each row
+                                                while($row = mysqli_fetch_assoc($result)) {
+                                                    $reportID       = $row['reportID'];
+                                                    $rpFirstName    = $row['rpFirstName'];
+                                                    $rpLastName     = $row['rpLastName'];
+                                                    $status         = $row['status'];
+                                                    switch ($status) {
+                                                        case "Pending";
+                                                            $class  = 'bg-warning';
+                                                            break;
+                                                        case "Approved";
+                                                            $class  = 'bg-success';
+                                                            break;
+                                                        default:
+                                                            $class  = '';
 
-                                                }
+                                                    }
 
-                                                echo "<tr>";
-                                                echo "<td class=\"budget\">" . $reportID . "</td>";
-                                                echo "<td class=\"budget\">" . $rpFirstName . " " . $rpLastName . "</td>";
-                                                echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
+                                                    echo "<tr>";
+                                                    echo "<td class=\"budget\">" . $reportID . "</td>";
+                                                    echo "<td class=\"budget\">" . $rpFirstName . " " . $rpLastName . "</td>";
+                                                    echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
-                                                echo "<td class='text-right'>"
-                                                    ."<button class=\"btn btn-icon btn-default\" type=\"button\">
+                                                    echo "<td class='text-right'>"
+                                                        ."<button class=\"btn btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
                                                     </button>".
-                                                "</td >";
-                                                "</tr>";
-                                            }
+                                                        "</td >";
+                                                    "</tr>";
+                                                }
                                             }else {
-                                                        echo "<td><p>No Report Yet!</p></td>";
-                                                    }
+                                                echo "<td><p>No Report Yet!</p></td>";
+                                            }
                                             ?>
                                             </tbody>
                                         </table>
