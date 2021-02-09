@@ -10,16 +10,21 @@ if(isset($_POST['employee_btn'])) {
     $agentID        = $conn->real_escape_string($_POST['agentID']);
     $firstName      = $conn->real_escape_string($_POST['firstName']);
     $lastName       = $conn->real_escape_string($_POST['lastName']);
+    $clientName     = $conn->real_escape_string($_POST['clientName']);
     $reportID       = 'EMV'.rand(10000000000, 9999);
     $rpVisitDate    = $conn->real_escape_string($_POST['rpVisitDate']);
     $rpFirstName    = $conn->real_escape_string($_POST['rpFirstName']);
     $rpLastName     = $conn->real_escape_string($_POST['rpLastName']);
-    $rpOccupation   = $conn->real_escape_string($_POST['rpOccupation']);
     $rpAddress      = $conn->real_escape_string($_POST['rpAddress']);
     $rpAddressDesc  = $conn->real_escape_string($_POST['rpAddressDesc']);
+    $mwFirstName    = $conn->real_escape_string($_POST['mwFirstName']);
+    $mwLastName     = $conn->real_escape_string($_POST['mwLastName']);
+    $mwOccupation   = $conn->real_escape_string($_POST['mwOccupation']);
     $rpAgentRemark  = $conn->real_escape_string($_POST['rpAgentRemark']);
     $rpUpload_path  = $conn->real_escape_string('upload/'.$_FILES['rpUpload']['name']);
     $rpUpload1_path = $conn->real_escape_string('upload/'.$_FILES['rpUpload1']['name']);
+    $rpLatitude     = $conn->real_escape_string($_POST['rpLatitude']);
+    $rpLongitude    = $conn->real_escape_string($_POST['rpLongitude']);
 
     if (file_exists($rpUpload_path))
     {
@@ -45,8 +50,8 @@ if(isset($_POST['employee_btn'])) {
     }
 
 
-    $query = "INSERT INTO employee (agentID, reportID, firstName, lastName, rpVisitDate, rpFirstName, rpLastName, rpOccupation, rpAddress, rpAddressDesc, rpAgentRemark, rpUpload, rpUpload1)"
-        . "VALUES ('$agentID', '$reportID', '$firstName', '$lastName', '$rpVisitDate', '$rpFirstName', '$rpLastName', '$rpOccupation', '$rpAddress', '$rpAddressDesc', '$rpAgentRemark', '$rpUpload_path', '$rpUpload1_path')";
+    $query = "INSERT INTO employee (agentID, reportID, firstName, lastName, clientName, rpVisitDate, rpFirstName, rpLastName, rpAddress, rpAddressDesc, mwFirstName, mwLastName, mwOccupation, rpAgentRemark, rpUpload, rpUpload1, rpLatitude, rpLongitude)"
+        . "VALUES ('$agentID', '$reportID', '$firstName', '$lastName', '$clientName', '$rpVisitDate', '$rpFirstName', '$rpLastName', '$rpAddress', '$rpAddressDesc', '$mwFirstName', '$mwOccupation', '$mwLastName', '$rpAgentRemark', '$rpUpload_path', '$rpUpload1_path', '$rpLatitude', '$rpLongitude')";
 
     mysqli_query($conn, $query);
     if (mysqli_affected_rows($conn) > 0) {
@@ -104,6 +109,12 @@ if(isset($_POST['employee_btn'])) {
                                         </div>
                                         <div class="col-lg-6" style="display: none">
                                             <div class="form-group">
+                                                <label for="example-date-input" class="form-control-label">Client Name</label>
+                                                <input class="form-control" type="text" name="clientName" value="<?php echo $_SESSION['clientName']; ?>" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6" style="display: none">
+                                            <div class="form-group">
                                                 <label for="example-date-input" class="form-control-label">Agent Last Name</label>
                                                 <input class="form-control" type="text" name="lastName" value="<?php echo $_SESSION['lastName']; ?>" readonly>
                                             </div>
@@ -113,25 +124,13 @@ if(isset($_POST['employee_btn'])) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-first-name">First Name</label>
-                                                <input type="text" name="rpFirstName" required class="form-control" placeholder="Desmond">
+                                                <input type="text" name="rpFirstName" required class="form-control" placeholder="Employee First Name">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-last-name">Last Name</label>
-                                                <input type="text" name="rpLastName" required class="form-control" placeholder="Fegor">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-city">Occupation/Office</label>
-                                                <input type="text" name="rpOccupation" class="form-control" placeholder="Engineer">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-address">Address Visited</label>
-                                                <input name="rpAddress" class="form-control" required placeholder="7/9 Adebisi Oyenola street Idado Estate Etiosa, IGBOEFON, Lagos." type="text">
+                                                <input type="text" name="rpLastName" required class="form-control" placeholder="Employee Last Name">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -142,8 +141,32 @@ if(isset($_POST['employee_btn'])) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
+                                                <label class="form-control-label" for="input-address">Address Visited</label>
+                                                <input name="rpAddress" class="form-control" required placeholder="7/9 Adebisi Oyenola street Idado Estate Etiosa, IGBOEFON, Lagos." type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
                                                 <label class="form-control-label" for="input-country">Address Landmark & Description</label>
                                                 <input type="text" name="rpAddressDesc" required class="form-control" placeholder="Chevron Lekki">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-country">Met with First Name</label>
+                                                <input type="text" name="mwFirstName" class="form-control" placeholder="Name of ">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-country">Met with Last Name</label>
+                                                <input type="text" name="mwLastName" class="form-control" placeholder="Chucks">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-city">Met with Occupation/Office</label>
+                                                <input type="text" name="mwOccupation" class="form-control" placeholder="Engineer">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -157,18 +180,29 @@ if(isset($_POST['employee_btn'])) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-address">Upload Onsite Picture (optional)</label>
+                                                <label class="form-control-label" for="input-address">Upload Onsite Picture</label>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" name="rpUpload1" lang="en">
+                                                    <input type="file" class="custom-file-input" required name="rpUpload1" lang="en">
                                                     <label class="custom-file-label" for="customFileLang">Select file</label>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6" style="display: none">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-country">Latitude</label>
+                                                <input type="text" name="rpLatitude" class="form-control" id="rpLatitude">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6" style="display: none">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-country">Longitude</label>
+                                                <input type="text" name="rpLongitude" class="form-control" id="rpLongitude">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center">
                                         <div class="form-group">
-                                            <div id="mapholder"></div>
-                                            <label class="form-control-label" for="input-country" id="rpLocation"></label><br>
+                                            <label class="form-control-label" for="input-country" id="emLocation" name="emLocation"></label><br>
                                             <a class="btn btn-icon btn-default text-white" onclick="getLocation()">
                                                 <span class="btn-inner--icon"><i class="ni ni-square-pin"></i></span>
                                                 <span class="btn-inner--text">Get Location</span>
