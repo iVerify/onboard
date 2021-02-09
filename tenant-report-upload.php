@@ -66,7 +66,7 @@ if(isset($_POST['tenant_btn'])) {
         copy($_FILES['rpUpload1']['tmp_name'], $rpUpload1_path);
 
         $_SESSION['report_title'] = "Report Added";
-        $_SESSION['report_message'] = "Employee Verification has been added 👍";
+        $_SESSION['report_message'] = "Tenant Verification has been added 👍";
     }
     else {
         $error=$conn->error;
@@ -160,7 +160,7 @@ if(isset($_POST['tenant_btn'])) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-country">Met with First Name</label>
-                                                <input type="text" name="mwFirstName" class="form-control" placeholder="Name of ">
+                                                <input type="text" name="mwFirstName" class="form-control" placeholder="Adaora">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -190,7 +190,7 @@ if(isset($_POST['tenant_btn'])) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-country">Work Address Met with First Name</label>
-                                                <input type="text" name="twFirstName" class="form-control" placeholder="Name of ">
+                                                <input type="text" name="twFirstName" class="form-control" placeholder="Kelvin">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -260,7 +260,7 @@ if(isset($_POST['tenant_btn'])) {
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button name="tenant_btn" class="btn btn-icon btn-default" type="submit">
+                                            <button name="guarantor_btn" class="btn btn-icon btn-default" type="submit">
                                                 <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
                                                 <span class="btn-inner--text">Upload Report</span>
                                             </button>

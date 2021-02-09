@@ -11,13 +11,13 @@ if (isset($_POST['password_rest_btn'])) {
     $query = "SELECT * FROM agents WHERE agentID='$agentID'";
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_array($result)) {
-        $fullName = $row['fullName'];
+        $firstName = $row['firstName'];
         $email    = $row['email'];
         $agentID  = $row['agentID'];
     }if (mysqli_num_rows($result) == 1) {
         $_SESSION['agentID'] = $agentID;
         $_SESSION['email']  = $email;
-        $_SESSION['fullName'] = $fullName;
+        $_SESSION['firstName'] = $firstName;
         $_SESSION['password'] = $password;
         $_SESSION['success_message_title'] = "Password Retrieved";
         $_SESSION['success_message'] = "Please check $email to access password.";

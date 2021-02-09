@@ -154,7 +154,7 @@ if(isset($_POST['employee_btn'])) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-country">Met with First Name</label>
-                                                <input type="text" name="mwFirstName" class="form-control" placeholder="Name of ">
+                                                <input type="text" name="mwFirstName" class="form-control" placeholder="Adaora">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
