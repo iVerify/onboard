@@ -260,7 +260,7 @@ if(isset($_POST['tenant_btn'])) {
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button name="guarantor_btn" class="btn btn-icon btn-default" type="submit">
+                                            <button name="tenant_btn" class="btn btn-icon btn-default" type="submit">
                                                 <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
                                                 <span class="btn-inner--text">Upload Report</span>
                                             </button>
