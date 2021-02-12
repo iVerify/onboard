@@ -129,10 +129,10 @@ while ($row = mysqli_fetch_array($results)) {
                                                 <input type="text" name="mwOccupation" class="form-control" value="<? echo $mwOccupation ?>" disabled>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 text-center">
                                                 <img class="card-img-top" src="<? echo $rpUpload ?>" style="width:300px;height:300px;">
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-6 text-center">
                                                 <img class="card-img-top" src="<? echo $rpUpload1 ?>" style="width:300px;height:300px;">
                                         </div>
                                         <div class="col-lg-6" style="display: none">
