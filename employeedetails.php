@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_array($results)) {
                     <div class="col-xl-12 order-xl-1">
                         <div class="card">
                             <div class="card-body">
-                                <form>
+                                <form onClick="return false;">
                                     <h6 class="heading-small text-muted mb-4">Employee information</h6>
                                     <div class="row">
                                         <div class="col-lg-6" style="display: none">
