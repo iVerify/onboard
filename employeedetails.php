@@ -170,11 +170,11 @@ while ($row = mysqli_fetch_array($results)) {
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button name="employee_btn" class="btn btn-icon btn-default" id="personal">
+                                            <button class="btn btn-icon btn-default" id="personal">
                                                 <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                                 <span class="btn-inner--text">Edit</span>
                                             </button>
-                                            <button name="employee_btn" class="btn btn-icon btn-danger" id="delete">
+                                            <button class="btn btn-icon btn-danger" id="delete">
                                                 <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
                                                 <span class="btn-inner--text">Delete</span>
                                             </button>
