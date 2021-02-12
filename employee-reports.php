@@ -40,6 +40,7 @@ include('./config/db.php');
                                         <table class="table align-items-center">
                                             <thead class="thead-light">
                                             <tr>
+                                                <th scope="col" class="sort" data-sort="sn">S/N</th>
                                                 <th scope="col" class="sort" data-sort="sn">Report No.</th>
                                                 <th scope="col" class="sort" data-sort="budget">Verifying Name</th>
                                                 <th scope="col" class="sort" data-sort="status">Status</th>
@@ -54,7 +55,9 @@ include('./config/db.php');
                                             if (mysqli_num_rows($result) > 0) {
                                             // output data of each row
                                             while($row = mysqli_fetch_assoc($result)) {
+                                                $id             = $row['id'];
                                                 $reportID       = $row['reportID'];
+                                                $agentID        = $row['agentID'];
                                                 $rpFirstName    = $row['rpFirstName'];
                                                 $rpLastName     = $row['rpLastName'];
                                                 $status         = $row['status'];
@@ -71,15 +74,16 @@ include('./config/db.php');
                                                 }
 
                                                 echo "<tr>";
+                                                echo "<td class=\"budget\">" . $id . "</td>";
                                                 echo "<td class=\"budget\">" . $reportID . "</td>";
                                                 echo "<td class=\"budget\">" . $rpFirstName . " " . $rpLastName . "</td>";
                                                 echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                 echo "<td class='text-right'>"
-                                                    ."<button class=\"btn btn-icon btn-default\" type=\"button\">
+                                                    ."<a href=\"employeedetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
-                                                    </button>".
+                                                    </a>".
                                                 "</td >";
                                                 "</tr>";
                                             }

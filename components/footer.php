@@ -10,6 +10,7 @@
 </footer>
 </div>
 </div>
+<?php include "components/modal.php"; ?>
 
 <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -32,6 +33,7 @@
     }
     document.getElementById("greet").innerHTML = greeting;
 </script>
+
 <script>
     document.getElementById('personal').onclick = function(){
         swal({
@@ -42,6 +44,31 @@
                 dangerMode: true,
                 timer: 5000,
             })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("You're being redirected to contact support", {
+                        icon: "success",
+                        button: false,
+                        timer: 3000,
+                    }).then(function() {
+                        window.location = "support";
+                    });
+
+                }
+            });
+    };
+</script>
+
+<script>
+    document.getElementById('delete').onclick = function(){
+        swal({
+            title: "Access Denied",
+            text: "You can only make changes via admin",
+            icon: "info",
+            button: "Contact Admin",
+            dangerMode: true,
+            timer: 5000,
+        })
             .then((willDelete) => {
                 if (willDelete) {
                     swal("You're being redirected to contact support", {
