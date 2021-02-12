@@ -28,6 +28,18 @@ while ($row = mysqli_fetch_array($results)) {
     $rpUpload1 = $row['rpUpload1'];
     $rpLatitude = $row['rpLatitude'];
     $rpLongitude = $row['rpLongitude'];
+    $status         = $row['status'];
+    switch ($status) {
+        case "Pending";
+            $class  = 'bg-warning';
+            break;
+        case "Approved";
+            $class  = 'bg-success';
+            break;
+        default:
+            $class  = '';
+
+    }
 
     ?>
     <div class="header">
@@ -53,7 +65,7 @@ while ($row = mysqli_fetch_array($results)) {
                         <div class="card">
                             <div class="card-body">
                                 <form onClick="return false;">
-                                    <h6 class="heading-small text-muted mb-4">Employee information</h6>
+                                    <h6 class="heading-small text-muted mb-4">Status: <span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span></h6>
                                     <div class="row">
                                         <div class="col-lg-6" style="display: none">
                                             <div class="form-group">
