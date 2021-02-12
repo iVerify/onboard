@@ -129,10 +129,10 @@ while ($row = mysqli_fetch_array($results)) {
                                                 <input type="text" name="mwOccupation" class="form-control" value="<? echo $mwOccupation ?>" disabled>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 text-center">
+                                        <div class="col-lg-6 text-center form-group">
                                                 <img class="card-img-top" src="<? echo $rpUpload ?>" style="width:300px;height:300px;">
                                         </div>
-                                        <div class="col-lg-6 text-center">
+                                        <div class="col-lg-6 text-center form-group">
                                                 <img class="card-img-top" src="<? echo $rpUpload1 ?>" style="width:300px;height:300px;">
                                         </div>
                                         <div class="col-lg-6" style="display: none">
@@ -161,13 +161,9 @@ while ($row = mysqli_fetch_array($results)) {
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button class="btn btn-icon btn-default" id="personal">
+                                            <button class="btn btn-icon btn-default" id="delete">
                                                 <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                                 <span class="btn-inner--text">Edit</span>
-                                            </button>
-                                            <button class="btn btn-icon btn-danger" id="delete">
-                                                <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
-                                                <span class="btn-inner--text">Delete</span>
                                             </button>
                                         </div>
                                     </div>
