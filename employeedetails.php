@@ -130,13 +130,13 @@ while ($row = mysqli_fetch_array($results)) {
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <div class="card" style="width: 20rem;">
-                                                <img class="card-img-top" src="<? echo $rpUpload ?>">
+                                            <div class="card">
+                                                <img class="card-img-top" src="<? echo $rpUpload ?>" style="width:600px;height:600px;">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="card" style="width: 20rem;">
-                                                <img class="card-img-top" src="<? echo $rpUpload1 ?>">
+                                                <img class="card-img-top" src="<? echo $rpUpload1 ?>" style="width:600px;height:600px;">
                                             </div>
                                         </div>
                                         <div class="col-lg-6" style="display: none">
