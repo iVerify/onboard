@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_array($results)) {
                     <div class="col-xl-12 order-xl-1">
                         <div class="card">
                             <div class="card-body">
-                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
+                                <form>
                                     <h6 class="heading-small text-muted mb-4">Employee information</h6>
                                     <div class="row">
                                         <div class="col-lg-6" style="display: none">
@@ -161,9 +161,13 @@ while ($row = mysqli_fetch_array($results)) {
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button class="btn btn-icon btn-default" id="delete">
+                                            <button class="btn btn-icon btn-default" id="personal">
                                                 <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
                                                 <span class="btn-inner--text">Edit</span>
+                                            </button>
+                                            <button class="btn btn-icon btn-danger" id="delete">
+                                                <span class="btn-inner--icon"><i class="ni ni-fat-remove"></i></span>
+                                                <span class="btn-inner--text">Delete</span>
                                             </button>
                                         </div>
                                     </div>
