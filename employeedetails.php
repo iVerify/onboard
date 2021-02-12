@@ -148,15 +148,6 @@ while ($row = mysqli_fetch_array($results)) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="text-center">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-country" id="emLocation" name="emLocation"></label><br>
-                                            <a class="btn btn-icon btn-default text-white" onclick="getLocation()">
-                                                <span class="btn-inner--icon"><i class="ni ni-square-pin"></i></span>
-                                                <span class="btn-inner--text">Get Location</span>
-                                            </a>
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="form-control-label">Agent Remark</label>
                                         <p><? echo $rpAgentRemark ?></p>
