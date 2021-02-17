@@ -23,10 +23,10 @@
                             <i class="ni ni-archive-2  text-default"></i> Verifications
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="employee">Employee</a>
-                            <a class="dropdown-item" href="tenant">Tenant</a>
-                            <a class="dropdown-item" href="guarantor">Guarantor</a>
-                            <a class="dropdown-item" href="pwa">Previous Work Address</a>
+                            <a class="dropdown-item" href="employee-verifications">Employee</a>
+                            <a class="dropdown-item" href="tenant-verifications">Tenant</a>
+                            <a class="dropdown-item" href="guarantor-verifications">Guarantor</a>
+                            <a class="dropdown-item" href="pwa-verifications">Previous Work Address</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown user ">
@@ -39,21 +39,27 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="clients">
+                            <i class="ni ni-briefcase-24 text-default"></i>
+                            <span class="nav-link-text">Clients</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="messages">
                             <i class="ni ni-email-83 text-default"></i>
                             <span class="nav-link-text">Messages</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../examples/tables.html">
-                            <i class="ni ni-bullet-list-67 text-default"></i>
-                            <span class="nav-link-text">Tables</span>
+                        <a class="nav-link" href="news">
+                            <i class="ni ni-notification-70 text-default"></i>
+                            <span class="nav-link-text">News</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../examples/register.html">
-                            <i class="ni ni-circle-08 text-pink"></i>
-                            <span class="nav-link-text">Register</span>
+                        <a class="nav-link" href="schedule">
+                            <i class="ni ni-books text-default"></i>
+                            <span class="nav-link-text">Schedule Verification</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -67,7 +73,7 @@
                 <hr class="my-3">
                 <!-- Heading -->
                 <h6 class="navbar-heading p-0 text-muted">
-                    <span class="docs-normal">Documentation</span>
+                    <span class="docs-normal">Support</span>
                 </h6>
                 <!-- Navigation -->
                 <ul class="navbar-nav mb-md-3">
@@ -75,12 +81,6 @@
                         <a class="nav-link" href="profile">
                             <i class="ni ni-circle-08 text-default"></i>
                             <span class="nav-link-text">Profile</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
-                            <i class="ni ni-palette"></i>
-                            <span class="nav-link-text">Foundation</span>
                         </a>
                     </li>
                     <li class="nav-item">

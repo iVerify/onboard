@@ -23,8 +23,12 @@ include "./components/sidenav.php";
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Verifications</h5>
                         <?php
-                        $countVerifications = mysqli_query($conn, "SELECT * FROM employee a INNER JOIN guarantor b ON a.id=b.id INNER JOIN previouswork c ON b.id=c.id INNER JOIN tenant d ON c.id=d.id");
-                        echo "<span class=\"h2 font-weight-bold mb-0\">".mysqli_num_rows($countVerifications)."</span>";
+                        $countEmployee = mysqli_query($conn, "SELECT id FROM employee");
+                        $countTenant = mysqli_query($conn, "SELECT id FROM tenant");
+                        $countGuarantor = mysqli_query($conn, "SELECT id FROM guarantor");
+                        $countPWA = mysqli_query($conn, "SELECT id FROM previouswork");
+                        $totalIds = ($countEmployee + $countTenant + $countGuarantor + $countPWA);
+                        echo "<span class=\"h2 font-weight-bold mb-0\">".$totalIds."</span>";
                         ?>
                     </div>
                     <div class="col-auto">
