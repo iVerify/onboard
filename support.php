@@ -7,15 +7,15 @@ include('./config/db.php');
 // Support script
 if (isset($_POST['support_btn'])) {
 
-    $agentID    = $conn->real_escape_string($_POST['agentID']);
+    $agentid    = $conn->real_escape_string($_POST['agentid']);
     $purpose    = $conn->real_escape_string($_POST['purpose']);
     $comment    = $conn->real_escape_string($_POST['comment']);
 
-    $query = "INSERT INTO messages (agentID, purpose, comment)"
-            ."VALUES ('$agentID', '$purpose', '$comment')";
+    $query = "INSERT INTO messages (agentid, purpose, comment)"
+            ."VALUES ('$agentid', '$purpose', '$comment')";
     mysqli_query($conn, $query);
     if (mysqli_affected_rows($conn) > 0) {
-        $_SESSION['agentID'] = $agentID;
+        $_SESSION['agentid'] = $agentid;
         $_SESSION['support_message_title'] = "Request Sent";
         $_SESSION['support_message'] = "Your request will attended to 👍";
     }else {
@@ -53,7 +53,7 @@ if (isset($_POST['support_btn'])) {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-agent-id">Agent ID</label>
-                                                    <input type="text" id="agent-id" name="agentID" class="form-control" value="<?php echo $_SESSION['agentID']; ?>" readonly>
+                                                    <input type="text" id="agent-id" name="agentid" class="form-control" value="<?php echo $_SESSION['agentid']; ?>" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">

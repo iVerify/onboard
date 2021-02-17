@@ -90,7 +90,7 @@ include "./components/navbar.php";
                                             </tr>
                                             </thead>
                                             <tbody class="list">
-                                                <tr>
+                                                <!--<tr>
                                                     <td class="budget">
                                                         1.
                                                     </td>
@@ -151,7 +151,7 @@ include "./components/navbar.php";
                                                             </div>
                                                         </div>
                                                     </td>
-                                                </tr>
+                                                </tr>-->
                                             </tbody>
                                         </table>
                                     </div>

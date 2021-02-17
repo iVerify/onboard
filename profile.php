@@ -2,7 +2,7 @@
 include "./components/header.php";
 include "./components/navbar.php";
 
-$agentID   = $_SESSION['agentID'];
+$agentID   = $_SESSION['agentid'];
 $id = $_SESSION["id"];
 
 // Connect database
@@ -14,10 +14,10 @@ if(isset($_POST['password_btn'])) {
     $password   = $conn->real_escape_string($_POST['password']);
 
     $password = sha1($_POST['password']);
-    $agentID = $_SESSION['agentID'];
+    $agentid = $_SESSION['agentid'];
     $newPassword = sha1($_POST['newPassword']);
-    $sql=mysqli_query($conn,"SELECT * FROM agents where password='$password' && agentID='$agentID'");
-    $num=mysqli_fetch_array($sql);$agentID   = $_SESSION['agentID'];
+    $sql=mysqli_query($conn,"SELECT * FROM agents where password='$password' && agentid='$agentid'");
+    $num=mysqli_fetch_array($sql);$agentid   = $_SESSION['agentid'];
     $id = $_SESSION["id"];
 
 // Connect database
