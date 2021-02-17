@@ -29,13 +29,13 @@ if(isset($_POST['password_btn'])) {
         $password   = $conn->real_escape_string($_POST['password']);
 
         $password = sha1($_POST['password']);
-        $agentID = $_SESSION['agentID'];
+        $agentid = $_SESSION['agentid'];
         $newPassword = sha1($_POST['newPassword']);
-        $sql=mysqli_query($conn,"SELECT * FROM agents where password='$password' && agentID='$agentID'");
+        $sql=mysqli_query($conn,"SELECT * FROM agents where password='$password' && agentid='$agentid'");
         $num=mysqli_fetch_array($sql);
         if($num>0)
         {
-            $conn=mysqli_query($conn,"UPDATE agents SET password='$newPassword' where agentID='$agentID'");
+            $conn=mysqli_query($conn,"UPDATE agents SET password='$newPassword' where agentid='$agentid'");
             $_SESSION['password_change_message_title'] = "Password Changed";
             $_SESSION['password_change_message'] = "Please login with the new password 👍";
         }
@@ -47,7 +47,7 @@ if(isset($_POST['password_btn'])) {
     }
     if($num>0)
     {
-        $conn=mysqli_query($conn,"UPDATE agents SET password='$newPassword' where agentID='$agentID'");
+        $conn=mysqli_query($conn,"UPDATE agents SET password='$newPassword' where agentid='$agentid'");
         $_SESSION['password_change_message_title'] = "Password Changed";
         $_SESSION['password_change_message'] = "Please login with the new password 👍";
     }
@@ -70,7 +70,7 @@ if(isset($_POST['password_btn'])) {
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        <?php echo $_SESSION['firstName']; ?>'s Profile
+                        <?php echo $_SESSION['firstname']; ?>'s Profile
                     </h1>
                     <p>Protect yourself & stay safe <span style='font-size:15px;'>&#128567;</span></p>
                 </div>
@@ -103,10 +103,10 @@ if(isset($_POST['password_btn'])) {
                                 </div>
                                 <div class="text-center">
                                     <h5 class="h3">
-                                        <?php echo $_SESSION['firstName']; ?> <?php echo $_SESSION['lastName']; ?>
+                                        <?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?>
                                     </h5>
                                     <div class="h5 mt--2">
-                                        <i class="ni education_hat mr-2"></i>Agent ID: <span class="font-weight-light"><?php echo $_SESSION['agentID']; ?></span>
+                                        <i class="ni education_hat mr-2"></i>Agent ID: <span class="font-weight-light"><?php echo $_SESSION['agentid']; ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@ if(isset($_POST['password_btn'])) {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-username">Agent ID</label>
-                                                    <input type="text" id="input-username" class="form-control" placeholder="Username" value="<?php echo $_SESSION['agentID']; ?>" disabled>
+                                                    <input type="text" id="input-username" class="form-control" placeholder="Username" value="<?php echo $_SESSION['agentid']; ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
@@ -136,13 +136,13 @@ if(isset($_POST['password_btn'])) {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-first-name">First name</label>
-                                                    <input type="text" id="input-first-name" class="form-control" placeholder="<?php echo $_SESSION['firstName']; ?>">
+                                                    <input type="text" id="input-first-name" class="form-control" placeholder="<?php echo $_SESSION['firstname']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-last-name">Last name</label>
-                                                    <input type="text" id="input-last-name" class="form-control" placeholder="<?php echo $_SESSION['lastName']; ?>">
+                                                    <input type="text" id="input-last-name" class="form-control" placeholder="<?php echo $_SESSION['lastname']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-center">
