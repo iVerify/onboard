@@ -2,16 +2,16 @@
 include "./components/header.php";
 include "./components/navbar.php";
 
-$agentID   = $_SESSION['agentid'];
-$id = $_SESSION["id"];
+$agentid    = $_SESSION['agentid'];
+$id         = $_SESSION["id"];
 
 // Connect database
 include('./config/db.php');
 
 if(isset($_POST['password_btn'])) {
 
-    $newPassword   = $conn->real_escape_string($_POST['newPassword']);
-    $password   = $conn->real_escape_string($_POST['password']);
+    $newPassword    = $conn->real_escape_string($_POST['newPassword']);
+    $password       = $conn->real_escape_string($_POST['password']);
 
     $password = sha1($_POST['password']);
     $agentid = $_SESSION['agentid'];
@@ -25,8 +25,8 @@ if(isset($_POST['password_btn'])) {
 
     if(isset($_POST['password_btn'])) {
 
-        $newPassword   = $conn->real_escape_string($_POST['newPassword']);
-        $password   = $conn->real_escape_string($_POST['password']);
+        $newPassword    = $conn->real_escape_string($_POST['newPassword']);
+        $password       = $conn->real_escape_string($_POST['password']);
 
         $password = sha1($_POST['password']);
         $agentid = $_SESSION['agentid'];
