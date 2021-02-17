@@ -10,24 +10,24 @@ $query = "SELECT * FROM employee WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id             = $row['id'];
-    $agentID        = $row['agentID'];
-    $firstName      = $row['firstName'];
-    $lastName       = $row['lastName'];
-    $clientName     = $row['clientName'];
-    $reportID       = $row['reportID'];
-    $rpVisitDate    = $row['rpVisitDate'];
-    $rpFirstName    = $row['rpFirstName'];
-    $rpLastName     = $row['rpLastName'];
-    $rpAddress      = $row['rpAddress'];
-    $rpAddressDesc  = $row['rpAddressDesc'];
-    $mwFirstName    = $row['mwFirstName'];
-    $mwLastName     = $row['mwLastName'];
-    $mwOccupation   = $row['mwOccupation'];
-    $rpAgentRemark  = $row['rpAgentRemark'];
-    $rpUpload       = $row['rpUpload'];
-    $rpUpload1      = $row['rpUpload1'];
-    $rpLatitude     = $row['rpLatitude'];
-    $rpLongitude    = $row['rpLongitude'];
+    $agentid        = $row['agentid'];
+    $firstname      = $row['firstname'];
+    $lastname       = $row['lastname'];
+    $clientname     = $row['clientname'];
+    $reportid       = $row['reportid'];
+    $rpvisitdate    = $row['rpvisitdate'];
+    $rpfirstname    = $row['rpfirstname'];
+    $rplastname     = $row['rplastname'];
+    $rpaddress      = $row['rpaddress'];
+    $rpaddressdesc  = $row['rpaddressdesc'];
+    $mwfirstname    = $row['mwfirstname'];
+    $mwlastname     = $row['mwlastname'];
+    $mwoccupation   = $row['mwoccupation'];
+    $rpagentremark  = $row['rpagentremark'];
+    $rpupload       = $row['rpupload'];
+    $rpupload1      = $row['rpupload1'];
+    $rplatitude     = $row['rplatitude'];
+    $rplongitude    = $row['rplongitude'];
     $status         = $row['status'];
     switch ($status) {
         case "Pending";
@@ -54,7 +54,7 @@ while ($row = mysqli_fetch_array($results)) {
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        <? echo $rpFirstName; ?>'s Details
+                        <? echo $rpfirstname; ?>'s Details
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -69,16 +69,16 @@ while ($row = mysqli_fetch_array($results)) {
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-4 pb-2">
-                                        <label class="form-control-label" for="input-username">Agent ID: <? echo $agentID ?></label>
+                                        <label class="form-control-label" for="input-username">Agent ID: <? echo $agentid ?></label>
                                     </div>
                                     <div class="col-lg-4 pb-2">
-                                        <label class="form-control-label" for="input-username">Agent Full Name: <? echo $firstName ?> <? echo $lastName ?></label>
+                                        <label class="form-control-label" for="input-username">Agent Full Name: <? echo $firstname ?> <? echo $lastName ?></label>
                                     </div>
                                     <div class="col-lg-4 pb-2">
                                         <label class="form-control-label" for="input-username">Status: <span class="badge badge-dot mr-4"> <i class="<? echo $class ?>"></i> <span class="status" ><? echo $status ?></span></span></label>
                                     </div>
                                     <div class="col-lg-4 pb-2">
-                                        <label class="form-control-label" for="input-username">Agent ID: <? echo $agentID ?></label>
+                                        <label class="form-control-label" for="input-username">Agent ID: <? echo $agentid ?></label>
                                     </div>
                                 </div>
                                 <!-- <form onClick="return false;">
@@ -158,7 +158,7 @@ while ($row = mysqli_fetch_array($results)) {
                                             </div>
                                         </div>
                                         <div class="col-lg-6 text-center form-group">
-                                            <a href="<? echo $rpUpload ?>" download>
+                                            <a href="<? echo $rpupload ?>" download>
                                                 <img class="card-img-top" src="<? echo $rpUpload ?>" style="width:300px;height:300px;">
                                             </a>
                                         </div>

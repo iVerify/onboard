@@ -80,8 +80,9 @@ if (isset($_POST['login_btn'])) {
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
-                        <div class="col-md-8 text-center">
-                            <div class="mb-4">
+                        <div class="col-md-8 text-center mb-6">
+                            <img src="./assets/images/logo.png" width="150px" class="pt-3">
+                            <div class="mb-2 pt-3">
                                 <h3><strong>Sign in</strong></h3>
                                 <p class="mb-4">Sign in using your correct credentials.</p>
                             </div>
