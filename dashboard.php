@@ -10,7 +10,7 @@ include "./components/navbar.php";
             <div class="col-lg-12">
                 <h1 class="header-title1">
                     <div id="greet" style="display: inline-flex"></div>
-                    <?php echo $_SESSION['firstName']; ?>
+                    <?php echo $_SESSION['firstname']; ?>
                 </h1>
                 <p>Cheers to a productive <script>document.write(new Date().getFullYear());</script> ✨</p>
             </div>

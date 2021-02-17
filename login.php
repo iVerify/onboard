@@ -6,28 +6,35 @@ include('./config/db.php');
 // Login script
 if (isset($_POST['login_btn'])) {
 
-    $agentID    = $conn->real_escape_string($_POST['agentID']);
-    $password   = $conn->real_escape_string($_POST['password']);
-    $firstName   = $conn->real_escape_string($_POST['firstName']);
-    $lastName   = $conn->real_escape_string($_POST['lastName']);
-    $email      = $conn->real_escape_string($_POST['email']);
+    $agentid        = $conn->real_escape_string($_POST['agentid']);
+    $password       = $conn->real_escape_string($_POST['password']);
+    $firstname      = $conn->real_escape_string($_POST['firstname']);
+    $lastname       = $conn->real_escape_string($_POST['lastname']);
+    $email          = $conn->real_escape_string($_POST['email']);
+    $status         = $conn->real_escape_string($_POST['status']);
 
         $password = sha1($password);
-        $query = "SELECT * FROM agents WHERE agentID='$agentID' AND password='$password'";
+        $query = "SELECT * FROM agents WHERE agentid='$agentid' AND password='$password'";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
-            $firstName = $row['firstName'];
-            $lastName = $row['lastName'];
-            $email    = $row['email'];
-            $agentID  = $row['agentID'];
-            $id       = $row['id'];
+            $firstname          = $row['firstname'];
+            $lastname           = $row['lastname'];
+            $email              = $row['email'];
+            $agentid            = $row['agentid'];
+            $id                 = $row['id'];
+            $status             = $row['status'];
         }if (mysqli_num_rows($result) == 1) {
-            $_SESSION['agentID'] = $agentID;
-            $_SESSION['firstName'] = $firstName;
-            $_SESSION['lastName'] = $lastName;
-            $_SESSION['email'] = $email;
-            $_SESSION['id']     = $id;
-            header('location: dashboard');
+            $_SESSION['agentid']        = $agentid;
+            $_SESSION['firstname']      = $firstname;
+            $_SESSION['lastname']       = $lastname;
+            $_SESSION['email']          = $email;
+            $_SESSION['id']             = $id;
+            if ($status == 'Inactive'){
+                $_SESSION['message_title'] = "Account Inactive";
+                $_SESSION['message'] = "Please contact admin!";
+            }if ($status == 'Active') {
+                header('location: dashboard');
+            }
     }else {
             $_SESSION['message_title'] = "Incorrect Details";
             $_SESSION['message'] = "Please login with correct credentials!";
@@ -81,7 +88,7 @@ if (isset($_POST['login_btn'])) {
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" autocomplete="off">
                                 <div class="form-group first mb-3">
                                     <label for="username">Agent ID</label>
-                                    <input type="text" name="agentID" onkeyup="this.value = this.value.toUpperCase();" required class="form-control" id="agentID">
+                                    <input type="text" name="agentid" onkeyup="this.value = this.value.toUpperCase();" required class="form-control" id="agentid">
                                 </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Password</label>
@@ -125,7 +132,7 @@ if (isset($_SESSION['message']))
         text: "<?php echo $_SESSION['message']; ?>",
         icon: "error",
         buttons: false,
-        timer: 2000
+        timer: 4000
     });
 </script>
 <?php

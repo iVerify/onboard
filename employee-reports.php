@@ -4,7 +4,7 @@ include "./components/navbar.php";
 
 // Connect database
 include('./config/db.php');
-
+$agentid  = $_SESSION['agentid'];
 ?>
     <div class="header">
     <div class="container-fluid">
@@ -50,15 +50,15 @@ include('./config/db.php');
                                             </thead>
                                             <tbody class="list">
                                             <?php
-                                            $select_query = "SELECT * FROM employee order by date ASC";
+                                            $select_query = "SELECT * FROM employee  WHERE agentid = '$agentid' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                             // output data of each row
                                             while($row = mysqli_fetch_assoc($result)) {
                                                 $id             = $row['id'];
-                                                $reportID       = $row['reportID'];
-                                                $agentID        = $row['agentID'];
-                                                $rpFirstName    = $row['rpFirstName'];
+                                                $reportid       = $row['reportid'];
+                                                $agentid        = $row['agentid'];
+                                                $rpfirstname    = $row['rpfirstname'];
                                                 $rpLastName     = $row['rpLastName'];
                                                 $status         = $row['status'];
                                                 switch ($status) {
@@ -70,13 +70,12 @@ include('./config/db.php');
                                                         break;
                                                     default:
                                                         $class  = '';
-
                                                 }
 
                                                 echo "<tr>";
                                                 echo "<td class=\"budget\">" . $id . "</td>";
-                                                echo "<td class=\"budget\">" . $reportID . "</td>";
-                                                echo "<td class=\"budget\">" . $rpFirstName . " " . $rpLastName . "</td>";
+                                                echo "<td class=\"budget\">" . $reportid . "</td>";
+                                                echo "<td class=\"budget\">" . $rpfirstname . " " . $rplastname . "</td>";
                                                 echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                 echo "<td class='text-right'>"

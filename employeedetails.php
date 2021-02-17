@@ -9,25 +9,25 @@ $id = $_GET['id'];
 $query = "SELECT * FROM employee WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
-    $id = $row['id'];
-    $agentID = $row['agentID'];
-    $firstName = $row['firstName'];
-    $lastName = $row['lastName'];
-    $clientName = $row['clientName'];
-    $reportID = $row['reportID'];
-    $rpVisitDate = $row['rpVisitDate'];
-    $rpFirstName = $row['rpFirstName'];
-    $rpLastName = $row['rpLastName'];
-    $rpAddress = $row['rpAddress'];
-    $rpAddressDesc = $row['rpAddressDesc'];
-    $mwFirstName = $row['mwFirstName'];
-    $mwLastName = $row['mwLastName'];
-    $mwOccupation = $row['mwOccupation'];
-    $rpAgentRemark = $row['rpAgentRemark'];
-    $rpUpload = $row['rpUpload'];
-    $rpUpload1 = $row['rpUpload1'];
-    $rpLatitude = $row['rpLatitude'];
-    $rpLongitude = $row['rpLongitude'];
+    $id             = $row['id'];
+    $agentID        = $row['agentID'];
+    $firstName      = $row['firstName'];
+    $lastName       = $row['lastName'];
+    $clientName     = $row['clientName'];
+    $reportID       = $row['reportID'];
+    $rpVisitDate    = $row['rpVisitDate'];
+    $rpFirstName    = $row['rpFirstName'];
+    $rpLastName     = $row['rpLastName'];
+    $rpAddress      = $row['rpAddress'];
+    $rpAddressDesc  = $row['rpAddressDesc'];
+    $mwFirstName    = $row['mwFirstName'];
+    $mwLastName     = $row['mwLastName'];
+    $mwOccupation   = $row['mwOccupation'];
+    $rpAgentRemark  = $row['rpAgentRemark'];
+    $rpUpload       = $row['rpUpload'];
+    $rpUpload1      = $row['rpUpload1'];
+    $rpLatitude     = $row['rpLatitude'];
+    $rpLongitude    = $row['rpLongitude'];
     $status         = $row['status'];
     switch ($status) {
         case "Pending";
@@ -64,8 +64,24 @@ while ($row = mysqli_fetch_array($results)) {
                     <div class="col-xl-12 order-xl-1">
                         <div class="card">
                             <div class="card-body">
-                                <form onClick="return false;">
-                                    <h6 class="heading-small text-muted mb-4">Status: <span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span></h6>
+                                <div class="text-center pb-3">
+                                    <img src="assets/images/logo.png" style="width: 150px;">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-4 pb-2">
+                                        <label class="form-control-label" for="input-username">Agent ID: <? echo $agentID ?></label>
+                                    </div>
+                                    <div class="col-lg-4 pb-2">
+                                        <label class="form-control-label" for="input-username">Agent Full Name: <? echo $firstName ?> <? echo $lastName ?></label>
+                                    </div>
+                                    <div class="col-lg-4 pb-2">
+                                        <label class="form-control-label" for="input-username">Status: <span class="badge badge-dot mr-4"> <i class="<? echo $class ?>"></i> <span class="status" ><? echo $status ?></span></span></label>
+                                    </div>
+                                    <div class="col-lg-4 pb-2">
+                                        <label class="form-control-label" for="input-username">Agent ID: <? echo $agentID ?></label>
+                                    </div>
+                                </div>
+                                <!-- <form onClick="return false;">
                                     <div class="row">
                                         <div class="col-lg-6" style="display: none">
                                             <div class="form-group">
@@ -96,7 +112,7 @@ while ($row = mysqli_fetch_array($results)) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-first-name">First Name</label>
-                                                <input type="text" name="rpFirstName" required class="form-control" value="<?php echo $rpFirstName; ?>" disabled>
+                                                <input type="text" name="rpFirstName" required class="form-control" value="<? echo $rpFirstName; ?>" disabled>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -142,7 +158,9 @@ while ($row = mysqli_fetch_array($results)) {
                                             </div>
                                         </div>
                                         <div class="col-lg-6 text-center form-group">
+                                            <a href="<? echo $rpUpload ?>" download>
                                                 <img class="card-img-top" src="<? echo $rpUpload ?>" style="width:300px;height:300px;">
+                                            </a>
                                         </div>
                                         <div class="col-lg-6 text-center form-group">
                                                 <img class="card-img-top" src="<? echo $rpUpload1 ?>" style="width:300px;height:300px;">
@@ -183,7 +201,7 @@ while ($row = mysqli_fetch_array($results)) {
                                             </button>
                                         </div>
                                     </div>
-                                </form>
+                                </form>-->
                             </div>
                         </div>
 

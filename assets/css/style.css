@@ -2678,7 +2678,7 @@ pre code
 
     color: #8898aa;
     border: 1px solid #dee2e6;
-    border-radius: .25rem;
+    border-radius: 0rem;
     background-color: #fff;
     background-clip: padding-box;
     box-shadow: 0 3px 2px rgba(233, 236, 239, .05);
@@ -2798,7 +2798,7 @@ select.form-control:focus::-ms-value
     height: calc(1.5em + .5rem + 2px);
     padding: .25rem .5rem;
 
-    border-radius: .25rem;
+    border-radius: 0rem;
 }
 
 .form-control-lg
@@ -4323,7 +4323,7 @@ fieldset:disabled a.btn
 
     padding: .25rem .5rem;
 
-    border-radius: .25rem;
+    border-radius: 0rem;
 }
 
 .btn-block
@@ -24128,7 +24128,7 @@ button.bg-lighter:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #192b4d 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #ddecfa 0, #ddecfa 100%) !important;
 }
 
 .bg-gradient-secondary
@@ -24208,12 +24208,12 @@ button.bg-lighter:focus
 
 .bg-gradient-red
 {
-    background: linear-gradient(87deg, #f5365c 0, #f56036 100%) !important;
+    background: linear-gradient(87deg, #398e8e 0, #398e8e 100%) !important;
 }
 
 .bg-gradient-orange
 {
-    background: linear-gradient(87deg, #fb6340 0, #fbb140 100%) !important;
+    background: linear-gradient(87deg, #f76c35 0, #f76c35 100%) !important;
 }
 
 .bg-gradient-yellow
@@ -24223,7 +24223,7 @@ button.bg-lighter:focus
 
 .bg-gradient-green
 {
-    background: linear-gradient(87deg, #2dce89 0, #2dcecc 100%) !important;
+    background: linear-gradient(87deg, #2a8f31 0, #2a8f31 100%) !important;
 }
 
 .bg-gradient-teal
@@ -24484,7 +24484,7 @@ button.section-darker:focus
 
 .bg-gradient-primary
 {
-    background: linear-gradient(87deg, #192b4d 0, #825ee4 100%) !important;
+    background: linear-gradient(87deg, #398e8e 0, ##398e8e 100%) !important;
 }
 
 .bg-gradient-secondary
@@ -24499,7 +24499,7 @@ button.section-darker:focus
 
 .bg-gradient-info
 {
-    background: linear-gradient(87deg, #11cdef 0, #1171ef 100%) !important;
+    background: linear-gradient(87deg, #2c67bc 0, #2c67bc 100%) !important;
 }
 
 .bg-gradient-warning
