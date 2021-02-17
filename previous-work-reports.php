@@ -40,6 +40,7 @@ $agentid  = $_SESSION['agentid'];
                                         <table class="table align-items-center">
                                             <thead class="thead-light">
                                             <tr>
+                                                <th scope="col" class="sort" data-sort="sn">S/N</th>
                                                 <th scope="col" class="sort" data-sort="sn">Report No.</th>
                                                 <th scope="col" class="sort" data-sort="budget">Verifying Name</th>
                                                 <th scope="col" class="sort" data-sort="status">Status</th>

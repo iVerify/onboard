@@ -78,7 +78,7 @@ $message = "
                                             </tr>
                                             <tr>
                                                 <td class='pdl-3x pdr-3x pdb-2x'>
-                                                    <p class='mgb-1x'>Hello $firstName,</p>
+                                                    <p class='mgb-1x'>Hello $firstname,</p>
                                                     <p class='mgb-1x'>
                                                         You are receiving this email because you have requested for password retrieval.
                                                     </p>
