@@ -62,12 +62,12 @@
                             <span class="nav-link-text">Schedule Verification</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!--<li class="nav-item">
                         <a class="nav-link" href="send-report">
                             <i class="ni ni-send text-default"></i>
                             <span class="nav-link-text">Send Report</span>
                         </a>
-                    </li>
+                    </li>-->
                 </ul>
                 <!-- Divider -->
                 <hr class="my-3">
@@ -81,6 +81,12 @@
                         <a class="nav-link" href="profile">
                             <i class="ni ni-circle-08 text-default"></i>
                             <span class="nav-link-text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mailto:thankgod.okoro@iverify.ng">
+                            <i class="ni ni-support-16 text-default"></i>
+                            <span class="nav-link-text">Get Support</span>
                         </a>
                     </li>
                     <li class="nav-item">
