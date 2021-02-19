@@ -6,7 +6,7 @@ include "./components/navbar.php";
 include('./config/db.php');
 
 $id = $_GET['id'];
-$query = "SELECT * FROM employee WHERE id='$id'";
+$query = "SELECT * FROM previouswork WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id             = $row['id'];
@@ -23,6 +23,9 @@ while ($row = mysqli_fetch_array($results)) {
     $mwfirstname    = $row['mwfirstname'];
     $mwlastname     = $row['mwlastname'];
     $mwoccupation   = $row['mwoccupation'];
+    $eduration      = $row['eduration'];
+    $conduct        = $row['conduct'];
+    $wresignation   = $row['wresignation'];
     $rpagentremark  = $row['rpagentremark'];
     $rpupload       = $row['rpupload'];
     $rpupload1      = $row['rpupload1'];
@@ -66,7 +69,7 @@ while ($row = mysqli_fetch_array($results)) {
                             <div class="card-body">
                                 <div class="text-center pb-3">
                                     <img src="assets/images/logo.png" style="width: 150px;"><br>
-                                        <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
+                                    <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
@@ -113,6 +116,18 @@ while ($row = mysqli_fetch_array($results)) {
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Met with Occupation:</strong></th>
                                             <td><? echo $mwoccupation ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Duration of Employment:</strong></th>
+                                            <td><? echo $eduration ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Attitude and Conduct:</strong></th>
+                                            <td><? echo $conduct ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Reason for Leaving:</strong></th>
+                                            <td><? echo $wresignation ?></td>
                                         </tr>
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Picture One:</strong></th>

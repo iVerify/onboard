@@ -51,7 +51,7 @@ if(isset($_POST['employee_btn'])) {
 
 
     $query = "INSERT INTO employee (agentid, reportid, firstname, lastname, clientname, rpvisitdate, rpfirstname, rplastname, rpaddress, rpaddressdesc, mwfirstname, mwlastname, mwoccupation, rpagentremark, rpupload, rpupload1, rplatitude, rplongitude)"
-        . "VALUES ('$agentid', '$reportid', '$firstname', '$lastname', '$clientname', '$rpvisitdate', '$rpfirstname', '$rplastname', '$rpaddress', '$rpaddressdesc', '$mwfirstname', '$mwoccupation', '$mwlastname', '$rpagentremark', '$rpupload_path', '$rpupload1_path', '$rplatitude', '$rplongitude')";
+        . "VALUES ('$agentid', '$reportid', '$firstname', '$lastname', '$clientname', '$rpvisitdate', '$rpfirstname', '$rplastname', '$rpaddress', '$rpaddressdesc', '$mwfirstname', '$mwlastname', '$mwoccupation', '$rpagentremark', '$rpupload_path', '$rpupload1_path', '$rplatitude', '$rplongitude')";
 
     mysqli_query($conn, $query);
     if (mysqli_affected_rows($conn) > 0) {

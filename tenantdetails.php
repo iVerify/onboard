@@ -6,7 +6,7 @@ include "./components/navbar.php";
 include('./config/db.php');
 
 $id = $_GET['id'];
-$query = "SELECT * FROM employee WHERE id='$id'";
+$query = "SELECT * FROM tenant WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id             = $row['id'];
@@ -23,6 +23,11 @@ while ($row = mysqli_fetch_array($results)) {
     $mwfirstname    = $row['mwfirstname'];
     $mwlastname     = $row['mwlastname'];
     $mwoccupation   = $row['mwoccupation'];
+    $twaddress      = $row['twaddress'];
+    $twaddressdesc  = $row['twaddressdesc'];
+    $twfirstname    = $row['twfirstname'];
+    $twlastname     = $row['twlastname'];
+    $mwwoccupation  = $row['mwwoccupation'];
     $rpagentremark  = $row['rpagentremark'];
     $rpupload       = $row['rpupload'];
     $rpupload1      = $row['rpupload1'];
@@ -66,7 +71,7 @@ while ($row = mysqli_fetch_array($results)) {
                             <div class="card-body">
                                 <div class="text-center pb-3">
                                     <img src="assets/images/logo.png" style="width: 150px;"><br>
-                                        <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
+                                    <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
@@ -87,11 +92,11 @@ while ($row = mysqli_fetch_array($results)) {
                                             <td><? echo $rpvisitdate ?></td>
                                         </tr>
                                         <tr>
-                                            <th style="background-color: #ececef; "><strong>Employee First Name:</strong></th>
+                                            <th style="background-color: #ececef; "><strong>Tenant First Name:</strong></th>
                                             <td><? echo $rpfirstname ?></td>
                                         </tr>
                                         <tr>
-                                            <th style="background-color: #ececef; "><strong>Employee Last Name:</strong></th>
+                                            <th style="background-color: #ececef; "><strong>Tenant Last Name:</strong></th>
                                             <td><? echo $rplastname ?></td>
                                         </tr>
                                         <tr>
@@ -113,6 +118,26 @@ while ($row = mysqli_fetch_array($results)) {
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Met with Occupation:</strong></th>
                                             <td><? echo $mwoccupation ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Tenant Work Address:</strong></th>
+                                            <td><? echo $twaddress ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Tenant Work Address Landmark & Description:</strong></th>
+                                            <td><? echo $twaddressdesc ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Work Address Met with First Name:</strong></th>
+                                            <td><? echo $twfirstname ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Work Address Met with Last Name:</strong></th>
+                                            <td><? echo $twlastname ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Work Address Met with Occupation/Office:</strong></th>
+                                            <td><? echo $mwwoccupation ?></td>
                                         </tr>
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Picture One:</strong></th>

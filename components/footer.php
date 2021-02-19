@@ -1,16 +1,15 @@
-<!-- Footer -->
-<footer class="footer pt-0">
-    <div class="row align-items-center justify-content-center text-center">
-        <div class="col-lg-12">
-            <div class="copyright text-muted">
-                © <script>document.write(new Date().getFullYear());</script> iVerify&trade; All Rights Reserved.
+        <!-- Footer -->
+        <footer class="footer pt-0">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-lg-12">
+                    <div class="copyright text-muted">
+                        © <script>document.write(new Date().getFullYear());</script> iVerify&trade; All Rights Reserved.
+                    </div>
+                </div>
             </div>
-        </div>
+        </footer>
     </div>
-</footer>
 </div>
-</div>
-<?php include "components/modal.php"; ?>
 
 <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -19,31 +18,22 @@
 <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
 <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDODKndJ8udk9xrwV_9KZwzziQOgsAR3Ew&callback=myMap"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="assets/js/main.js?v=1.2.0"></script>
 <script src="assets/js/map.js"></script>
+<script src="assets/js/app.js"></script>
 <script>
-    var time = new Date().getHours();
-    if (time < 12) {
-        greeting = "Good Morning";
-    } else if (time < 16) {
-        greeting = "Good Afternoon";
-    } else {
-        greeting = "Good Evening";
-    }
-    document.getElementById("greet").innerHTML = greeting;
-</script>
-
-<script>
+    //Edit Modal
     document.getElementById('personal').onclick = function(){
         swal({
-                title: "Access Denied",
-                text: "You can only make changes via admin",
-                icon: "info",
-                button: "Contact Admin",
-                dangerMode: true,
-                timer: 5000,
-            })
+            title: "Access Denied",
+            text: "You can only make changes via admin",
+            icon: "info",
+            button: "Contact Admin",
+            dangerMode: true,
+            timer: 5000,
+        })
             .then((willDelete) => {
                 if (willDelete) {
                     swal("You're being redirected to contact support", {
@@ -58,8 +48,8 @@
             });
     };
 </script>
-
 <script>
+    //Delete Modal
     document.getElementById('delete').onclick = function(){
         swal({
             title: "Access Denied",
@@ -175,20 +165,6 @@ if (isset($_SESSION['error_report_message']))
 }
 ?>
 
-<script>
-    function myFunction() {
-        var pwd = document.getElementById("myPassword");
-        var newPwd = document.getElementById("myPassword1");
-        if (pwd.type === "password",
-            newPwd.type === "password") {
-            pwd.type = "text";
-            newPwd.type = "text";
-        } else {
-            pwd.type = "password";
-            newPwd.type = "password";
-        }
-    }
-</script>
 </body>
 
 </html>

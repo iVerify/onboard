@@ -2192,12 +2192,12 @@ pre code
 
 .table-bordered
 {
-    border: 1px solid #e9ecef;
+    border: 1px solid #868ca0;
 }
 .table-bordered th,
 .table-bordered td
 {
-    border: 1px solid #e9ecef;
+    border: 1px solid #868ca0;
 }
 .table-bordered thead th,
 .table-bordered thead td
@@ -6684,7 +6684,7 @@ input[type='button'].btn-block
     vertical-align: baseline;
     white-space: nowrap;
 
-    border-radius: .375rem;
+    border-radius: 0rem;
 }
 @media (prefers-reduced-motion: reduce)
 {
@@ -18265,7 +18265,6 @@ a.text-darker:focus
 
     width: .375rem;
     height: .375rem;
-    margin-right: .375rem; 
 
     vertical-align: middle;
 
