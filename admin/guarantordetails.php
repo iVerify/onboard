@@ -1,9 +1,9 @@
 <?php
 include "./components/header.php";
-include "./components/navbar.php";
+include "./components/sidenav.php";
 
 // Connect database
-include('./config/db.php');
+include('../config/db.php');
 
 $id = $_GET['id'];
 $query = "SELECT * FROM guarantor WHERE id='$id'";
@@ -47,6 +47,11 @@ while ($row = mysqli_fetch_array($results)) {
     }
 
     ?>
+    <!-- Main content -->
+    <div class="main-content" id="panel">
+
+    <? include "./components/topnav.php"; ?>
+    
     <div class="header">
     <div class="container-fluid">
         <div class="header-body">
