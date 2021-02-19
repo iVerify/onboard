@@ -77,7 +77,7 @@ include('../config/db.php');
                                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<a href=\"employeedetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                                        ."<a href=\"guarantordetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
                                                     </a>".
