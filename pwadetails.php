@@ -68,7 +68,7 @@ while ($row = mysqli_fetch_array($results)) {
                         <div class="card row">
                             <div class="card-body">
                                 <div class="text-center pb-3">
-                                    <img src="assets/images/logo.png" style="width: 150px;"><br>
+                                    <img src="../assets/images/logo.png" style="width: 150px;"><br>
                                     <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                 </div>
                                 <div class="table-responsive">
