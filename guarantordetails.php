@@ -140,7 +140,7 @@ while ($row = mysqli_fetch_array($results)) {
                                             <td><? echo $mwwoccupation ?></td>
                                         </tr>
                                         <tr>
-                                            <th style="background-color: #ececef; "><strong>Picture One:</strong></th>
+                                            <th style="background-color: #ececef; "><strong>Picture:</strong></th>
                                             <td>
                                                 <img id="myImg" class="card-img" src="<? echo $rpupload ?>" style="width:300px;height:300px;">
                                                 <img class="card-img" src="<? echo $rpupload1 ?>" style="width:300px;height:300px;">
