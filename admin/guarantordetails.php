@@ -51,17 +51,11 @@ while ($row = mysqli_fetch_array($results)) {
     <div class="main-content" id="panel">
 
     <? include "./components/topnav.php"; ?>
-    
+
     <div class="header">
     <div class="container-fluid">
         <div class="header-body">
             <div class="row align-items-center text-center py-4">
-                <div class="pl-3">
-                    <a href="employee-reports" class="btn btn-icon btn-default" type="button">
-                        <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
-                        <span class="btn-inner--text">Go Back</span>
-                    </a>
-                </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
                         <? echo $rpfirstname; ?>'s Details
@@ -75,7 +69,7 @@ while ($row = mysqli_fetch_array($results)) {
                         <div class="card row">
                             <div class="card-body">
                                 <div class="text-center pb-3">
-                                    <img src="assets/images/logo.png" style="width: 150px;"><br>
+                                    <img src="../assets/images/logo.png" style="width: 150px;"><br>
                                     <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                 </div>
                                 <div class="table-responsive">
