@@ -29,6 +29,7 @@ if (isset($_POST['admin_btn'])) {
         $_SESSION['username']       = $username;
         $_SESSION['firstName']      = $firstName;
         $_SESSION['lastName']       = $lastName;
+        $_SESSION['position']       = $position;
         $_SESSION['email']          = $email;
         $_SESSION['id']             = $id;
         if ($status == 'Inactive'){

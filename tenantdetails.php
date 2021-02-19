@@ -52,7 +52,7 @@ while ($row = mysqli_fetch_array($results)) {
         <div class="header-body">
             <div class="row align-items-center text-center py-4">
                 <div class="pl-3">
-                    <a href="employee-reports" class="btn btn-icon btn-default" type="button">
+                    <a href="tenant-reports" class="btn btn-icon btn-default" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
                         <span class="btn-inner--text">Go Back</span>
                     </a>
