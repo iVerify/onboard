@@ -141,8 +141,8 @@ while ($row = mysqli_fetch_array($results)) {
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Picture One:</strong></th>
                                             <td>
-                                                <img id="myImg" class="card-img" src="../upload/<? echo $rpupload ?>" style="width:300px;height:300px;">
-                                                <img class="card-img" src="./upload/<? echo $rpupload1 ?>" style="width:300px;height:300px;">
+                                                <img id="myImg" class="card-img" src="../<? echo $rpupload ?>" style="width:300px;height:300px;">
+                                                <img class="card-img" src="./<? echo $rpupload1 ?>" style="width:300px;height:300px;">
                                             </td>
                                         </tr>
                                         <tr>
