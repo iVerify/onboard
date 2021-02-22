@@ -32,17 +32,17 @@ $agentid  = $_SESSION['agentid'];
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Uploaded Reports</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter by Report No.">
+                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by guarantor name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">
                                     <div>
-                                        <table class="table align-items-center">
+                                        <table class="table align-items-center" id="reportData">
                                             <thead class="thead-light">
                                             <tr>
                                                 <th scope="col" class="sort" data-sort="sn">S/N</th>
                                                 <th scope="col" class="sort" data-sort="sn">Report No.</th>
-                                                <th scope="col" class="sort" data-sort="budget">Verifying Name</th>
+                                                <th scope="col" class="sort" data-sort="budget">Guarantor Name</th>
                                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                                 <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -59,7 +59,7 @@ $agentid  = $_SESSION['agentid'];
                                                     $reportid       = $row['reportid'];
                                                     $agentid        = $row['agentid'];
                                                     $rpfirstname    = $row['rpfirstname'];
-                                                    $rpLastName     = $row['rpLastName'];
+                                                    $rplastname     = $row['rplastname'];
                                                     $status         = $row['status'];
                                                     switch ($status) {
                                                         case "Pending";

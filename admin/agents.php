@@ -93,14 +93,14 @@ include "./components/sidenav.php";
                     <!-- Card header -->
                     <div class="card-header border-0">
                         <div class="col px-0 pb-3 d-flex justify-content-between">
-                            <input class="form-control w-25 mr-3 mb-0" type="text" id="myInput" onkeyup="myFunction()" placeholder="Filter by Report No.">
+                            <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="searchInput" onkeyup="myRecord()" placeholder="Filter Agents">
                             <button class="btn btn-default" data-toggle="modal" data-target="#newUserModal">Add New Agent</button>
                         </div>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
                         <div>
-                            <table class="table align-items-center">
+                            <table class="table align-items-center" id="myData">
                                 <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="sn">S/N</th>
