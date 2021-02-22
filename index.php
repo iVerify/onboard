@@ -44,7 +44,20 @@
             background-position: bottom;
             height: 100%;
             width: 100%;
-            margin-bottom: 150px;
+            margin-bottom: 250px;
+        }
+    }
+    @media (max-width: 320px) {
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #eefafa;
+            background: url("./assets/images/bg1.svg");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: 350px 150px;
+            height: 100%;
+            width: 100%;
+            margin-bottom: -150px;
         }
     }
     #wrapper {
