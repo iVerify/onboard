@@ -44,7 +44,7 @@
             background-position: bottom;
             height: 100%;
             width: 100%;
-            margin-bottom: 300px;
+            margin-bottom: 350px;
         }
     }
     @media (max-width: 320px) {
