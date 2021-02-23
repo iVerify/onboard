@@ -66,13 +66,13 @@ require_once "../config/auth_controller.php";
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-username">Username</label>
-                                                    <input type="text" name="username" class="form-control" placeholder="<?php echo $_SESSION['username']; ?>">
+                                                    <input type="text" name="username" class="form-control" value="<?php echo $_SESSION['username']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-email">Email address</label>
-                                                    <input type="email" name="email" class="form-control" placeholder="<?php echo $_SESSION['email']; ?>">
+                                                    <input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email']; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -80,13 +80,13 @@ require_once "../config/auth_controller.php";
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-first-name">First name</label>
-                                                    <input type="text" name="firstName" class="form-control" placeholder="<?php echo $_SESSION['firstName']; ?>">
+                                                    <input type="text" name="firstName" class="form-control" value="<?php echo $_SESSION['firstName']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-last-name">Last name</label>
-                                                    <input type="text" name="lastName" class="form-control" placeholder="<?php echo $_SESSION['lastName']; ?>">
+                                                    <input type="text" name="lastName" class="form-control" value="<?php echo $_SESSION['lastName']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-center">

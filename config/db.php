@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'iverdsrg_onboard', 'Webify2020!!', 'iverdsrg_onboard');
+$conn = new mysqli('localhost', 'root', '', 'onboard');
 // Turn on error reporting
 error_reporting(E_ALL ^ E_NOTICE);
 // Check database connection
