@@ -1,4 +1,5 @@
 <?php
+$page = 'profile';
 include "./components/header.php";
 include "./components/sidenav.php";
 require_once "../config/auth_controller.php";

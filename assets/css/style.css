@@ -21564,13 +21564,13 @@ textarea[resize='horizontal']
 }
 .navbar-vertical.navbar-expand-xs .navbar-nav > .nav-item > .nav-link.active
 {
-    margin-right: .5rem;
-    margin-left: .5rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
     padding-right: 1rem;
     padding-left: 1rem;
 
     border-radius: .375rem; 
-    background: #f6f9fc;
+    background: #e7f2fd;
 }
 .navbar-vertical.navbar-expand-xs .lavalamp-object
 {

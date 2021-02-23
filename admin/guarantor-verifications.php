@@ -1,4 +1,5 @@
 <?php
+$page = 'verifications';
 include "./components/header.php";
 include "./components/sidenav.php";
 ?>

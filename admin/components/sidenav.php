@@ -13,13 +13,13 @@
                 <!-- Nav items -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="dashboard">
+                        <a class="nav-link <?php if($page=='dashboard'){echo 'active';}?>" href="dashboard">
                             <i class="ni ni-align-left-2 text-default"></i>
                             <span class="nav-link-text">Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item dropdown user ">
-                        <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle <?php if($page=='verifications'){echo 'active';}?>" href="" role="button" data-toggle="dropdown">
                             <i class="ni ni-archive-2  text-default"></i> Verifications
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
@@ -78,7 +78,7 @@
                 <!-- Navigation -->
                 <ul class="navbar-nav mb-md-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="profile">
+                        <a class="nav-link <?php if($page=='profile'){echo 'active';}?>" href="profile">
                             <i class="ni ni-circle-08 text-default"></i>
                             <span class="nav-link-text">Profile</span>
                         </a>

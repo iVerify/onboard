@@ -1,4 +1,5 @@
 <?php
+$page = 'dashboard';
 include "./components/header.php";
 include "./components/sidenav.php";
 ?>
