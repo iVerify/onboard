@@ -25,11 +25,13 @@ if (isset($_POST['admin_btn'])) {
         $id                 = $row['id'];
         $status             = $row['status'];
         $position           = $row['position'];
+        $picture            = $row['picture'];
     }if (mysqli_num_rows($result) == 1) {
         $_SESSION['username']       = $username;
         $_SESSION['firstName']      = $firstName;
         $_SESSION['lastName']       = $lastName;
         $_SESSION['position']       = $position;
+        $_SESSION['picture']        = $picture;
         $_SESSION['email']          = $email;
         $_SESSION['id']             = $id;
         if ($status == 'Inactive'){

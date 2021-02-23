@@ -29,7 +29,7 @@ require_once "../config/auth_controller.php";
                                 <div class="col-lg-3 order-lg-2">
                                     <div class="card-profile-image">
                                         <a href="#">
-                                            <img src="https://i.imgur.com/WKOInUn.png" class="rounded-circle">
+                                            <img src="../<? echo $_SESSION['picture'] ?>" class="rounded-circle">
                                         </a>
                                     </div>
                                 </div>
@@ -38,10 +38,10 @@ require_once "../config/auth_controller.php";
                                 <div class="row pt-4">
                                     <div class="col">
                                         <div class="card-profile-stats d-flex justify-content-center">
-                                            <div>
+                                            <!--<div>
                                                 <span class="heading">0</span>
                                                 <span class="description">Verifications</span>
-                                            </div>
+                                            </div>-->
                                         </div>
                                     </div>
                                 </div>

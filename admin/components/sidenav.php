@@ -46,7 +46,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="messages">
-                            <i class="ni ni-email-83 text-default"></i>
+                            <i class="ni ni-chat-round text-default"></i>
                             <span class="nav-link-text">Messages</span>
                         </a>
                     </li>
@@ -87,6 +87,12 @@
                         <a class="nav-link" href="mailto:thankgod.okoro@iverify.ng">
                             <i class="ni ni-support-16 text-default"></i>
                             <span class="nav-link-text">Get Support</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="log">
+                            <i class="ni ni-bullet-list-67 text-default"></i>
+                            <span class="nav-link-text">Logs</span>
                         </a>
                     </li>
                     <li class="nav-item">
