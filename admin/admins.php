@@ -114,6 +114,7 @@ require_once "../config/auth_controller.php";
                                 <th scope="col" class="sort" data-sort="sn">S/N</th>
                                 <th scope="col" class="sort" data-sort="sn">Full Name</th>
                                 <th scope="col" class="sort" data-sort="budget">Username</th>
+                                <th scope="col" class="sort" data-sort="budget">Position</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                 <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -130,6 +131,7 @@ require_once "../config/auth_controller.php";
                                     $username       = $row['username'];
                                     $firstName      = $row['firstName'];
                                     $lastName       = $row['lastName'];
+                                    $position       = $row['position'];
                                     $status         = $row['status'];
                                     switch ($status) {
                                         case "Inactive";
@@ -146,6 +148,7 @@ require_once "../config/auth_controller.php";
                                     echo "<td class=\"budget\">" . $id . "</td>";
                                     echo "<td class=\"budget\">" . $firstName . " " . $lastName . "</td>";
                                     echo "<td class=\"budget\">" . $username . "</td>";
+                                    echo "<td class=\"budget\">" . $position . "</td>";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                     echo "<td class='text-right'>"

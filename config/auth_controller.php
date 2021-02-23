@@ -38,7 +38,7 @@ if (isset($_POST['add_admin_btn'])) {
     $password       = $conn->real_escape_string($_POST['password']);
     $position       = $conn->real_escape_string($_POST['position']);
 
-    $check_agent_query = "SELECT * FROM admin WHERE email='$email' AND username='$username'";
+    $check_agent_query = "SELECT * FROM admin WHERE username='$username' AND email='$email'";
     $result = mysqli_query($conn, $check_agent_query);
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['message_title'] = "Admin Already Exist!";
@@ -120,7 +120,7 @@ if (isset($_POST['admin_update_btn'])) {
     $lastName       = $conn->real_escape_string($_POST['lastName']);
     $username       = $conn->real_escape_string($_POST['username']);
 
-    $admin_update_query = "UPDATE admin SET email='$email', firstName='$firstName', lastName='$lastName'  WHERE id='$id'";
+    $admin_update_query = "UPDATE admin SET email='$email', firstName='$firstName', lastName='$lastName', username='$username'  WHERE id='$id'";
     if ($conn->query($admin_update_query) === TRUE) {
         $_SESSION['success_message_title'] = "Profile Updated";
         $_SESSION['success_message'] = "Welldone Chief for updating your profile 👍";
