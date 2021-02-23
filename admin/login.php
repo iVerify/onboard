@@ -37,7 +37,7 @@ if (isset($_POST['admin_btn'])) {
             $_SESSION['message'] = "Please contact admin!";
         }if ($status == 'Active') {
             if ($position == 'Admin') {
-                header('location: dashboard/admin');
+                header('location: dashboard');
             }if ($position == 'Super Admin') {
                 header('location: dashboard');
             }
