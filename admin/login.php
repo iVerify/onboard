@@ -13,6 +13,7 @@ if (isset($_POST['admin_btn'])) {
     $email          = $conn->real_escape_string($_POST['email']);
     $position       = $conn->real_escape_string($_POST['position']);
     $status         = $conn->real_escape_string($_POST['status']);
+    $phone          = $conn->real_escape_string($_POST['phone']);
 
     $password = sha1($password);
     $query = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
@@ -26,6 +27,7 @@ if (isset($_POST['admin_btn'])) {
         $status             = $row['status'];
         $position           = $row['position'];
         $picture            = $row['picture'];
+        $phone              = $row['phone'];
     }if (mysqli_num_rows($result) == 1) {
         $_SESSION['username']       = $username;
         $_SESSION['firstName']      = $firstName;
@@ -33,6 +35,7 @@ if (isset($_POST['admin_btn'])) {
         $_SESSION['position']       = $position;
         $_SESSION['picture']        = $picture;
         $_SESSION['email']          = $email;
+        $_SESSION['phone']          = $phone;
         $_SESSION['id']             = $id;
         if ($status == 'Inactive'){
             $_SESSION['message_title'] = "Account Inactive";

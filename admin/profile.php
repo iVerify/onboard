@@ -63,20 +63,13 @@ require_once "../config/auth_controller.php";
                                     <h6 class="heading-small text-muted mb-4">Personal information</h6>
                                     <div class="pl-lg-4">
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-6" style="display: none">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-username">Username</label>
                                                     <input type="text" name="username" class="form-control" value="<?php echo $_SESSION['username']; ?>">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="form-control-label" for="input-email">Email address</label>
-                                                    <input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email']; ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
+
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-first-name">First name</label>
@@ -87,6 +80,20 @@ require_once "../config/auth_controller.php";
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-last-name">Last name</label>
                                                     <input type="text" name="lastName" class="form-control" value="<?php echo $_SESSION['lastName']; ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-email">Email address</label>
+                                                    <input type="email" name="email" class="form-control" value="<?php echo $_SESSION['email']; ?>">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-last-name">Phone</label>
+                                                    <input type="tel" name="phone" class="form-control" value="<?php echo $_SESSION['phone']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-center">
