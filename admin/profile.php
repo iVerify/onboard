@@ -66,7 +66,7 @@ require_once "../config/auth_controller.php";
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-username">Username</label>
-                                                    <input type="text" name="username" class="form-control" value="<?php echo $_SESSION['username']; ?>" disabled>
+                                                    <input type="text" name="username" class="form-control" placeholder="<?php echo $_SESSION['username']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
