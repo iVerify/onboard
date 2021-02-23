@@ -2,9 +2,6 @@
 include "./components/header.php";
 include "./components/sidenav.php";
 
-// Connect database
-include('../config/db.php');
-
 $id = $_GET['id'];
 $query = "SELECT * FROM guarantor WHERE id='$id'";
 $results = mysqli_query($conn, $query);

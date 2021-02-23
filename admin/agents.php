@@ -1,6 +1,7 @@
 <?php
 include "./components/header.php";
 include "./components/sidenav.php";
+require_once "../config/auth_controller.php";
 ?>
 <!-- Main content -->
 <div class="main-content" id="panel">
@@ -12,16 +13,16 @@ include "./components/sidenav.php";
     <div class="modal fade" id="newUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+               <!-- <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Add Agent</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
+                </div>-->
                 <div class="modal-body" style="background-color: #f7fafc;">
                     <div class="card-body">
-                        <form action="../config/auth_controller.php" method="POST">
-                            <h6 class="heading-small text-muted mb-4">User information</h6>
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                            <h6 class="heading-small text-muted mb-4">Agent information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -54,18 +55,18 @@ include "./components/sidenav.php";
                             </div>
                             <div class="text-center text-white">
                                 <div class="">
-                                    <button name="add_user_btn" class="btn btn-icon btn-default" type="submit">
+                                    <button name="add_agent_btn" class="btn btn-icon btn-default" type="submit">
                                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                                        <span class="btn-inner--text">Add User</span>
+                                        <span class="btn-inner--text">Add Agent</span>
                                     </button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <!--<div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

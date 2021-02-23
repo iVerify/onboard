@@ -1,9 +1,6 @@
 <?php
 include "./components/header.php";
 include "./components/sidenav.php";
-
-// Connect database
-include('../config/db.php');
 ?>
     <!-- Main content -->
     <div class="main-content" id="panel">
@@ -38,12 +35,12 @@ include('../config/db.php');
                                         <table class="table align-items-center" id="reportData">
                                             <thead class="thead-light">
                                             <tr>
-                                                <th scope="col" class="sort" data-sort="sn">S/N</th>
-                                                <th scope="col" class="sort" data-sort="sn">Report No.</th>
-                                                <th scope="col" class="sort" data-sort="budget">Guarantor Name</th>
-                                                <th scope="col" class="sort" data-sort="status">Status</th>
+                                                <th scope="col" class="sort">S/N</th>
+                                                <th scope="col" class="sort">Report No.</th>
+                                                <th scope="col" class="sort">Guarantor Name</th>
+                                                <th scope="col" class="sort">Status</th>
                                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
-                                                <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
+                                                <th scope="col" class="sort text-right">Actions</th>
                                             </tr>
                                             </thead>
                                             <tbody class="list">

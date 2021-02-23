@@ -62,12 +62,12 @@
                             <span class="nav-link-text">Schedule Verification</span>
                         </a>
                     </li>
-                    <!--<li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="send-report">
                             <i class="ni ni-send text-default"></i>
                             <span class="nav-link-text">Send Report</span>
                         </a>
-                    </li>-->
+                    </li>
                 </ul>
                 <!-- Divider -->
                 <hr class="my-3">

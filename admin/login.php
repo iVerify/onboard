@@ -38,7 +38,7 @@ if (isset($_POST['admin_btn'])) {
         }if ($status == 'Active') {
             if ($position == 'Admin') {
                 header('location: dashboard/admin');
-            }if ($position == 'Super_Admin') {
+            }if ($position == 'Super Admin') {
                 header('location: dashboard');
             }
         }

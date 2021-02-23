@@ -1,64 +1,7 @@
 <?php
 include "./components/header.php";
 include "./components/sidenav.php";
-
-$username    = $_SESSION['username'];
-$id         = $_SESSION["id"];
-$firstName    = $_SESSION['firstName'];
-$username    = $_SESSION['username'];
-
-// Connect database
-include('../config/db.php');
-
-if(isset($_POST['password_btn'])) {
-
-    $newPassword    = $conn->real_escape_string($_POST['newPassword']);
-    $password       = $conn->real_escape_string($_POST['password']);
-
-    $password = sha1($_POST['password']);
-    $username = $_SESSION['username'];
-    $newPassword = sha1($_POST['newPassword']);
-    $sql=mysqli_query($conn,"SELECT * FROM admin where password='$password' && username='$username'");
-    $num=mysqli_fetch_array($sql);$username   = $_SESSION['username'];
-    $id = $_SESSION["id"];
-
-// Connect database
-    include('../config/db.php');
-
-    if(isset($_POST['password_btn'])) {
-
-        $newPassword    = $conn->real_escape_string($_POST['newPassword']);
-        $password       = $conn->real_escape_string($_POST['password']);
-
-        $password = sha1($_POST['password']);
-        $username = $_SESSION['username'];
-        $newPassword = sha1($_POST['newPassword']);
-        $sql=mysqli_query($conn,"SELECT * FROM admin where password='$password' && username='$username'");
-        $num=mysqli_fetch_array($sql);
-        if($num>0)
-        {
-            $conn=mysqli_query($conn,"UPDATE admin SET password='$newPassword' where username='$username'");
-            $_SESSION['password_change_message_title'] = "Password Changed";
-            $_SESSION['password_change_message'] = "Please login with the new password 👍";
-        }
-        else
-        {
-            $_SESSION['error_password_change_message_title'] = "Wrong Password";
-            $_SESSION['error_password_change_message'] = "Current password mismatch";
-        }
-    }
-    if($num>0)
-    {
-        $conn=mysqli_query($conn,"UPDATE admin SET password='$newPassword' where username='$username'");
-        $_SESSION['password_change_message_title'] = "Password Changed";
-        $_SESSION['password_change_message'] = "Please login with the new password 👍";
-    }
-    else
-    {
-        $_SESSION['error_password_change_message_title'] = "Wrong Password";
-        $_SESSION['error_password_change_message'] = "Current password mismatch";
-    }
-}
+require_once "../config/auth_controller.php";
 ?>
     <!-- Main content -->
     <div class="main-content" id="panel">
@@ -116,20 +59,20 @@ if(isset($_POST['password_btn'])) {
                     <div class="col-xl-8 order-xl-1">
                         <div class="card">
                             <div class="card-body">
-                                <form>
+                                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
                                     <h6 class="heading-small text-muted mb-4">Personal information</h6>
                                     <div class="pl-lg-4">
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-username">Username</label>
-                                                    <input type="text" id="input-username" class="form-control" placeholder="Username" value="<?php echo $_SESSION['username']; ?>">
+                                                    <input type="text" name="username" class="form-control" value="<?php echo $_SESSION['username']; ?>" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-email">Email address</label>
-                                                    <input type="email" id="input-email" class="form-control" placeholder="<?php echo $_SESSION['email']; ?>">
+                                                    <input type="email" name="email" class="form-control" placeholder="<?php echo $_SESSION['email']; ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -137,17 +80,17 @@ if(isset($_POST['password_btn'])) {
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-first-name">First name</label>
-                                                    <input type="text" id="input-first-name" class="form-control" placeholder="<?php echo $_SESSION['firstName']; ?>">
+                                                    <input type="text" name="firstName" class="form-control" placeholder="<?php echo $_SESSION['firstName']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-last-name">Last name</label>
-                                                    <input type="text" id="input-last-name" class="form-control" placeholder="<?php echo $_SESSION['lastName']; ?>">
+                                                    <input type="text" name="lastName" class="form-control" placeholder="<?php echo $_SESSION['lastName']; ?>">
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-center">
-                                                <button class="btn btn-icon btn-default" type="button" id="personal">
+                                                <button class="btn btn-icon btn-default" type="submit" name="admin_update_btn">
                                                     <span class="btn-inner--icon"><i class="ni ni-single-02"></i></span>
                                                     <span class="btn-inner--text">Update Info</span>
                                                 </button>
@@ -182,7 +125,7 @@ if(isset($_POST['password_btn'])) {
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 text-center">
-                                                <button name="password_btn" class="btn btn-icon btn-default" type="submit">
+                                                <button name="admin_password_btn" class="btn btn-icon btn-default" type="submit">
                                                     <span class="btn-inner--icon"><i class="ni ni-key-25"></i></span>
                                                     <span class="btn-inner--text">Update Password</span>
                                                 </button>

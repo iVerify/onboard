@@ -1,9 +1,6 @@
 <?php
 include "./components/header.php";
 include "./components/sidenav.php";
-
-// Connect database
-include('../config/db.php');
 ?>
 <!-- Main content -->
 <div class="main-content" id="panel">
