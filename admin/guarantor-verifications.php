@@ -75,10 +75,14 @@ include "./components/sidenav.php";
                                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<a href=\"guarantordetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
-                                                        <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
-                                                        <span class=\"btn-inner--text\">View</span>
-                                                    </a>".
+                                                        ."<a href=\"guarantoredit.php?id=$id\" class=\"btn btn-icon btn-info\">
+                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
+                                                            <span class=\"btn-inner--text\">Edit</span>
+                                                        </a>
+                                                        <a href=\"guarantordetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
+                                                            <span class=\"btn-inner--text\">View</span>
+                                                        </a>".
                                                         "</td >";
                                                     "</tr>";
                                                 }

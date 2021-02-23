@@ -16,7 +16,7 @@ if (isset($_POST['add_agent_btn'])) {
         $_SESSION['message'] = "Modify or Delete user details";
     }
 
-    // Finally, register user if there are no errors in the form
+    // Finally, register agent if there are no errors in the form
     $password = sha1($password);//encrypt the password before saving in the database
     $query = "INSERT INTO agents (email, firstname, lastname, password, agentid, status) 
   			        VALUES('$email', '$firstname', '$lastname', '$password', '$agentid', 'Active')";
@@ -45,7 +45,7 @@ if (isset($_POST['add_admin_btn'])) {
         $_SESSION['message'] = "Modify or Delete admin details";
     }
 
-    // Finally, register user if there are no errors in the form
+    // Finally, register admin if there are no errors in the form
     $password = sha1($password);//encrypt the password before saving in the database
     $query = "INSERT INTO admin (email, firstName, lastName, password, username, position, status) 
   			        VALUES('$email', '$firstName', '$lastName', '$password', '$username', '$position', 'Active')";
@@ -127,5 +127,33 @@ if (isset($_POST['admin_update_btn'])) {
     } else {
         $_SESSION['message_title']  = "Update Failed";
         $_SESSION['message']    = "Error updating record: " . $conn->error;
+    }
+}
+
+//Add Client Query
+if (isset($_POST['add_client_btn'])) {
+
+    $email          = $conn->real_escape_string($_POST['email']);
+    $firstName      = $conn->real_escape_string($_POST['firstName']);
+    $lastName       = $conn->real_escape_string($_POST['lastName']);
+    $companyName    = $conn->real_escape_string($_POST['companyName']);
+    $phone          = $conn->real_escape_string($_POST['phone']);
+    $status         = $conn->real_escape_string($_POST['status']);
+
+    $check_client_query = "SELECT * FROM client WHERE companyName='$companyName' AND email='$email'";
+    $result = mysqli_query($conn, $check_client_query);
+    if (mysqli_num_rows($result) > 0) {
+        $_SESSION['message_title'] = "Client Already Exist!";
+        $_SESSION['message'] = "Modify or Delete admin details";
+    }
+
+    // Finally, register client if there are no errors in the form
+    $query = "INSERT INTO client (email, firstName, lastName, companyName, phone, status) 
+  			        VALUES('$email', '$firstName', '$lastName', '$companyName', '$phone', '$status')";
+    mysqli_query($conn, $query);
+    if (mysqli_affected_rows($conn) > 0) {
+        $_SESSION['email'] = $email;
+        $_SESSION['success_message_title'] = "Client Added";
+        $_SESSION['success_message'] = "Nice one Chief 👍";
     }
 }

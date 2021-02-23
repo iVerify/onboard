@@ -30,7 +30,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown user ">
-                        <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle <?php if($page=='users'){echo 'active';}?>" href="" role="button" data-toggle="dropdown">
                             <i class="ni ni-single-02 text-default"></i> Users
                         </a>
                         <div class="dropdown-menu" aria-labelledby="userDropdown">
@@ -39,7 +39,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="clients">
+                        <a class="nav-link <?php if($page=='clients'){echo 'active';}?>" href="clients">
                             <i class="ni ni-briefcase-24 text-default"></i>
                             <span class="nav-link-text">Clients</span>
                         </a>

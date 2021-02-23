@@ -1,4 +1,5 @@
 <?php
+$page = 'users';
 include "./components/header.php";
 include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
@@ -107,6 +108,7 @@ require_once "../config/auth_controller.php";
                                     <th scope="col" class="sort" data-sort="sn">S/N</th>
                                     <th scope="col" class="sort" data-sort="sn">Full Name</th>
                                     <th scope="col" class="sort" data-sort="budget">Agent ID</th>
+                                    <th scope="col" class="sort" data-sort="budget">Email</th>
                                     <th scope="col" class="sort" data-sort="status">Status</th>
                                     <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                     <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -123,6 +125,7 @@ require_once "../config/auth_controller.php";
                                         $agentid        = $row['agentid'];
                                         $firstname      = $row['firstname'];
                                         $lastname       = $row['lastname'];
+                                        $email          = $row['email'];
                                         $status         = $row['status'];
                                         switch ($status) {
                                             case "Inactive";
@@ -139,10 +142,15 @@ require_once "../config/auth_controller.php";
                                         echo "<td class=\"budget\">" . $id . "</td>";
                                         echo "<td class=\"budget\">" . $firstname . " " . $lastname . "</td>";
                                         echo "<td class=\"budget\">" . $agentid . "</td>";
+                                        echo "<td class=\"budget\">" . $email . "</td>";
                                         echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                         echo "<td class='text-right'>"
-                                            ."<a href=\"employeedetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                            ."<a href=\"agentedit.php?id=$id\" class=\"btn btn-icon btn-info\">
+                                                <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
+                                                <span class=\"btn-inner--text\">Edit</span>
+                                            </a>
+                                            <a href=\"agentdetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
                                                     </a>".

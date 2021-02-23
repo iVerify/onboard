@@ -1,5 +1,5 @@
 <?php
-$page = 'users';
+$page = 'clients';
 include "./components/header.php";
 include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
@@ -10,14 +10,14 @@ require_once "../config/auth_controller.php";
 <? include "./components/topnav.php"; ?>
 
 
-    <!-- Add New Admin -->
-    <div class="modal fade" id="newAdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Add New Client -->
+    <div class="modal fade" id="newClientModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-body" style="background-color: #f7fafc;">
                     <div class="card-body">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-                            <h6 class="heading-small text-muted mb-4">User information</h6>
+                            <h6 class="heading-small text-muted mb-4">Client information</h6>
                             <div class="pl-lg-4">
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -36,39 +36,41 @@ require_once "../config/auth_controller.php";
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            <label class="form-control-label" for="input-email">Company Name</label>
+                                            <input type="text" name="companyName" class="form-control" placeholder="Guaranty Trust Bank">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-phone">Phone</label>
+                                            <input type="tel" name="phone" class="form-control" placeholder="+2348030004000">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
                                             <label class="form-control-label" for="input-email">Email Address</label>
                                             <input type="email" name="email" class="form-control" placeholder="jesse@example.com">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-email">Username</label>
-                                            <input type="text" name="username" class="form-control" placeholder="jesse@example.com">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-position">Position</label>
-                                            <select class="form-select form-control" name="position" aria-label="Default select example">
-                                                <option selected>Select Position</option>
-                                                <option value="Admin">Admin</option>
-                                                <option value="Super Admin">Super Admin</option>
+                                            <label class="form-control-label" for="input-position">Status</label>
+                                            <select class="form-select form-control" name="status" aria-label="Default select example">
+                                                <option selected>Select Status</option>
+                                                <option value="Active">Active</option>
+                                                <option value="Inactive">Inactive</option>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label class="form-control-label" for="input-username">Password</label>
-                                            <input type="password" name="password" class="form-control" placeholder="********">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="text-center text-white">
                                 <div class="">
-                                    <button name="add_admin_btn" class="btn btn-icon btn-default" type="submit">
+                                    <button name="add_client_btn" class="btn btn-icon btn-default" type="submit">
                                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                                        <span class="btn-inner--text">Add Admin</span>
+                                        <span class="btn-inner--text">Add Client</span>
                                     </button>
                                 </div>
                             </div>
@@ -78,7 +80,7 @@ require_once "../config/auth_controller.php";
             </div>
         </div>
     </div>
-    <!-- Add New Admin -->
+    <!-- Add New Client -->
 
 
     <!-- Header -->
@@ -87,7 +89,7 @@ require_once "../config/auth_controller.php";
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-12">
-                        <h1 class="header-title1 text-white text-center pt-3">Admins Onboard</h1>
+                        <h1 class="header-title1 text-white text-center pt-3">Clients Onboard</h1>
                         <p class="text-center text-white">Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                     </div>
                 </div>
@@ -102,21 +104,19 @@ require_once "../config/auth_controller.php";
                 <!-- Card header -->
                 <div class="card-header border-0">
                     <div class="col px-0 pb-3 d-flex justify-content-between">
-                        <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="searchInput" onkeyup="myRecord()" placeholder="Filter Admin">
-                        <button class="btn btn-default" data-toggle="modal" data-target="#newAdminModal">Add New Admin</button>
+                        <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter clients by company name">
+                        <button class="btn btn-default" data-toggle="modal" data-target="#newClientModal">Add New Client</button>
                     </div>
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
                     <div>
-                        <table class="table align-items-center" id="myData">
+                        <table class="table align-items-center" id="reportData">
                             <thead class="thead-light">
                             <tr>
                                 <th scope="col" class="sort" data-sort="sn">S/N</th>
-                                <th scope="col" class="sort" data-sort="sn">Full Name</th>
-                                <th scope="col" class="sort" data-sort="budget">Username</th>
-                                <th scope="col" class="sort" data-sort="budget">Email</th>
-                                <th scope="col" class="sort" data-sort="budget">Position</th>
+                                <th scope="col" class="sort" data-sort="sn">Contact Name</th>
+                                <th scope="col" class="sort" data-sort="budget">Company Name</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                 <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -124,17 +124,16 @@ require_once "../config/auth_controller.php";
                             </thead>
                             <tbody class="list">
                             <?php
-                            $select_query = "SELECT * FROM admin ORDER BY date ASC";
+                            $select_query = "SELECT * FROM client ORDER BY date ASC";
                             $result = mysqli_query($conn, $select_query);
                             if (mysqli_num_rows($result) > 0) {
                                 // output data of each row
                                 while($row = mysqli_fetch_assoc($result)) {
                                     $id             = $row['id'];
-                                    $username       = $row['username'];
                                     $firstName      = $row['firstName'];
                                     $lastName       = $row['lastName'];
-                                    $position       = $row['position'];
-                                    $email          = $row['email'];
+                                    $companyName    = $row['companyName'];
+                                    $phone          = $row['phone'];
                                     $status         = $row['status'];
                                     switch ($status) {
                                         case "Inactive";
@@ -150,17 +149,15 @@ require_once "../config/auth_controller.php";
                                     echo "<tr>";
                                     echo "<td class=\"budget\">" . $id . "</td>";
                                     echo "<td class=\"budget\">" . $firstName . " " . $lastName . "</td>";
-                                    echo "<td class=\"budget\">" . $username . "</td>";
-                                    echo "<td class=\"budget\">" . $email . "</td>";
-                                    echo "<td class=\"budget\">" . $position . "</td>";
+                                    echo "<td class=\"budget\">" . $companyName . "</td>";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                     echo "<td class='text-right'>"
-                                        ."<a href=\"adminedit.php?id=$id\" class=\"btn btn-icon btn-info\">
+                                        ."<a href=\"clientedit.php?id=$id\" class=\"btn btn-icon btn-info\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
                                         </a>
-                                        <a href=\"admindetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                        <a href=\"cliientdetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
                                                     </a>".
@@ -168,7 +165,7 @@ require_once "../config/auth_controller.php";
                                     "</tr>";
                                 }
                             }else {
-                                echo "<td><p>No Agents Yet!</p></td>";
+                                echo "<td><p>No Clients Yet!</p></td>";
                             }
                             ?>
                             </tbody>
