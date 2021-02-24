@@ -186,6 +186,6 @@ if (isset($_POST['guarantor_update_btn'])) {
         $_SESSION['guarantor_message'] = "Welldone Chief 👍";
     } else {
         $_SESSION['message_title']  = "Update Failed";
-        $_SESSION['message']    = "Error updating record: " . $conn->error . $id;
+        $_SESSION['message']    = "Error updating record: ".mysqli_error($conn).$id;
     }
 }
