@@ -82,7 +82,7 @@ if (isset($_POST['admin_btn'])) {
             <div class="header-body text-center">
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6 col-md-8">
-                        <img src="../assets/images/logo.png" width="150px">
+                        <img src="https://i.imgur.com/4lio8Ve.png" width="150px">
                     </div>
                 </div>
             </div>
