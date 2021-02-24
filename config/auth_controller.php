@@ -157,3 +157,20 @@ if (isset($_POST['add_client_btn'])) {
         $_SESSION['success_message'] = "Nice one Chief 👍";
     }
 }
+
+//Guarantor Verification Update
+if (isset($_POST['guarantor_update_btn'])) {
+    $email          = $conn->real_escape_string($_POST['email']);
+    $firstName      = $conn->real_escape_string($_POST['firstName']);
+    $lastName       = $conn->real_escape_string($_POST['lastName']);
+    $username       = $conn->real_escape_string($_POST['username']);
+
+    $admin_update_query = "UPDATE admin SET email='$email', firstName='$firstName', lastName='$lastName', username='$username'  WHERE id='$id'";
+    if ($conn->query($admin_update_query) === TRUE) {
+        $_SESSION['success_message_title'] = "Profile Updated";
+        $_SESSION['success_message'] = "Welldone Chief for updating your profile 👍";
+    } else {
+        $_SESSION['message_title']  = "Update Failed";
+        $_SESSION['message']    = "Error updating record: " . $conn->error;
+    }
+}

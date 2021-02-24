@@ -28,7 +28,7 @@ include "./components/sidenav.php";
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Uploaded Reports</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by employee name">
+                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by tenant name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">

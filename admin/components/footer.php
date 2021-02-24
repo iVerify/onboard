@@ -17,6 +17,7 @@
 <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
 <script src="../assets/js/main.js?v=1.2.0"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../assets/js/map.js"></script>
 <script src="../assets/js/app.js"></script>
 
 <?php
