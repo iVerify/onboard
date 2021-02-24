@@ -180,8 +180,9 @@ if (isset($_POST['guarantor_update_btn'])) {
     $rplatitude = $conn->real_escape_string($_POST['rplatitude']);
     $rplongitude = $conn->real_escape_string($_POST['rplongitude']);
 
-    //$guarantor_update_query = "UPDATE guarantor SET status='$status', clientname='$clientname', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', twaddress='$twaddress', twaddressdesc='$twaddressdesc', twfirstname='$twfirstname', twlastname='$twlastname', mwwoccupation='$mwwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude' WHERE id='$id'";
-    $guarantor_update_query = "UPDATE guarantor SET status='$status' WHERE id='$id'";
+    $guarantor_update_query = "UPDATE guarantor SET status='$status', clientname='$clientname', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', twaddress='$twaddress', twaddressdesc='$twaddressdesc', twfirstname='$twfirstname', twlastname='$twlastname', mwwoccupation='$mwwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude' WHERE id='$id'";
+    //$guarantor_update_query = "UPDATE guarantor SET status='$status' WHERE id='$id'";
+    mysqli_query($conn, $guarantor_update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['guarantor_message_title'] = "Guarantor Updated";
         $_SESSION['guarantor_message'] = "Welldone Chief 👍";
