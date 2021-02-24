@@ -181,11 +181,11 @@ if (isset($_POST['guarantor_update_btn'])) {
     $rplongitude = $conn->real_escape_string($_POST['rplongitude']);
 
     $guarantor_update_query = "UPDATE guarantor SET status='$status', clientname='$clientname', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', twaddress='$twaddress', twaddressdesc='$twaddressdesc', twfirstname='$twfirstname', twlastname='$twlastname', mwwoccupation='$mwwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude' WHERE id='$id'";
-    if ($conn->query($guarantor_update_query) === TRUE) {
+    if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['guarantor_message_title'] = "Guarantor Updated";
         $_SESSION['guarantor_message'] = "Welldone Chief 👍";
     } else {
         $_SESSION['message_title']  = "Update Failed";
-        $_SESSION['message']    = "Error updating record: " . $conn->error;
+        $_SESSION['message']    = "Error updating record: " . $conn->error . $id;
     }
 }
