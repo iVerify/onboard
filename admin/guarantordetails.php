@@ -1,4 +1,5 @@
 <?php
+$page = 'verifications';
 include "./components/header.php";
 include "./components/sidenav.php";
 
@@ -86,8 +87,8 @@ while ($row = mysqli_fetch_array($results)) {
                                             <td><? echo $firstname ?>  <? echo $lastname ?></td>
                                         </tr>
                                         <tr>
-                                            <th    scope="rowgroup" style="background-color: #ececef; "><strong>Client:</strong></th>
-                                            <td> </td>
+                                            <th style="background-color: #ececef; "><strong>Client:</strong></th>
+                                            <td><? echo $clientname ?> </td>
                                         </tr>
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Visitation Date:</strong></th>

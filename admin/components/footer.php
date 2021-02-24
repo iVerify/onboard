@@ -93,6 +93,27 @@ if (isset($_SESSION['error_password_change_message']))
     unset($_SESSION['error_password_change_message']);
 }
 ?>
+
+<?php
+if (isset($_SESSION['guarantor_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['guarantor_message_title']; ?>",
+            text: "<?php echo $_SESSION['guarantor_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./guarantor-verifications";
+        });
+    </script>
+    <?php
+    unset($_SESSION['guarantor_message']);
+}
+?>
+
 </body>
 
 </html>

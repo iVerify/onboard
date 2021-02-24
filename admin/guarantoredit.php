@@ -1,4 +1,5 @@
 <?php
+$page = 'verifications';
 include "./components/header.php";
 include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
@@ -83,7 +84,7 @@ while ($row = mysqli_fetch_array($results)) {
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-position">Update Verification Status</label>
                                                 <select class="form-select form-control" name="status" aria-label="Default select example">
-                                                    <option selected>Select Status</option>
+                                                    <option selected value="<? echo $status ?>">Select Status</option>
                                                     <option value="Approved">Approved</option>
                                                     <option value="Pending">Pending</option>
                                                 </select>
@@ -92,7 +93,7 @@ while ($row = mysqli_fetch_array($results)) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-first-name">Client Name</label>
-                                                <input type="text" name="clientname" required class="form-control" value="<?php echo $_SESSION['clientname']; ?>">
+                                                <input type="text" name="clientname" class="form-control" value="<?php echo $clientname ?>">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -185,7 +186,7 @@ while ($row = mysqli_fetch_array($results)) {
                                                 <img class="card-img" src="../<? echo $rpupload1 ?>" style="width:300px;height:300px;">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="">
                                             <div id="googleMap" style="width:100%;height:400px;"></div>
 
                                             <script>

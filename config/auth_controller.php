@@ -160,15 +160,29 @@ if (isset($_POST['add_client_btn'])) {
 
 //Guarantor Verification Update
 if (isset($_POST['guarantor_update_btn'])) {
-    $email          = $conn->real_escape_string($_POST['email']);
-    $firstName      = $conn->real_escape_string($_POST['firstName']);
-    $lastName       = $conn->real_escape_string($_POST['lastName']);
-    $username       = $conn->real_escape_string($_POST['username']);
+    $status         = $conn->real_escape_string($_POST['status']);
+    $clientname     = $conn->real_escape_string($_POST['clientname']);
+    $rpvisitdate    = $conn->real_escape_string($_POST['rpvisitdate']);
+    $rpfirstname    = $conn->real_escape_string($_POST['rpfirstname']);
+    $rplastname     = $conn->real_escape_string($_POST['rplastname']);
+    $rpaddress      = $conn->real_escape_string($_POST['rpaddress']);
+    $rpaddressdesc  = $conn->real_escape_string($_POST['rpaddressdesc']);
+    $mwfirstname    = $conn->real_escape_string($_POST['mwfirstname']);
+    $mwlastname     = $conn->real_escape_string($_POST['mwlastname']);
+    $mwoccupation   = $conn->real_escape_string($_POST['mwoccupation']);
+    $twaddress      = $conn->real_escape_string($_POST['twaddress']);
+    $twaddressdesc  = $conn->real_escape_string($_POST['twaddressdesc']);
+    $twfirstname    = $conn->real_escape_string($_POST['twfirstname']);
+    $twlastname     = $conn->real_escape_string($_POST['twlastname']);
+    $mwwoccupation  = $conn->real_escape_string($_POST['mwwoccupation']);
+    $rpagentremark  = $conn->real_escape_string($_POST['rpagentremark']);
+    $rplatitude     = $conn->real_escape_string($_POST['rplatitude']);
+    $rplongitude    = $conn->real_escape_string($_POST['rplongitude']);
 
-    $admin_update_query = "UPDATE admin SET email='$email', firstName='$firstName', lastName='$lastName', username='$username'  WHERE id='$id'";
-    if ($conn->query($admin_update_query) === TRUE) {
-        $_SESSION['success_message_title'] = "Profile Updated";
-        $_SESSION['success_message'] = "Welldone Chief for updating your profile 👍";
+    $guarantor_update_query = "UPDATE guarantor SET status='$status', clientname='$clientname', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', twaddress='$twaddress', twaddressdesc='$twaddressdesc', twfirstname='$twfirstname', twlastname='$twlastname', mwwoccupation='$mwwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude' WHERE id='$id'";
+    if ($conn->query($guarantor_update_query) === TRUE) {
+        $_SESSION['guarantor_message_title'] = "Guarantor Updated";
+        $_SESSION['guarantor_message'] = "Welldone Chief 👍";
     } else {
         $_SESSION['message_title']  = "Update Failed";
         $_SESSION['message']    = "Error updating record: " . $conn->error;
