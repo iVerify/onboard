@@ -160,7 +160,7 @@ if (isset($_POST['add_client_btn'])) {
 
 //Guarantor Verification Update
 if (isset($_POST['guarantor_update_btn'])) {
-    $id = $conn->real_escape_string($_GET['id']);
+    $id = $conn->real_escape_string($_POST['id']);
     $status = $conn->real_escape_string($_POST['status']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
     $rpvisitdate = $conn->real_escape_string($_POST['rpvisitdate']);

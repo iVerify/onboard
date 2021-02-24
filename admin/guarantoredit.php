@@ -80,6 +80,12 @@ while ($row = mysqli_fetch_array($results)) {
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
                                     <h6 class="heading-small text-muted mb-4">Guarantor information</h6>
                                     <div class="row">
+                                        <div class="col-lg-6" style="display:">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-first-name">id</label>
+                                                <input type="text" name="id" class="form-control" value="<?php echo $id ?>" readonly>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-position">Update Verification Status</label>
