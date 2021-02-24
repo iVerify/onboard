@@ -109,7 +109,7 @@ if (isset($_POST['admin_btn'])) {
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-single-02"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Username" name="username" value="zita" type="text">
+                    <input class="form-control" placeholder="Username" name="username" type="text">
                   </div>
                 </div>
                 <div class="form-group">
@@ -117,7 +117,7 @@ if (isset($_POST['admin_btn'])) {
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" name="password" value="kaima2006" type="password">
+                    <input class="form-control" placeholder="Password" name="password" type="password">
                   </div>
                 </div>
                 <div class="custom-control custom-control-alternative custom-checkbox">
