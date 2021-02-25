@@ -30,7 +30,7 @@ if (isset($_POST['login_btn'])) {
             $_SESSION['firstname'] = $firstname;
             $_SESSION['lastname'] = $lastname;
             $_SESSION['email'] = $email;
-            $_SESSION['picture'] = $picture
+            $_SESSION['picture'] = $picture;
             $_SESSION['id'] = $id;
             if ($status == 'Inactive'){
                 $_SESSION['message_title'] = "Account Inactive";
