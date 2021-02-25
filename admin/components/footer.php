@@ -16,6 +16,7 @@
 <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
 <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
 <script src="../assets/js/main.js?v=1.2.0"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDODKndJ8udk9xrwV_9KZwzziQOgsAR3Ew&callback=myMap"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
@@ -118,6 +119,26 @@ if (isset($_SESSION['guarantor_message']))
 ?>
 
 <?php
+if (isset($_SESSION['employee_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['employee_message_title']; ?>",
+            text: "<?php echo $_SESSION['employee_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./employee-verifications";
+        });
+    </script>
+    <?php
+    unset($_SESSION['employee_message']);
+}
+?>
+
+<?php
 if (isset($_SESSION['admin_message']))
 {
     ?>
@@ -154,6 +175,26 @@ if (isset($_SESSION['agent_message']))
     </script>
     <?php
     unset($_SESSION['agent_message']);
+}
+?>
+
+<?php
+if (isset($_SESSION['client_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['client_message_title']; ?>",
+            text: "<?php echo $_SESSION['client_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./clients";
+        });
+    </script>
+    <?php
+    unset($_SESSION['client_message']);
 }
 ?>
 

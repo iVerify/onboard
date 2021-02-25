@@ -1,5 +1,5 @@
 <?php
-$page = 'users';
+$page = 'client';
 include "./components/header.php";
 include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
@@ -48,7 +48,7 @@ while ($row = mysqli_fetch_array($results)) {
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        <? echo $firstName; ?>'s Details
+                        <? echo $firstName; ?>'s Account Details
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -60,7 +60,7 @@ while ($row = mysqli_fetch_array($results)) {
                             <div class="card-body">
                                 <div class="text-center pb-4">
                                     <img src="../assets/images/logo.png" style="width: 150px;"><br>
-                                    <label class="form-control-label"><strong>Account Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
+                                    <label class="form-control-label"><strong>Admin Account Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                 </div>
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
 

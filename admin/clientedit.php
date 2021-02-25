@@ -1,21 +1,19 @@
 <?php
-$page = 'users';
+$page = 'clients';
 include "./components/header.php";
 include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
 
 $id = $_GET['id'];
-$query = "SELECT * FROM agents WHERE id='$id'";
+$query = "SELECT * FROM client WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id = $row['id'];
-    $firstname = $row['firstname'];
-    $lastname = $row['lastname'];
+    $firstName = $row['firstName'];
+    $lastName = $row['lastName'];
     $email = $row['email'];
-    $agentid = $row['agentid'];
-    $password = $row['password'];
+    $companyName = $row['companyName'];
     $phone = $row['phone'];
-    $picture = $row['picture'];
     $status = $row['status'];
     switch ($status) {
         case "Inactive";
@@ -40,14 +38,14 @@ while ($row = mysqli_fetch_array($results)) {
         <div class="header-body">
             <div class="row align-items-center text-center py-4">
                 <div class="pl-3">
-                    <a href="agents" class="btn btn-icon btn-default" type="button">
+                    <a href="clients" class="btn btn-icon btn-default" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
                         <span class="btn-inner--text">Go Back</span>
                     </a>
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        <? echo $firstname; ?>'s Account Details
+                        <? echo $firstName; ?>'s Company Details
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -59,17 +57,10 @@ while ($row = mysqli_fetch_array($results)) {
                             <div class="card-body">
                                 <div class="text-center pb-4">
                                     <img src="../assets/images/logo.png" style="width: 150px;"><br>
-                                    <label class="form-control-label"><strong>Agent Account Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
+                                    <label class="form-control-label"><strong>Client Account Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                 </div>
                                 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" enctype="multipart/form-data">
 
-                                    <div class="row pb-2">
-                                        <div class="col-lg-12">
-                                            <div class="form-group text-center">
-                                                <img id="myImg" class="card-img rounded-circle" src="../<? echo $picture ?>" style="width:200px;height:200px;">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-lg-6" style="display: none">
                                             <div class="form-group">
@@ -90,19 +81,13 @@ while ($row = mysqli_fetch_array($results)) {
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-first-name">First Name</label>
-                                                <input type="text" name="firstname" required class="form-control" value="<? echo $firstname ?>">
+                                                <input type="text" name="firstName" required class="form-control" value="<? echo $firstName ?>">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-last-name">Last Name</label>
-                                                <input type="text" name="lastname" required class="form-control" value="<? echo $lastname ?>">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="input-address">Agent ID</label>
-                                                <input name="agentid" class="form-control" required value="<? echo $agentid ?>" type="text" readonly>
+                                                <input type="text" name="lastName" required class="form-control" value="<? echo $lastName ?>">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
@@ -119,16 +104,16 @@ while ($row = mysqli_fetch_array($results)) {
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="input-country">Password</label>
-                                                <input type="password" name="password" class="form-control" value="<? echo $password ?>">
+                                                <label class="form-control-label" for="input-country">Company Name</label>
+                                                <input type="text" name="companyName" class="form-control" value="<? echo $companyName ?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button name="agentupdate_btn" class="btn btn-icon btn-default" type="submit">
+                                            <button name="clientupdate_btn" class="btn btn-icon btn-default" type="submit">
                                                 <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
-                                                <span class="btn-inner--text">Update Agent</span>
+                                                <span class="btn-inner--text">Update Client</span>
                                             </button>
                                         </div>
                                     </div>

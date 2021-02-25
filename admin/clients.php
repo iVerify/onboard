@@ -116,6 +116,7 @@ require_once "../config/auth_controller.php";
                             <tr>
                                 <th scope="col" class="sort" data-sort="sn">S/N</th>
                                 <th scope="col" class="sort" data-sort="sn">Contact Name</th>
+                                <th scope="col" class="sort" data-sort="sn">Phone No.</th>
                                 <th scope="col" class="sort" data-sort="budget">Company Name</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
@@ -149,17 +150,18 @@ require_once "../config/auth_controller.php";
                                     echo "<tr>";
                                     echo "<td class=\"budget\">" . $id . "</td>";
                                     echo "<td class=\"budget\">" . $firstName . " " . $lastName . "</td>";
+                                    echo "<td class=\"budget\">" . $phone . "</td>";
                                     echo "<td class=\"budget\">" . $companyName . "</td>";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                     echo "<td class='text-right'>"
-                                        ."<a href=\"clientedit.php?id=$id\" class=\"btn btn-icon btn-info\">
+                                        ."<a href=\"clientedit?id=$id\" class=\"btn btn-icon btn-info\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
                                         </a>
-                                        <a href=\"cliientdetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                        <a href=\"404?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
-                                                        <span class=\"btn-inner--text\">View</span>
+                                                        <span class=\"btn-inner--text\">View Records</span>
                                                     </a>".
                                         "</td >";
                                     "</tr>";
