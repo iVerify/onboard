@@ -47,7 +47,7 @@
                     <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="https://i.imgur.com/WKOInUn.png">
+                    <img alt="Image placeholder" src="./<? echo $_SESSION['picture'] ?>">
                   </span>
                             <div class="media-body  ml-2  d-none d-lg-block">
                                 <span class="mb-0 text-sm  font-weight-bold"><? echo $_SESSION['firstname']; ?></span>

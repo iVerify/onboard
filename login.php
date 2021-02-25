@@ -6,29 +6,32 @@ include('./config/db.php');
 // Login script
 if (isset($_POST['login_btn'])) {
 
-    $agentid        = $conn->real_escape_string($_POST['agentid']);
-    $password       = $conn->real_escape_string($_POST['password']);
-    $firstname      = $conn->real_escape_string($_POST['firstname']);
-    $lastname       = $conn->real_escape_string($_POST['lastname']);
-    $email          = $conn->real_escape_string($_POST['email']);
-    $status         = $conn->real_escape_string($_POST['status']);
+    $agentid = $conn->real_escape_string($_POST['agentid']);
+    $password = $conn->real_escape_string($_POST['password']);
+    $firstname = $conn->real_escape_string($_POST['firstname']);
+    $lastname = $conn->real_escape_string($_POST['lastname']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $status = $conn->real_escape_string($_POST['status']);
+    $picture = $conn->real_escape_string($_POST['picture']);
 
         $password = sha1($password);
         $query = "SELECT * FROM agents WHERE agentid='$agentid' AND password='$password'";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
-            $firstname          = $row['firstname'];
-            $lastname           = $row['lastname'];
-            $email              = $row['email'];
-            $agentid            = $row['agentid'];
-            $id                 = $row['id'];
-            $status             = $row['status'];
+            $firstname = $row['firstname'];
+            $lastname = $row['lastname'];
+            $email = $row['email'];
+            $agentid = $row['agentid'];
+            $id = $row['id'];
+            $status = $row['status'];
+            $picture = $row['picture'];
         }if (mysqli_num_rows($result) == 1) {
-            $_SESSION['agentid']        = $agentid;
-            $_SESSION['firstname']      = $firstname;
-            $_SESSION['lastname']       = $lastname;
-            $_SESSION['email']          = $email;
-            $_SESSION['id']             = $id;
+            $_SESSION['agentid'] = $agentid;
+            $_SESSION['firstname'] = $firstname;
+            $_SESSION['lastname'] = $lastname;
+            $_SESSION['email'] = $email;
+            $_SESSION['picture'] = $picture
+            $_SESSION['id'] = $id;
             if ($status == 'Inactive'){
                 $_SESSION['message_title'] = "Account Inactive";
                 $_SESSION['message'] = "Please contact admin!";

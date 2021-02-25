@@ -85,7 +85,7 @@ if(isset($_POST['password_btn'])) {
                                 <div class="col-lg-3 order-lg-2">
                                     <div class="card-profile-image">
                                         <a href="#">
-                                            <img src="https://i.imgur.com/WKOInUn.png" class="rounded-circle">
+                                            <img src="./<? echo $_SESSION['picture'] ?>" class="rounded-circle">
                                         </a>
                                     </div>
                                 </div>
