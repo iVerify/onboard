@@ -17,7 +17,10 @@
 <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
 <script src="../assets/js/main.js?v=1.2.0"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 <script src="../assets/js/map.js"></script>
+<script src="../assets/js/jspdf.min.js"></script>
 <script src="../assets/js/app.js"></script>
 
 <?php
@@ -111,6 +114,46 @@ if (isset($_SESSION['guarantor_message']))
     </script>
     <?php
     unset($_SESSION['guarantor_message']);
+}
+?>
+
+<?php
+if (isset($_SESSION['admin_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['admin_message_title']; ?>",
+            text: "<?php echo $_SESSION['admin_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./admins";
+        });
+    </script>
+    <?php
+    unset($_SESSION['admin_message']);
+}
+?>
+
+<?php
+if (isset($_SESSION['agent_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['agent_message_title']; ?>",
+            text: "<?php echo $_SESSION['agent_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./agents";
+        });
+    </script>
+    <?php
+    unset($_SESSION['agent_message']);
 }
 ?>
 

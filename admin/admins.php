@@ -9,7 +9,6 @@ require_once "../config/auth_controller.php";
 
 <? include "./components/topnav.php"; ?>
 
-
     <!-- Add New Admin -->
     <div class="modal fade" id="newAdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -37,13 +36,13 @@ require_once "../config/auth_controller.php";
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-email">Email Address</label>
-                                            <input type="email" name="email" class="form-control" placeholder="jesse@example.com">
+                                            <input type="email" name="email" class="form-control" placeholder="example@example.com">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-email">Username</label>
-                                            <input type="text" name="username" class="form-control" placeholder="jesse@example.com">
+                                            <input type="text" name="username" class="form-control" placeholder="fegor">
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -156,14 +155,10 @@ require_once "../config/auth_controller.php";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                     echo "<td class='text-right'>"
-                                        ."<a href=\"adminedit.php?id=$id\" class=\"btn btn-icon btn-info\">
+                                        ."<a href=\"adminedit?id=$id\" class=\"btn btn-icon btn-info\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
-                                        </a>
-                                        <a href=\"admindetails.php?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
-                                                        <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
-                                                        <span class=\"btn-inner--text\">View</span>
-                                                    </a>".
+                                        </a>".
                                         "</td >";
                                     "</tr>";
                                 }

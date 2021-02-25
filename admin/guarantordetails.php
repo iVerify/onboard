@@ -69,7 +69,7 @@ while ($row = mysqli_fetch_array($results)) {
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-12" id='printMe'>
+                    <div class="col-xl-12" id="pdf">
                         <div class="card row">
                             <div class="card-body">
                                 <div class="text-center pb-3">
@@ -173,20 +173,20 @@ while ($row = mysqli_fetch_array($results)) {
                                     <p class="text-center"><? echo $rpagentremark ?></p>
                                     <hr class="my-4">
                                     <p class="text-center pt-1">I <strong><? echo $firstname ?> <? echo $lastname ?></strong> hereby confirm that the information above are correct and accurate.</p>
-                                    <div class="text-center pb-3">
-                                        <button class="btn btn-icon btn-default" id="delete">
-                                            <span class="btn-inner--icon"><i class="ni ni-ruler-pencil"></i></span>
-                                            <span class="btn-inner--text">Edit</span>
-                                        </button>
-                                        <button type="button" class="btn btn-info" onclick="printDiv('printMe')">
-                                            <span class="btn-inner--icon"><i class="ni ni-single-copy-04"></i></span>
-                                            <span class="btn-inner--text">Print</span>
-                                        </button>
-                                        <button type="button" class="btn btn-danger" id="personal">
-                                            <span class="btn-inner--icon"><i class="ni ni-archive-2"></i></span>
-                                            <span class="btn-inner--text">Delete</span>
-                                        </button>
-                                    </div>
+                                </div>
+                                <div class="text-center pb-3">
+                                    <? echo "<a class=\"btn btn-icon btn-default\" href=\"guarantoredit?id=$id\">
+                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
+                                            <span class=\"btn-inner--text\">Edit</span>
+                                        </a>" ?>
+                                    <button type="button" class="btn btn-info" onclick="saveDiv('pdf','Title')">
+                                        <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
+                                        <span class="btn-inner--text">Download PDF</span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" id="delete">
+                                        <span class="btn-inner--icon"><i class="ni ni-archive-2"></i></span>
+                                        <span class="btn-inner--text">Delete</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

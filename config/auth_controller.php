@@ -3,11 +3,12 @@
 //Add Agent Query
 if (isset($_POST['add_agent_btn'])) {
 
-    $email          = $conn->real_escape_string($_POST['email']);
-    $firstname      = $conn->real_escape_string($_POST['firstname']);
-    $lastname       = $conn->real_escape_string($_POST['lastname']);
-    $agentid        = 'IVA' . rand(1000, 9999);
-    $password       = $conn->real_escape_string($_POST['password']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $firstname = $conn->real_escape_string($_POST['firstname']);
+    $lastname = $conn->real_escape_string($_POST['lastname']);
+    $agentid = 'IVA' . rand(1000, 9999);
+    $password = $conn->real_escape_string($_POST['password']);
+    $picture = $conn->real_escape_string($_POST['picture']);
 
     $check_agent_query = "SELECT * FROM agents WHERE email='$email'";
     $result = mysqli_query($conn, $check_agent_query);
@@ -18,8 +19,8 @@ if (isset($_POST['add_agent_btn'])) {
 
     // Finally, register agent if there are no errors in the form
     $password = sha1($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO agents (email, firstname, lastname, password, agentid, status) 
-  			        VALUES('$email', '$firstname', '$lastname', '$password', '$agentid', 'Active')";
+    $query = "INSERT INTO agents (email, firstname, lastname, password, agentid, picture, status) 
+  			        VALUES('$email', '$firstname', '$lastname', '$password', '$agentid', 'uploadmale/avatar.png', 'Active')";
     mysqli_query($conn, $query);
     if (mysqli_affected_rows($conn) > 0) {
         $_SESSION['email'] = $email;
@@ -28,18 +29,43 @@ if (isset($_POST['add_agent_btn'])) {
     }
 }
 
+//Agent Profile Update
+if (isset($_POST['agentupdate_btn'])) {
+    $id = $conn->real_escape_string($_POST['id']);
+    $firstname = $conn->real_escape_string($_POST['firstname']);
+    $lastname = $conn->real_escape_string($_POST['lastname']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $agentid = $conn->real_escape_string($_POST['agentid']);
+    $password = $conn->real_escape_string($_POST['password']);
+    $phone = $conn->real_escape_string($_POST['phone']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+    $password = sha1($password);
+    $agent_update_query = "UPDATE agents SET firstname='$firstname', lastname='$lastname', email='$email', agentid='$agentid', password='$password', phone='$phone', status='$status' WHERE id='$id'";
+    mysqli_query($conn, $agent_update_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['agent_message_title'] = "Account Updated";
+        $_SESSION['agent_message'] = "Welldone Chief 👍";
+    } else {
+        $_SESSION['message_title']  = "Update Failed";
+        $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;
+    }
+}
+
+
 //Add Admin Query
 if (isset($_POST['add_admin_btn'])) {
 
-    $email          = $conn->real_escape_string($_POST['email']);
-    $firstName      = $conn->real_escape_string($_POST['firstName']);
-    $lastName       = $conn->real_escape_string($_POST['lastName']);
-    $username       = $conn->real_escape_string($_POST['username']);
-    $password       = $conn->real_escape_string($_POST['password']);
-    $position       = $conn->real_escape_string($_POST['position']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $firstName = $conn->real_escape_string($_POST['firstName']);
+    $lastName = $conn->real_escape_string($_POST['lastName']);
+    $username = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
+    $position = $conn->real_escape_string($_POST['position']);
+    $picture = $conn->real_escape_string($_POST['picture']);
 
-    $check_agent_query = "SELECT * FROM admin WHERE username='$username' AND email='$email'";
-    $result = mysqli_query($conn, $check_agent_query);
+    $check_admin_query = "SELECT * FROM admin WHERE username='$username' AND email='$email'";
+    $result = mysqli_query($conn, $check_admin_query);
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['message_title'] = "Admin Already Exist!";
         $_SESSION['message'] = "Modify or Delete admin details";
@@ -47,13 +73,37 @@ if (isset($_POST['add_admin_btn'])) {
 
     // Finally, register admin if there are no errors in the form
     $password = sha1($password);//encrypt the password before saving in the database
-    $query = "INSERT INTO admin (email, firstName, lastName, password, username, position, status) 
-  			        VALUES('$email', '$firstName', '$lastName', '$password', '$username', '$position', 'Active')";
+    $query = "INSERT INTO admin (email, firstName, lastName, password, username, position, picture, status) 
+  			        VALUES('$email', '$firstName', '$lastName', '$password', '$username', '$position', 'upload/avatar.png', 'Active')";
     mysqli_query($conn, $query);
     if (mysqli_affected_rows($conn) > 0) {
         $_SESSION['email'] = $email;
         $_SESSION['success_message_title'] = "Admin Added";
         $_SESSION['success_message'] = "Provide admin with login details.";
+    }
+}
+
+//Admin Profile Update
+if (isset($_POST['adminupdate_btn'])) {
+    $id = $conn->real_escape_string($_POST['id']);
+    $firstName = $conn->real_escape_string($_POST['firstName']);
+    $lastName = $conn->real_escape_string($_POST['lastName']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $username = $conn->real_escape_string($_POST['username']);
+    $password = $conn->real_escape_string($_POST['password']);
+    $phone = $conn->real_escape_string($_POST['phone']);
+    $position = $conn->real_escape_string($_POST['position']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+    $password = sha1($password);
+    $admin_update_query = "UPDATE admin SET firstName='$firstName', lastName='$lastName', email='$email', username='$username', password='$password', phone='$phone', position='$position', status='$status' WHERE id='$id'";
+    mysqli_query($conn, $admin_update_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['admin_message_title'] = "Account Updated";
+        $_SESSION['admin_message'] = "Welldone Chief 👍";
+    } else {
+        $_SESSION['message_title']  = "Update Failed";
+        $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;
     }
 }
 
