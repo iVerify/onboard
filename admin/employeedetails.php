@@ -150,7 +150,7 @@ while ($row = mysqli_fetch_array($results)) {
                                     <p class="text-center pt-1">I <strong><? echo $firstname ?> <? echo $lastname ?></strong> hereby confirm that the information above are correct and accurate.</p>
                                 </div>
                                 <div class="text-center pb-3">
-                                    <? echo "<a class=\"btn btn-icon btn-default\" href=\"guarantoredit?id=$id\">
+                                    <? echo "<a class=\"btn btn-icon btn-default\" href=\"employeeedit?id=$id\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
                                         </a>" ?>
