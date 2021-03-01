@@ -1,5 +1,5 @@
 <?php
-$page = 'verifications';
+$page = 'send-report';
 include "./components/header.php";
 include "./components/sidenav.php";
 ?>
@@ -12,9 +12,15 @@ include "./components/sidenav.php";
     <div class="container-fluid">
         <div class="header-body">
             <div class="row align-items-center text-center py-4">
+                <div class="pl-3">
+                    <a href="send-report" class="btn btn-icon btn-default" type="button">
+                        <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
+                        <span class="btn-inner--text">Go Back</span>
+                    </a>
+                </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Tenant Verifications
+                        Employee Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -28,17 +34,16 @@ include "./components/sidenav.php";
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Uploaded Reports</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by tenant name">
+                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="searchInput" onkeyup="myRecord()" placeholder="Filter by employee name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">
                                     <div>
-                                        <table class="table align-items-center" id="reportData">
+                                        <table class="table align-items-center" id="myData">
                                             <thead class="thead-light">
                                             <tr>
-                                                <th scope="col" class="sort" data-sort="sn">S/N</th>
                                                 <th scope="col" class="sort" data-sort="sn">Report No.</th>
-                                                <th scope="col" class="sort" data-sort="budget">Tenant Name</th>
+                                                <th scope="col" class="sort" data-sort="budget">Employee Name</th>
                                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                                 <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -46,7 +51,7 @@ include "./components/sidenav.php";
                                             </thead>
                                             <tbody class="list">
                                             <?php
-                                            $select_query = "SELECT * FROM tenant WHERE status='Pending' ORDER BY date ASC";;
+                                            $select_query = "SELECT * FROM employee WHERE status='Approved' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                                 // output data of each row
@@ -69,25 +74,28 @@ include "./components/sidenav.php";
                                                     }
 
                                                     echo "<tr>";
-                                                    echo "<td class=\"budget\">" . $id . "</td>";
                                                     echo "<td class=\"budget\">" . $reportid . "</td>";
                                                     echo "<td class=\"budget\">" . $rpfirstname . " " . $rplastname . "</td>";
                                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<a href=\"tenantedit?id=$id\" class=\"btn btn-icon btn-info\">
+                                                        ."<button data-toggle=\"modal\" data-target=\"#sendModal\" class=\"btn btn-icon btn-info\">
+                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
+                                                            <span class=\"btn-inner--text\">Send</span>
+                                                        </button>
+                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
+                                                            <span class=\"btn-inner--text\">View</span>
+                                                        </a>
+                                                        <a href=\"employeeedit?id=$id\" class=\"btn btn-icon btn-danger\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Edit</span>
-                                                        </a>
-                                                        <a href=\"tenantdetails?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
-                                                        <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
-                                                        <span class=\"btn-inner--text\">View</span>
-                                                    </a>".
+                                                        </a>".
                                                         "</td >";
                                                     "</tr>";
                                                 }
                                             }else {
-                                                echo "<td><p>No Pending Report Yet!</p></td>";
+                                                echo "<td><p>No Approved Report Yet!</p></td>";
                                             }
                                             ?>
                                             </tbody>
@@ -127,6 +135,44 @@ include "./components/sidenav.php";
         </div>
     </div>
 
+
+    <!-- Send Modal -->
+    <div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb--1">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="employee-reports">
+                                                <img src="../assets/img/icons/send.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <h3>Send</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="card mb--1">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="tenant-reports">
+                                                <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <h3>Download</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Send Modal -->
 
 
 <?php include "./components/footer.php"; ?>

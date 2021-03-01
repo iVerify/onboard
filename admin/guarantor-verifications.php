@@ -46,7 +46,7 @@ include "./components/sidenav.php";
                                             </thead>
                                             <tbody class="list">
                                             <?php
-                                            $select_query = "SELECT * FROM guarantor ORDER BY date ASC";;
+                                            $select_query = "SELECT * FROM guarantor WHERE status='Pending' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                                 // output data of each row
@@ -87,7 +87,7 @@ include "./components/sidenav.php";
                                                     "</tr>";
                                                 }
                                             }else {
-                                                echo "<td><p>No Report Yet!</p></td>";
+                                                echo "<td><p>No Pending Report Yet!</p></td>";
                                             }
                                             ?>
                                             </tbody>
