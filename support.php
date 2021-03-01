@@ -10,9 +10,11 @@ if (isset($_POST['support_btn'])) {
     $agentid    = $conn->real_escape_string($_POST['agentid']);
     $purpose    = $conn->real_escape_string($_POST['purpose']);
     $comment    = $conn->real_escape_string($_POST['comment']);
+    $firstname    = $conn->real_escape_string($_POST['firstname']);
+    $lastname    = $conn->real_escape_string($_POST['lastname']);
 
-    $query = "INSERT INTO messages (agentid, purpose, comment)"
-            ."VALUES ('$agentid', '$purpose', '$comment')";
+    $query = "INSERT INTO messages (agentid, purpose, comment, firstname, lastname)"
+            ."VALUES ('$agentid', '$purpose', '$comment', '$firstname', '$lastname')";
     mysqli_query($conn, $query);
     if (mysqli_affected_rows($conn) > 0) {
         $_SESSION['agentid'] = $agentid;
@@ -54,6 +56,18 @@ if (isset($_POST['support_btn'])) {
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="input-agent-id">Agent ID</label>
                                                     <input type="text" id="agent-id" name="agentid" class="form-control" value="<?php echo $_SESSION['agentid']; ?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-agent-id">First Name</label>
+                                                    <input type="text" id="agent-id" name="firstname" class="form-control" value="<?php echo $_SESSION['firstname']; ?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="input-agent-id">Last Name</label>
+                                                    <input type="text" id="agent-id" name="lastname" class="form-control" value="<?php echo $_SESSION['lastname']; ?>" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">

@@ -45,19 +45,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="messages">
+                        <a class="nav-link <?php if($page=='messages'){echo 'active';}?>" href="messages">
                             <i class="ni ni-chat-round text-default"></i>
                             <span class="nav-link-text">Messages</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="news">
+                        <a class="nav-link" href="#">
                             <i class="ni ni-notification-70 text-default"></i>
                             <span class="nav-link-text">News</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="schedule">
+                        <a class="nav-link" href="#">
                             <i class="ni ni-books text-default"></i>
                             <span class="nav-link-text">Schedule Verification</span>
                         </a>
@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="log">
+                        <a class="nav-link" href="404">
                             <i class="ni ni-bullet-list-67 text-default"></i>
                             <span class="nav-link-text">Logs</span>
                         </a>
