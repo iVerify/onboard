@@ -268,8 +268,6 @@ if (isset($_POST['guarantor_update_btn'])) {
 //Employee Verification Update
 if (isset($_POST['employee_update_btn'])) {
     $id = $conn->real_escape_string($_POST['id']);
-    $firstname = $conn->real_escape_string($_POST['firstname']);
-    $lastname = $conn->real_escape_string($_POST['lastname']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
     $rpvisitdate = $conn->real_escape_string($_POST['rpvisitdate']);
     $rpfirstname = $conn->real_escape_string($_POST['rpfirstname']);
@@ -286,12 +284,49 @@ if (isset($_POST['employee_update_btn'])) {
     $rplongitude = $conn->real_escape_string($_POST['rplongitude']);
     $status = $conn->real_escape_string($_POST['status']);
 
-    $guarantor_update_query = "UPDATE employee SET firstname='$firstname', lastname='$lastname', clientname='$clientname', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude', status='$status' WHERE id='$id'";
+    $guarantor_update_query = "UPDATE employee SET clientname='$clientname', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude', status='$status' WHERE id='$id'";
     //$guarantor_update_query = "UPDATE guarantor SET status='$status' WHERE id='$id'";
     mysqli_query($conn, $guarantor_update_query);
     if (mysqli_affected_rows($conn) > 0 ) {
         $_SESSION['employee_message_title'] = "Employee Updated";
         $_SESSION['employee_message'] = "Welldone Chief 👍";
+    } else {
+        $_SESSION['message_title']  = "Update Failed";
+        $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;
+    }
+}
+
+
+//Tenant Verification Update
+if (isset($_POST['tenant_update_btn'])) {
+    $id = $conn->real_escape_string($_POST['id']);
+    $clientName = $conn->real_escape_string($_POST['clientName']);
+    $rpvisitdate = $conn->real_escape_string($_POST['rpvisitdate']);
+    $rpfirstname = $conn->real_escape_string($_POST['rpfirstname']);
+    $rplastname = $conn->real_escape_string($_POST['rplastname']);
+    $rpaddress = $conn->real_escape_string($_POST['rpaddress']);
+    $rpaddressdesc = $conn->real_escape_string($_POST['rpaddressdesc']);
+    $mwfirstname = $conn->real_escape_string($_POST['mwfirstname']);
+    $mwlastname = $conn->real_escape_string($_POST['mwlastname']);
+    $mwoccupation = $conn->real_escape_string($_POST['mwoccupation']);
+    $twaddress = $conn->real_escape_string($_POST['twaddress']);
+    $twaddressdesc = $conn->real_escape_string($_POST['twaddressdesc']);
+    $twfirstname = $conn->real_escape_string($_POST['twfirstname']);
+    $twlastname = $conn->real_escape_string($_POST['twlastname']);
+    $mwwoccupation = $conn->real_escape_string($_POST['mwwoccupation']);
+    $rpagentremark = $conn->real_escape_string($_POST['rpagentremark']);
+    $rpupload = $conn->real_escape_string($_POST['rpupload']);
+    $rpupload1 = $conn->real_escape_string($_POST['rpupload1']);
+    $rplatitude = $conn->real_escape_string($_POST['rplatitude']);
+    $rplongitude = $conn->real_escape_string($_POST['rplongitude']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+    $guarantor_update_query = "UPDATE tenant SET clientName='$clientName', rpvisitdate='$rpvisitdate', rpfirstname='$rpfirstname', rplastname='$rplastname', rpaddress='$rpaddress', rpaddressdesc='$rpaddressdesc', mwfirstname='$mwfirstname', mwlastname='$mwlastname', mwoccupation='$mwoccupation', twaddress='$twaddress', twaddressdesc='$twaddressdesc', twfirstname='$twfirstname', twlastname='$twlastname', mwwoccupation='$mwwoccupation', rpagentremark='$rpagentremark', rplatitude='$rplatitude', rplongitude='$rplongitude', status='$status' WHERE id='$id'";
+    //$guarantor_update_query = "UPDATE guarantor SET status='$status' WHERE id='$id'";
+    mysqli_query($conn, $guarantor_update_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['tenant_message_title'] = "Tenant Updated";
+        $_SESSION['tenant_message'] = "Welldone Chief 👍";
     } else {
         $_SESSION['message_title']  = "Update Failed";
         $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;

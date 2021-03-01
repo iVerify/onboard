@@ -28,12 +28,12 @@ include "./components/sidenav.php";
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Messages</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by employee name">
+                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="searchInput" onkeyup="myRecord()" placeholder="Filter by employee name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">
                                     <div>
-                                        <table class="table align-items-center" id="reportData">
+                                        <table class="table align-items-center" id="myData">
                                             <thead class="thead-light">
                                             <tr>
                                                 <th scope="col" class="sort" data-sort="sn">S/N</th>

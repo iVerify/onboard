@@ -139,6 +139,26 @@ if (isset($_SESSION['employee_message']))
 ?>
 
 <?php
+if (isset($_SESSION['tenant_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['tenant_message_title']; ?>",
+            text: "<?php echo $_SESSION['tenant_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./tenant-verifications";
+        });
+    </script>
+    <?php
+    unset($_SESSION['tenant_message']);
+}
+?>
+
+<?php
 if (isset($_SESSION['admin_message']))
 {
     ?>
