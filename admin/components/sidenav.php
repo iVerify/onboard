@@ -30,6 +30,15 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown user ">
+                        <a class="nav-link dropdown-toggle <?php if($page=='company'){echo 'active';}?>" href="" role="button" data-toggle="dropdown">
+                            <i class="ni ni-building  text-default"></i> Company Search
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="userDropdown">
+                            <a class="dropdown-item" href="name-search">Business Name Search</a>
+                            <a class="dropdown-item" href="ltd-search">LTD Search</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown user ">
                         <a class="nav-link dropdown-toggle <?php if($page=='users'){echo 'active';}?>" href="" role="button" data-toggle="dropdown">
                             <i class="ni ni-single-02 text-default"></i> Users
                         </a>

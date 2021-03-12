@@ -104,3 +104,6 @@ function printDiv(divName){
     document.body.innerHTML = originalContents;
 
 }
+
+//Search Client
+

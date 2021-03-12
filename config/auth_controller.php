@@ -332,3 +332,39 @@ if (isset($_POST['tenant_update_btn'])) {
         $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;
     }
 }
+
+
+//Add Business Name Search Query
+if(isset($_POST['businessname_search_btn'])) {
+
+    $reportid = 'BNS'.rand(10000000000, 9999);
+    $username = $conn->real_escape_string($_POST['username']);
+    $conductedby = $conn->real_escape_string($_POST['conductedby']);
+    $clientname = $conn->real_escape_string($_POST['clientname']);
+    $searchdate = $conn->real_escape_string($_POST['searchdate']);
+    $searchvenue = $conn->real_escape_string($_POST['searchvenue']);
+    $companyname = $conn->real_escape_string($_POST['companyname']);
+    $formername = $conn->real_escape_string($_POST['formername']);
+    $regnumber = $conn->real_escape_string($_POST['regnumber']);
+    $regdate = $conn->real_escape_string($_POST['regdate']);
+    $companytype = $conn->real_escape_string($_POST['companytype']);
+    $regaddress = $conn->real_escape_string($_POST['regaddress']);
+    $mainobjects = $conn->real_escape_string($_POST['mainobjects']);
+    $directorsNproprietors = $conn->real_escape_string($_POST['directorsNproprietors']);
+    $agentremark = $conn->real_escape_string($_POST['agentremark']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+    $query = "INSERT INTO namesearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, directorsNproprietors, agentremark, status)"
+        . "VALUES ('$reportid', '$username', '$conductedby', '$clientname', '$searchdate', '$searchvenue', '$companyname', '$formername', '$regnumber', '$regdate', '$companytype', '$regaddress', '$mainobjects', '$directorsNproprietors', '$agentremark')";
+
+    mysqli_query($conn, $query);
+    if (mysqli_affected_rows($conn) > 0) {
+        $_SESSION['report_title'] = "Nice one Chief";
+        $_SESSION['report_message'] = "Business Name Report has been added 👍";
+    }
+    else {
+        $error=$conn->error;
+        $_SESSION['error_report_title'] = "Error Occurred";
+        $_SESSION['error_report_message'] = $error;
+    }
+}
