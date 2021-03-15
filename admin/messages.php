@@ -94,6 +94,7 @@ include "./components/sidenav.php";
                                     </div>
                                 </div>
                                 <div class="card-footer py-4">
+                                <!--
                                     <nav aria-label="...">
                                         <ul class="pagination justify-content-end mb-0">
                                             <li class="page-item disabled">
@@ -117,6 +118,7 @@ include "./components/sidenav.php";
                                             </li>
                                         </ul>
                                     </nav>
+                                    -->
                                 </div>
                             </div>
                         </div>
