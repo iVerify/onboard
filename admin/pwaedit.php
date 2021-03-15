@@ -5,7 +5,7 @@ include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
 
 $id = $_GET['id'];
-$query = "SELECT * FROM tenant WHERE id='$id'";
+$query = "SELECT * FROM previouswork WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id = $row['id'];
@@ -22,12 +22,17 @@ while ($row = mysqli_fetch_array($results)) {
     $mwfirstname = $row['mwfirstname'];
     $mwlastname = $row['mwlastname'];
     $mwoccupation = $row['mwoccupation'];
+    $eduration = $row['eduration'];
+    $conduct = $row['conduct'];
+    $wresignation = $row['wresignation'];
     $rpagentremark = $row['rpagentremark'];
     $rpupload = $row['rpupload'];
     $rpupload1 = $row['rpupload1'];
     $rplatitude = $row['rplatitude'];
     $rplongitude = $row['rplongitude'];
     $status = $row['status'];
+  
+
     switch ($status) {
         case "Pending";
             $class  = 'badge-warning';
@@ -145,6 +150,24 @@ while ($row = mysqli_fetch_array($results)) {
                                                 <input type="text" name="mwoccupation" class="form-control" value="<? echo $mwoccupation ?>">
                                             </div>
                                         </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-city">Duration of Employment </label>
+                                                <input type="text" name="eduration" class="form-control" value="<? echo $eduration ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-country">Attitude and Conduct</label>
+                                                <input type="text" name="conduct" required class="form-control" value="<? echo $conduct ?>">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="input-country">Reason for leaving</label>
+                                                <input type="text" name="wresignation" class="form-control" value="<? echo $wresignation ?>">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -192,7 +215,7 @@ while ($row = mysqli_fetch_array($results)) {
                                     </div>
                                     <div class="text-center text-white">
                                         <div class="form-group">
-                                            <button name="employee_update_btn" class="btn btn-icon btn-default" type="submit">
+                                            <button name="pwa_update_btn" class="btn btn-icon btn-default" type="submit">
                                                 <span class="btn-inner--icon"><i class="ni ni-cloud-upload-96"></i></span>
                                                 <span class="btn-inner--text">Update Report</span>
                                             </button>

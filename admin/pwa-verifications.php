@@ -14,7 +14,7 @@ include "./components/sidenav.php";
             <div class="row align-items-center text-center py-4">
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Previous Work Address Verifications
+                        PWA Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>

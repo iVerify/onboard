@@ -121,6 +121,26 @@ if (isset($_SESSION['guarantor_message']))
 ?>
 
 <?php
+if (isset($_SESSION['pwa_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['pwa_message_title']; ?>",
+            text: "<?php echo $_SESSION['pwa_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./pwa-verifications";
+        });
+    </script>
+    <?php
+    unset($_SESSION['pwa_message']);
+}
+?>
+
+<?php
 if (isset($_SESSION['employee_message']))
 {
     ?>

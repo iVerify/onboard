@@ -155,9 +155,13 @@ require_once "../config/auth_controller.php";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                     echo "<td class='text-right'>"
-                                        ."<a href=\"adminedit?id=$id\" class=\"btn btn-icon btn-info\">
+                                        ."<a href=\"adminedit?id=$id\" class=\"btn btn-sm btn-icon btn-info\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
+                                        </a>
+                                        <a href=\"adminedit?id=$id\" class=\"btn btn-sm btn-icon btn-danger\">
+                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-archive-2\"></i></span>
+                                            <span class=\"btn-inner--text\">Delete</span>
                                         </a>".
                                         "</td >";
                                     "</tr>";
@@ -172,6 +176,7 @@ require_once "../config/auth_controller.php";
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
+                <!--
                     <nav aria-label="...">
                         <ul class="pagination justify-content-end mb-0">
                             <li class="page-item disabled">
@@ -195,6 +200,7 @@ require_once "../config/auth_controller.php";
                             </li>
                         </ul>
                     </nav>
+                    -->
                 </div>
             </div>
         </div>

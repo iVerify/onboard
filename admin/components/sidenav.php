@@ -59,12 +59,14 @@
                             <span class="nav-link-text">Messages</span>
                         </a>
                     </li>
+                    <!--
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="ni ni-notification-70 text-default"></i>
                             <span class="nav-link-text">News</span>
                         </a>
                     </li>
+                    -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="ni ni-books text-default"></i>

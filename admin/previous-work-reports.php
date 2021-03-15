@@ -87,11 +87,11 @@ include "./components/sidenav.php";
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
                                                             <span class=\"btn-inner--text\">Send</span>
                                                         </button>
-                                                        <a href=\"guarantordetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
+                                                        <a href=\"pwadetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
                                                         </a>
-                                                        <a href=\"guarantoredit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
+                                                        <a href=\"pwaedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Edit</span>
                                                         </a>".
