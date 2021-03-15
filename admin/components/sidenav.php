@@ -18,16 +18,10 @@
                             <span class="nav-link-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown user ">
-                        <a class="nav-link dropdown-toggle <?php if($page=='verifications'){echo 'active';}?>" href="" role="button" data-toggle="dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link <?php if($page=='verifications'){echo 'active';}?>" href="verifications">
                             <i class="ni ni-archive-2  text-default"></i> Verifications
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="employee-verifications">Employee</a>
-                            <a class="dropdown-item" href="tenant-verifications">Tenant</a>
-                            <a class="dropdown-item" href="guarantor-verifications">Guarantor</a>
-                            <a class="dropdown-item" href="pwa-verifications">Previous Work Address</a>
-                        </div>
                     </li>
                     <li class="nav-item dropdown user ">
                         <a class="nav-link dropdown-toggle <?php if($page=='company'){echo 'active';}?>" href="" role="button" data-toggle="dropdown">

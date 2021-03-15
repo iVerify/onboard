@@ -36,7 +36,7 @@ include "./components/sidenav.php";
                                         <table class="table align-items-center" id="myData">
                                             <thead class="thead-light">
                                             <tr>
-                                                <th scope="col" class="sort" data-sort="sn">S/N</th>
+                                                <th scope="col" class="sort" data-sort="sn">Agent ID</th>
                                                 <th scope="col" class="sort" data-sort="sn">Agent Name</th>
                                                 <th scope="col" class="sort" data-sort="budget">Purpose</th>
                                                 <th scope="col" class="sort" data-sort="status">Comment</th>
@@ -52,6 +52,7 @@ include "./components/sidenav.php";
                                                 // output data of each row
                                                 while($row = mysqli_fetch_assoc($result)) {
                                                     $id = $row['id'];
+                                                    $agentid = $row['agentid'];
                                                     $purpose = $row['purpose'];
                                                     $agentid = $row['agentid'];
                                                     $comment = $row['comment'];
@@ -63,22 +64,22 @@ include "./components/sidenav.php";
                                                     $comment = substr($comment, 0, $commentlength);
 
                                                     echo "<tr>";
-                                                    echo "<td class=\"budget\">" . $id . "</td>";
-                                                    echo "<td class=\"budget\">" . $firstname. "</td>";
-                                                    echo "<td class=\"budget\">" . $purpose . "</td>";
-                                                    echo "<td class=\"budget\">" . $comment." " ."....."."</td>";
+                                                    echo "<td class=\"budget\">" .$agentid. "</td>";
+                                                    echo "<td class=\"budget\">" .$firstname. "</td>";
+                                                    echo "<td class=\"budget\">" .$purpose. "</td>";
+                                                    echo "<td class=\"budget\">" .$comment."" ."....."."</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<!--<a href=\"employeeedit?id=$id\" class=\"btn btn-icon btn-info\">
+                                                        ."<a href=\"#?id=$id\" class=\"btn btn-sm btn-icon btn-info\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
-                                                            <span class=\"btn-inner--text\">Edit</span>
-                                                        </a>-->
-                                                    <a href=\"messagedetails?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                                            <span class=\"btn-inner--text\">Reply</span>
+                                                        </a>
+                                                    <a href=\"messagedetails?id=$id\" class=\"btn btn-sm btn-icon btn-default\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
                                                     </a>
-                                                    <a href=\"\" class=\"btn btn-icon btn-danger\" type=\"button\">
-                                                        <span class=\"btn-inner--icon\"><i class=\"ni ni-fat-remove\"></i></span>
+                                                    <a href=\"\" class=\"btn btn-sm btn-icon btn-danger\" type=\"button\">
+                                                        <span class=\"btn-inner--icon\"><i class=\"ni ni-archive-2\"></i></span>
                                                         <span class=\"btn-inner--text\">Delete</span>
                                                     </a>".
                                                         "</td >";
