@@ -161,6 +161,26 @@ if (isset($_SESSION['tenant_message']))
 ?>
 
 <?php
+if (isset($_SESSION['name_search_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['name_search_message_title']; ?>",
+            text: "<?php echo $_SESSION['rname_search_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./name-search";
+        });
+    </script>
+    <?php
+    unset($_SESSION['name_search_message']);
+}
+?>
+
+<?php
 if (isset($_SESSION['admin_message']))
 {
     ?>

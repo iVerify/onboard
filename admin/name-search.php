@@ -25,6 +25,18 @@ require_once "../config/auth_controller.php";
                                             <input type="text" name="conductedby" class="form-control" value="<? echo $_SESSION['firstName']; ?> <? echo $_SESSION['lastName']; ?>">
                                         </div>
                                     </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-first-name">Search Date </label>
+                                            <input class="form-control" type="date" required placeholder="2018-11-23" name="searchdate">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-first-name">Search Venue</label>
+                                            <input type="text" class="form-control" name="searchvenue" placeholder="Lekki">
+                                        </div>
+                                    </div>
                                     <div class="col-lg-6" style="display: none">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Username </label>
@@ -75,7 +87,7 @@ require_once "../config/auth_controller.php";
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label class="form-control-label" for="input-last-name">Registration Address</label>
+                                            <label class="form-control-label" for="input-last-name">Registered Address</label>
                                             <input type="text" name="regaddress" class="form-control" placeholder="Oniru Victoria Island, Lagos.">
                                         </div>
                                     </div>
@@ -95,7 +107,7 @@ require_once "../config/auth_controller.php";
                             </div>
                             <div class="text-center text-white">
                                 <div class="">
-                                    <button name="businessname_search_btn" class="btn btn-icon btn-default" type="submit">
+                                    <button name="bizname_search_btn" class="btn btn-icon btn-default" type="submit">
                                         <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
                                         <span class="btn-inner--text">Submit Name Search</span>
                                     </button>
@@ -131,21 +143,20 @@ require_once "../config/auth_controller.php";
                 <!-- Card header -->
                 <div class="card-header border-0">
                     <div class="col px-0 pb-3 d-flex justify-content-between">
-                        <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="searchInput" onkeyup="myRecord()" placeholder="Filter Name Search Report">
+                        <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by Company Name">
                         <button class="btn btn-default" data-toggle="modal" data-target="#newNameSearch">Add New Name Search</button>
                     </div>
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
                     <div>
-                        <table class="table align-items-center" id="myData">
+                        <table class="table align-items-center" id="reportData">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="sn">S/N</th>
-                                <th scope="col" class="sort" data-sort="sn">Full Name</th>
-                                <th scope="col" class="sort" data-sort="budget">Username</th>
-                                <th scope="col" class="sort" data-sort="budget">Email</th>
-                                <th scope="col" class="sort" data-sort="budget">Position</th>
+                                <th scope="col" class="sort" data-sort="sn">Report ID</th>
+                                <th scope="col" class="sort" data-sort="sn">Conducted by</th>
+                                <th scope="col" class="sort" data-sort="budget">Company Name</th>
+                                <th scope="col" class="sort" data-sort="budget">Company Type</th>
                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                 <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -158,18 +169,18 @@ require_once "../config/auth_controller.php";
                             if (mysqli_num_rows($result) > 0) {
                                 // output data of each row
                                 while($row = mysqli_fetch_assoc($result)) {
-                                    $id             = $row['id'];
-                                    $username       = $row['username'];
-                                    $firstName      = $row['firstName'];
-                                    $lastName       = $row['lastName'];
-                                    $position       = $row['position'];
-                                    $email          = $row['email'];
+                                    $id = $row['id'];
+                                    $reportid = $row['reportid'];
+                                    $conductedby = $row['conductedby'];
+                                    $companyname  = $row['companyname'];
+                                    $clientname = $row['clientname'];
+                                    $companytype = $row['companytype'];
                                     $status         = $row['status'];
                                     switch ($status) {
-                                        case "Inactive";
+                                        case "Pending";
                                             $class  = 'bg-warning';
                                             break;
-                                        case "Active";
+                                        case "Approved";
                                             $class  = 'bg-success';
                                             break;
                                         default:
@@ -177,17 +188,20 @@ require_once "../config/auth_controller.php";
                                     }
 
                                     echo "<tr>";
-                                    echo "<td class=\"budget\">" . $id . "</td>";
-                                    echo "<td class=\"budget\">" . $firstName . " " . $lastName . "</td>";
-                                    echo "<td class=\"budget\">" . $username . "</td>";
-                                    echo "<td class=\"budget\">" . $email . "</td>";
-                                    echo "<td class=\"budget\">" . $position . "</td>";
+                                    echo "<td class=\"budget\">" . $reportid . "</td>";
+                                    echo "<td class=\"budget\">" . $conductedby. "</td>";
+                                    echo "<td class=\"budget\">" . $companyname . "</td>";
+                                    echo "<td class=\"budget\">" . $companytype . "</td>";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                     echo "<td class='text-right'>"
-                                        ."<a href=\"adminedit?id=$id\" class=\"btn btn-icon btn-info\">
+                                        ."<a href=\"namesearchedit?id=$id\" class=\"btn btn-icon btn-info\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
+                                        </a>
+                                        <a href=\"namesearchdetails?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
+                                            <span class=\"btn-inner--text\">View</span>
                                         </a>".
                                         "</td >";
                                     "</tr>";
@@ -202,6 +216,7 @@ require_once "../config/auth_controller.php";
                 </div>
                 <!-- Card footer -->
                 <div class="card-footer py-4">
+                <!--
                     <nav aria-label="...">
                         <ul class="pagination justify-content-end mb-0">
                             <li class="page-item disabled">
@@ -225,6 +240,7 @@ require_once "../config/auth_controller.php";
                             </li>
                         </ul>
                     </nav>
+                -->
                 </div>
             </div>
         </div>

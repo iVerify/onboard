@@ -335,7 +335,7 @@ if (isset($_POST['tenant_update_btn'])) {
 
 
 //Add Business Name Search Query
-if(isset($_POST['businessname_search_btn'])) {
+if (isset($_POST['bizname_search_btn'])) {
 
     $reportid = 'BNS'.rand(10000000000, 9999);
     $username = $conn->real_escape_string($_POST['username']);
@@ -354,13 +354,13 @@ if(isset($_POST['businessname_search_btn'])) {
     $agentremark = $conn->real_escape_string($_POST['agentremark']);
     $status = $conn->real_escape_string($_POST['status']);
 
-    $query = "INSERT INTO namesearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, directorsNproprietors, agentremark, status)"
+    $bizname_add_query = "INSERT INTO namesearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, directorsNproprietors, agentremark)"
         . "VALUES ('$reportid', '$username', '$conductedby', '$clientname', '$searchdate', '$searchvenue', '$companyname', '$formername', '$regnumber', '$regdate', '$companytype', '$regaddress', '$mainobjects', '$directorsNproprietors', '$agentremark')";
 
-    mysqli_query($conn, $query);
+    mysqli_query($conn, $bizname_add_query);
     if (mysqli_affected_rows($conn) > 0) {
-        $_SESSION['report_title'] = "Nice one Chief";
-        $_SESSION['report_message'] = "Business Name Report has been added 👍";
+        $_SESSION['success_message_title'] = "Nice one Chief";
+        $_SESSION['success_message'] = "Business Name Report has been added 👍";
     }
     else {
         $error=$conn->error;
