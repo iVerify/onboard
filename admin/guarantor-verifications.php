@@ -36,7 +36,7 @@ include "./components/sidenav.php";
                                         <table class="table align-items-center" id="reportData">
                                             <thead class="thead-light">
                                             <tr>
-                                                <th scope="col" class="sort">S/N</th>
+                                                <th scope="col" class="sort">Name of Agent</th>
                                                 <th scope="col" class="sort">Report No.</th>
                                                 <th scope="col" class="sort">Guarantor Name</th>
                                                 <th scope="col" class="sort">Status</th>
@@ -56,6 +56,8 @@ include "./components/sidenav.php";
                                                     $agentid        = $row['agentid'];
                                                     $rpfirstname    = $row['rpfirstname'];
                                                     $rplastname     = $row['rplastname'];
+                                                    $firstname = $row['firstname'];
+                                                    $lastname = $row['lastname'];
                                                     $status         = $row['status'];
                                                     switch ($status) {
                                                         case "Pending";
@@ -69,19 +71,23 @@ include "./components/sidenav.php";
                                                     }
 
                                                     echo "<tr>";
-                                                    echo "<td class=\"budget\">" . $id . "</td>";
-                                                    echo "<td class=\"budget\">" . $reportid . "</td>";
-                                                    echo "<td class=\"budget\">" . $rpfirstname . " " . $rplastname . "</td>";
+                                                    echo "<td class=\"budget\">" .$firstname." ".$lastname. "</td>";
+                                                    echo "<td class=\"budget\">" .$reportid. "</td>";
+                                                    echo "<td class=\"budget\">" .$rpfirstname. " " .$rplastname. "</td>";
                                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<a href=\"guarantoredit?id=$id\" class=\"btn btn-icon btn-info\">
+                                                        ."<a href=\"guarantoredit?id=$id\" class=\"btn btn-sm btn-icon btn-info\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Edit</span>
                                                         </a>
-                                                        <a href=\"guarantordetails?id=$id\" class=\"btn btn-icon btn-default\" type=\"button\">
+                                                        <a href=\"guarantordetails?id=$id\" class=\"btn btn-sm btn-icon btn-default\" type=\"button\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
+                                                        </a>
+                                                        <a href=\"#?id=$id\" class=\"btn btn-icon btn-sm btn-danger\" type=\"button\">
+                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-archive-2\"></i></span>
+                                                            <span class=\"btn-inner--text\">Delete</span>
                                                         </a>".
                                                         "</td >";
                                                     "</tr>";
@@ -95,6 +101,7 @@ include "./components/sidenav.php";
                                     </div>
                                 </div>
                                 <div class="card-footer py-4">
+                                <!--
                                     <nav aria-label="...">
                                         <ul class="pagination justify-content-end mb-0">
                                             <li class="page-item disabled">
@@ -118,6 +125,7 @@ include "./components/sidenav.php";
                                             </li>
                                         </ul>
                                     </nav>
+                                    -->
                                 </div>
                             </div>
                         </div>
