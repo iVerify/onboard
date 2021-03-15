@@ -177,46 +177,5 @@ include "./components/sidenav.php";
                 </div>
             </div>
         </div>
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="card">
-            <div class="card-header border-0">
-                <div class="col px-0 pb-3 d-flex justify-content-between">
-                    <h3 class="mb-0">Reports</h3>
-                    <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter reports by name">
-                </div>
-            </div>
-            <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush" id="reportData">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">S/N</th>
-                    <th scope="col">Report No.</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" class="text-right">Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                      /argon/
-                    </th>
-                    <td>
-                      4,569
-                    </td>
-                    <td>
-                      340
-                    </td>
-                    <td>
-                      <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
+        
 <?php include "./components/footer.php"; ?>
