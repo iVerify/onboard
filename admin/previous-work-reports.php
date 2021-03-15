@@ -20,7 +20,7 @@ include "./components/sidenav.php";
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Employee Approved Verifications
+                    PWA Approved Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -52,7 +52,7 @@ include "./components/sidenav.php";
                                             </thead>
                                             <tbody class="list">
                                             <?php
-                                            $select_query = "SELECT * FROM employee WHERE status='Approved' ORDER BY date ASC";;
+                                            $select_query = "SELECT * FROM previouswork WHERE status='Approved' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                                 // output data of each row
@@ -87,11 +87,11 @@ include "./components/sidenav.php";
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
                                                             <span class=\"btn-inner--text\">Send</span>
                                                         </button>
-                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
+                                                        <a href=\"guarantordetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
                                                         </a>
-                                                        <a href=\"employeeedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
+                                                        <a href=\"guarantoredit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Edit</span>
                                                         </a>".

@@ -18,7 +18,7 @@ include "./components/navbar.php";
 
             <div class="container">
                 <div class="row">
-                  <div class="col">
+                  <div class="col-6">
                       <div class="card">
                           <div class="card-body">
                               <div class="text-center">
@@ -31,7 +31,7 @@ include "./components/navbar.php";
                       </div>
                   </div>
 
-                  <div class="col">
+                  <div class="col-6">
                       <div class="card">
                           <div class="card-body">
                               <div class="text-center">
@@ -44,7 +44,7 @@ include "./components/navbar.php";
                       </div>
                   </div>
 
-                    <div class="col">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
@@ -57,7 +57,7 @@ include "./components/navbar.php";
                         </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
@@ -71,7 +71,7 @@ include "./components/navbar.php";
                     </div>
                 </div>
             </div>
-
+            <!--
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -90,7 +90,7 @@ include "./components/navbar.php";
                                             </tr>
                                             </thead>
                                             <tbody class="list">
-                                                <!--<tr>
+                                                <tr>
                                                     <td class="budget">
                                                         1.
                                                     </td>
@@ -151,7 +151,7 @@ include "./components/navbar.php";
                                                             </div>
                                                         </div>
                                                     </td>
-                                                </tr>-->
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -161,7 +161,7 @@ include "./components/navbar.php";
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 

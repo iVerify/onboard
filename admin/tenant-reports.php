@@ -20,7 +20,7 @@ include "./components/sidenav.php";
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Employee Approved Verifications
+                        Tenant Approved Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -34,7 +34,7 @@ include "./components/sidenav.php";
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Uploaded Reports</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by employee name">
+                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by tenant name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">
@@ -44,7 +44,7 @@ include "./components/sidenav.php";
                                             <tr>
                                                 <th scope="col" class="sort" data-sort="sn">Name of Agent</th>
                                                 <th scope="col" class="sort" data-sort="sn">Report No.</th>
-                                                <th scope="col" class="sort" data-sort="budget">Employee Name</th>
+                                                <th scope="col" class="sort" data-sort="budget">Tenant Name</th>
                                                 <th scope="col" class="sort" data-sort="status">Status</th>
                                                 <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
                                                 <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
@@ -52,7 +52,7 @@ include "./components/sidenav.php";
                                             </thead>
                                             <tbody class="list">
                                             <?php
-                                            $select_query = "SELECT * FROM employee WHERE status='Approved' ORDER BY date ASC";;
+                                            $select_query = "SELECT * FROM tenant WHERE status='Approved' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                                 // output data of each row
@@ -87,11 +87,11 @@ include "./components/sidenav.php";
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
                                                             <span class=\"btn-inner--text\">Send</span>
                                                         </button>
-                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
+                                                        <a href=\"tenantdetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
                                                         </a>
-                                                        <a href=\"employeeedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
+                                                        <a href=\"tenantedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Edit</span>
                                                         </a>".

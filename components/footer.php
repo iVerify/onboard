@@ -3,7 +3,7 @@
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-lg-12">
                     <div class="copyright text-muted">
-                        © <script>document.write(new Date().getFullYear());</script> iVerify&trade; All Rights Reserved.
+                       <!-- © <script>document.write(new Date().getFullYear());</script> iVerify&trade; All Rights Reserved.-->
                     </div>
                 </div>
             </div>
