@@ -24,11 +24,20 @@ include "./components/sidenav.php";
                     <div class="col">
                       <h5 class="card-title text-uppercase text-muted mb-0">Verifications</h5>
                         <?php
-                        $countEmployee = mysqli_query($conn, "SELECT id FROM employee");
-                        $countTenant = mysqli_query($conn, "SELECT id FROM tenant");
-                        $countGuarantor = mysqli_query($conn, "SELECT id FROM guarantor");
-                        $countPWA = mysqli_query($conn, "SELECT id FROM previouswork");
-                        $totalIds = ($countEmployee + $countTenant + $countGuarantor + $countPWA);
+                        $employeeResult = mysqli_query($conn, "SELECT id FROM employee");
+                        $countEmployee = mysqli_num_rows($employeeResult);
+
+                        $tenantResult = mysqli_query($conn, "SELECT id FROM tenant");
+                        $countTenant = mysqli_num_rows($tenantResult);
+
+                        $guarantorResult = mysqli_query($conn, "SELECT id FROM guarantor");
+                        $countGuarantor = mysqli_num_rows($guarantorResult);
+
+                        $previousworkResult = mysqli_query($conn, "SELECT id FROM previouswork");
+                        $countPreviouswork = mysqli_num_rows($previousworkResult);
+
+                        $totalIds = $countEmployee + $countTenant + $countGuarantor + $countPreviouswork;
+                        
                         echo "<span class=\"h2 font-weight-bold mb-0\">".$totalIds."</span>";
                         ?>
                     </div>
@@ -177,5 +186,5 @@ include "./components/sidenav.php";
                 </div>
             </div>
         </div>
-        
+
 <?php include "./components/footer.php"; ?>
