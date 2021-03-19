@@ -31,6 +31,7 @@ if (isset($_POST['add_agent_btn'])) {
 
 //Agent Profile Update
 if (isset($_POST['agentupdate_btn'])) {
+    
     $id = $conn->real_escape_string($_POST['id']);
     $firstname = $conn->real_escape_string($_POST['firstname']);
     $lastname = $conn->real_escape_string($_POST['lastname']);
@@ -85,6 +86,7 @@ if (isset($_POST['add_admin_btn'])) {
 
 //Admin Profile Update
 if (isset($_POST['adminupdate_btn'])) {
+
     $id = $conn->real_escape_string($_POST['id']);
     $firstName = $conn->real_escape_string($_POST['firstName']);
     $lastName = $conn->real_escape_string($_POST['lastName']);
@@ -165,6 +167,7 @@ if(isset($_POST['admin_password_btn'])) {
 
 //Admin Profile Update
 if (isset($_POST['admin_update_btn'])) {
+
     $email          = $conn->real_escape_string($_POST['email']);
     $firstName      = $conn->real_escape_string($_POST['firstName']);
     $lastName       = $conn->real_escape_string($_POST['lastName']);
@@ -210,6 +213,7 @@ if (isset($_POST['add_client_btn'])) {
 
 //Client Account Update
 if (isset($_POST['clientupdate_btn'])) {
+
     $id = $conn->real_escape_string($_POST['id']);
     $firstName = $conn->real_escape_string($_POST['firstName']);
     $lastName = $conn->real_escape_string($_POST['lastName']);
@@ -232,6 +236,7 @@ if (isset($_POST['clientupdate_btn'])) {
 
 //Guarantor Verification Update
 if (isset($_POST['guarantor_update_btn'])) {
+
     $id = $conn->real_escape_string($_POST['id']);
     $status = $conn->real_escape_string($_POST['status']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
@@ -266,6 +271,7 @@ if (isset($_POST['guarantor_update_btn'])) {
 
 //Employee Verification Update
 if (isset($_POST['employee_update_btn'])) {
+
     $id = $conn->real_escape_string($_POST['id']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
     $rpvisitdate = $conn->real_escape_string($_POST['rpvisitdate']);
@@ -297,6 +303,7 @@ if (isset($_POST['employee_update_btn'])) {
 
 //Previous Work Address Verification Update
 if (isset($_POST['pwa_update_btn'])) {
+
     $id = $conn->real_escape_string($_POST['id']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
     $rpvisitdate = $conn->real_escape_string($_POST['rpvisitdate']);
@@ -331,6 +338,7 @@ if (isset($_POST['pwa_update_btn'])) {
 
 //Tenant Verification Update
 if (isset($_POST['tenant_update_btn'])) {
+
     $id = $conn->real_escape_string($_POST['id']);
     $clientName = $conn->real_escape_string($_POST['clientName']);
     $rpvisitdate = $conn->real_escape_string($_POST['rpvisitdate']);
@@ -404,7 +412,7 @@ if (isset($_POST['bizname_search_btn'])) {
 //Add LTD Name Search Query
 if (isset($_POST['ltd_search_btn'])) {
 
-    $reportid = 'BNS'.rand(10000000000, 9999);
+    $reportid = 'LTDS'.rand(10000000000, 9999);
     $username = $conn->real_escape_string($_POST['username']);
     $conductedby = $conn->real_escape_string($_POST['conductedby']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
@@ -433,8 +441,57 @@ if (isset($_POST['ltd_search_btn'])) {
     $status = $conn->real_escape_string($_POST['status']);
 
 
-    $ltd_add_query = "INSERT INTO ltdsearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, directorsNproprietors, agentremark)"
-        . "VALUES ('$reportid', '$username', '$conductedby', '$clientname', '$searchdate', '$searchvenue', '$companyname', '$formername', '$regnumber', '$regdate', '$companytype', '$regaddress', '$mainobjects', '$directorsNproprietors', '$agentremark')";
+    $ltd_add_query = "INSERT INTO ltdsearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, borrowpower, sharecapitalinc, sharecapital, shareclass, paidupcapital, issuedbutunpaid, sharetakenup, annualreturns, registeredcharges, companysecretary, shareholders, directorsNproprietors, agentremark)"
+        . "VALUES ('$reportid', '$username', '$conductedby', '$clientname', '$searchdate', '$searchvenue', '$companyname', '$formername', '$regnumber', '$regdate', '$companytype', '$regaddress', '$mainobjects', '$borrowpower', '$sharecapitalinc', '$sharecapital', '$shareclass', '$paidupcapital', '$issuedbutunpaid', '$sharetakenup', '$annualreturns', '$registeredcharges', '$companysecretary', '$shareholders', '$directorsNproprietors', '$agentremark')";
+        
+    mysqli_query($conn, $ltd_add_query);
+    if (mysqli_affected_rows($conn) > 0) {
+        $_SESSION['success_message_title'] = "Nice one Chief";
+        $_SESSION['success_message'] = "Limited Liability Report has been added 👍";
+    }
+    else {
+        $error=$conn->error;
+        $_SESSION['error_report_title'] = "Error Occurred";
+        $_SESSION['error_report_message'] = $error;
+    }
+}
+
+
+//LTD Name Search Update
+if (isset($_POST['ltd_update_btn'])) {
+
+    $id = $conn->real_escape_string($_POST['id']);
+    $reportid = 'LTDS'.rand(10000000000, 9999);
+    $username = $conn->real_escape_string($_POST['username']);
+    $conductedby = $conn->real_escape_string($_POST['conductedby']);
+    $clientname = $conn->real_escape_string($_POST['clientname']);
+    $searchdate = $conn->real_escape_string($_POST['searchdate']);
+    $searchvenue = $conn->real_escape_string($_POST['searchvenue']);
+    $companyname = $conn->real_escape_string($_POST['companyname']);
+    $formername = $conn->real_escape_string($_POST['formername']);
+    $regnumber = $conn->real_escape_string($_POST['regnumber']);
+    $regdate = $conn->real_escape_string($_POST['regdate']);
+    $companytype = $conn->real_escape_string($_POST['companytype']);
+    $regaddress = $conn->real_escape_string($_POST['regaddress']);
+    $mainobjects = $conn->real_escape_string($_POST['mainobjects']);
+    $borrowpower = $conn->real_escape_string($_POST['borrowpower']);
+    $sharecapitalinc = $conn->real_escape_string($_POST['sharecapitalinc']);
+    $sharecapital = $conn->real_escape_string($_POST['sharecapital']);
+    $shareclass = $conn->real_escape_string($_POST['shareclass']);
+    $paidupcapital = $conn->real_escape_string($_POST['paidupcapital']);
+    $issuedbutunpaid = $conn->real_escape_string($_POST['issuedbutunpaid']);
+    $sharetakenup = $conn->real_escape_string($_POST['sharetakenup']);
+    $annualreturns = $conn->real_escape_string($_POST['annualreturns']);
+    $registeredcharges = $conn->real_escape_string($_POST['registeredcharges']);
+    $companysecretary = $conn->real_escape_string($_POST['companysecretary']);
+    $shareholders = $conn->real_escape_string($_POST['shareholders']);
+    $directorsNproprietors = $conn->real_escape_string($_POST['directorsNproprietors']);
+    $agentremark = $conn->real_escape_string($_POST['agentremark']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+
+    $ltd_add_query = "INSERT INTO ltdsearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, borrowpower, sharecapitalinc, sharecapital, shareclass, paidupcapital, issuedbutunpaid, sharetakenup, annualreturns, registeredcharges, companysecretary, shareholders, directorsNproprietors, agentremark)"
+        . "VALUES ('$reportid', '$username', '$conductedby', '$clientname', '$searchdate', '$searchvenue', '$companyname', '$formername', '$regnumber', '$regdate', '$companytype', '$regaddress', '$mainobjects', '$borrowpower', '$sharecapitalinc', '$sharecapital', '$shareclass', '$paidupcapital', '$issuedbutunpaid', '$sharetakenup', '$annualreturns', '$registeredcharges', '$companysecretary', '$shareholders', '$directorsNproprietors', '$agentremark')";
         
     mysqli_query($conn, $ltd_add_query);
     if (mysqli_affected_rows($conn) > 0) {

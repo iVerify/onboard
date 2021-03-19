@@ -95,7 +95,23 @@ if(isset($_POST['password_btn'])) {
                                     <div class="col">
                                         <div class="card-profile-stats d-flex justify-content-center">
                                             <div>
-                                                <span class="heading">0</span>
+                                            <?php 
+                                            $employeeResult = mysqli_query($conn, "SELECT id FROM employee WHERE agentid = '$agentid'");
+                                            $countEmployee = mysqli_num_rows($employeeResult);
+                    
+                                            $tenantResult = mysqli_query($conn, "SELECT id FROM tenant WHERE agentid = '$agentid'");
+                                            $countTenant = mysqli_num_rows($tenantResult);
+                    
+                                            $guarantorResult = mysqli_query($conn, "SELECT id FROM guarantor WHERE agentid = '$agentid'");
+                                            $countGuarantor = mysqli_num_rows($guarantorResult);
+                    
+                                            $previousworkResult = mysqli_query($conn, "SELECT id FROM previouswork WHERE agentid = '$agentid'");
+                                            $countPreviouswork = mysqli_num_rows($previousworkResult);
+                    
+                                            $totalVerifications = $countEmployee + $countTenant + $countGuarantor + $countPreviouswork;
+
+                                            echo "<span class=\"heading\">".$totalVerifications."</span>";
+                                            ?>
                                                 <span class="description">Verifications</span>
                                             </div>
                                         </div>
