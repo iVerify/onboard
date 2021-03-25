@@ -228,7 +228,7 @@ require_once "../config/auth_controller.php";
                             </thead>
                                 <tbody>
                                 <?php
-                                $select_query = "SELECT * FROM ltdsearch ORDER BY date ASC";
+                                $select_query = "SELECT * FROM ltdsearch WHERE username = '$username' ORDER BY date ASC";
                                 $result = mysqli_query($conn, $select_query);
                                 if (mysqli_num_rows($result) > 0) {
                                     // output data of each row
