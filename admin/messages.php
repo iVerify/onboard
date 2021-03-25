@@ -28,23 +28,20 @@ include "./components/sidenav.php";
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Messages</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="searchInput" onkeyup="myRecord()" placeholder="Filter by employee name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">
-                                    <div>
-                                        <table class="table align-items-center" id="myData">
-                                            <thead class="thead-light">
+                                <table id="datatables-basic" class="table table-striped" style="width:100%">
+                                        <thead>
                                             <tr>
-                                                <th scope="col" class="sort" data-sort="sn">Agent ID</th>
-                                                <th scope="col" class="sort" data-sort="sn">Agent Name</th>
-                                                <th scope="col" class="sort" data-sort="budget">Purpose</th>
-                                                <th scope="col" class="sort" data-sort="status">Comment</th>
-                                                <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
-                                                <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
+                                                <th>Agent ID</th>
+                                                <th>Agent Name</th>
+                                                <th>Purpose</th>
+                                                <th>Comment</th>
+                                                <th class="text-right">Action</th>
                                             </tr>
-                                            </thead>
-                                            <tbody class="list">
+                                        </thead>
+                                            <tbody>
                                             <?php
                                             $select_query = "SELECT * FROM messages ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
@@ -74,10 +71,10 @@ include "./components/sidenav.php";
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Reply</span>
                                                         </a>
-                                                    <a href=\"messagedetails?id=$id\" class=\"btn btn-sm btn-icon btn-default\" type=\"button\">
+                                                    <button data-id='".$id."' class=\"btn btn-sm btn-icon btn-default messageinfo\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                         <span class=\"btn-inner--text\">View</span>
-                                                    </a>
+                                                    </button>
                                                     <a href=\"\" class=\"btn btn-sm btn-icon btn-danger\" type=\"button\">
                                                         <span class=\"btn-inner--icon\"><i class=\"ni ni-archive-2\"></i></span>
                                                         <span class=\"btn-inner--text\">Delete</span>
@@ -90,35 +87,16 @@ include "./components/sidenav.php";
                                             }
                                             ?>
                                             </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="card-footer py-4">
-                                <!--
-                                    <nav aria-label="...">
-                                        <ul class="pagination justify-content-end mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1">
-                                                    <i class="fas fa-angle-left"></i>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">
-                                                    <i class="fas fa-angle-right"></i>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    -->
+                                        <tfoot>
+                                            <tr>
+                                                <th>Agent ID</th>
+                                                <th>Agent Name</th>
+                                                <th>Purpose</th>
+                                                <th>Comment</th>
+                                                <th class="text-right">Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -130,4 +108,7 @@ include "./components/sidenav.php";
 
 
 
-<?php include "./components/footer.php"; ?>
+<?php 
+include "./components/modal.php";
+include "./components/footer.php"; 
+?>

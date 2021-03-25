@@ -34,23 +34,20 @@ include "./components/sidenav.php";
                                 <div class="card-header border-0">
                                     <div class="col px-0 pb-3 d-flex justify-content-between">
                                         <h3 class="mb-0">Uploaded Reports</h3>
-                                        <input class="form-control w-25 mr-3 mb-0" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by employee name">
                                     </div>
                                 </div>
                                 <div class="table-responsive">
-                                    <div>
-                                        <table class="table align-items-center" id="reportData">
-                                            <thead class="thead-light">
+                                    <table id="datatables-basic" class="table table-striped" style="width:100%">
+                                        <thead>
                                             <tr>
-                                                <th scope="col" class="sort" data-sort="sn">Name of Agent</th>
-                                                <th scope="col" class="sort" data-sort="sn">Report No.</th>
-                                                <th scope="col" class="sort" data-sort="budget">Employee Name</th>
-                                                <th scope="col" class="sort" data-sort="status">Status</th>
-                                                <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
-                                                <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
+                                                <th>Name of Agent</th>
+                                                <th>Report No.</th>
+                                                <th>Employee Name</th>
+                                                <th>Status</th>
+                                                <th class="text-right">Action</th>
                                             </tr>
-                                            </thead>
-                                            <tbody class="list">
+                                        </thead>
+                                            <tbody>
                                             <?php
                                             $select_query = "SELECT * FROM employee WHERE status='Approved' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
@@ -87,7 +84,7 @@ include "./components/sidenav.php";
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
                                                             <span class=\"btn-inner--text\">Send</span>
                                                         </button>
-                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
+                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
                                                         </a>
@@ -103,35 +100,16 @@ include "./components/sidenav.php";
                                             }
                                             ?>
                                             </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="card-footer py-4">
-                                <!--
-                                    <nav aria-label="...">
-                                        <ul class="pagination justify-content-end mb-0">
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="#" tabindex="-1">
-                                                    <i class="fas fa-angle-left"></i>
-                                                    <span class="sr-only">Previous</span>
-                                                </a>
-                                            </li>
-                                            <li class="page-item active">
-                                                <a class="page-link" href="#">1</a>
-                                            </li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                            <li class="page-item">
-                                                <a class="page-link" href="#">
-                                                    <i class="fas fa-angle-right"></i>
-                                                    <span class="sr-only">Next</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                    -->
+                                        <tfoot>
+                                            <tr>
+                                                <th>Name of Agent</th>
+                                                <th>Report No.</th>
+                                                <th>Employee Name</th>
+                                                <th>Status</th>
+                                                <th class="text-right">Action</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -140,45 +118,6 @@ include "./components/sidenav.php";
             </div>
         </div>
     </div>
-
-
-    <!-- Send Modal -->
-    <div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="card mb--1">
-                                    <div class="card-body">
-                                        <div class="text-center">
-                                            <a href="employee-reports">
-                                                <img src="../assets/img/icons/send.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
-                                                <h3>Send</h3>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-6">
-                                <div class="card mb--1">
-                                    <div class="card-body">
-                                        <div class="text-center">
-                                            <a href="tenant-reports">
-                                                <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
-                                                <h3>Download</h3>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Send Modal -->
 
 
 <?php include "./components/footer.php"; ?>

@@ -22,7 +22,7 @@ require_once "../config/auth_controller.php";
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-control-label" for="input-first-name">Search Conducted by </label>
-                                            <input type="text" name="conductedby" class="form-control" value="<? echo $_SESSION['firstName']; ?> <? echo $_SESSION['lastName']; ?>">
+                                            <input type="text" name="conductedby" class="form-control" value="<? echo $_SESSION['firstName']; ?> <? echo $_SESSION['lastName']; ?>" readonly>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
@@ -140,29 +140,27 @@ require_once "../config/auth_controller.php";
     <div class="row">
         <div class="col">
             <div class="card">
-                <!-- Card header -->
+                <div class="card-body">
+                    <!-- Card header -->
                 <div class="card-header border-0">
                     <div class="col px-0 pb-3 d-flex justify-content-between">
-                        <input class="form-control w-25 mr-3 mb-0 filter" type="text" id="reportInput" onkeyup="reportFunction()" placeholder="Filter by Company Name">
                         <button class="btn btn-default" data-toggle="modal" data-target="#newNameSearch">Add New Name Search</button>
                     </div>
                 </div>
                 <!-- Light table -->
                 <div class="table-responsive">
-                    <div>
-                        <table class="table align-items-center" id="reportData">
-                            <thead class="thead-light">
+                    <table id="datatables-basic" class="table table-striped" style="width:100%">
+                        <thead>
                             <tr>
-                                <th scope="col" class="sort" data-sort="sn">Report ID</th>
-                                <th scope="col" class="sort" data-sort="sn">Conducted by</th>
-                                <th scope="col" class="sort" data-sort="budget">Company Name</th>
-                                <th scope="col" class="sort" data-sort="budget">Company Type</th>
-                                <th scope="col" class="sort" data-sort="status">Status</th>
-                                <!--<th scope="col" class="sort" data-sort="completion">Category</th>-->
-                                <th scope="col" class="sort text-right" data-sort="actions">Actions</th>
+                                <th>Report ID</th>
+                                <th>Conducted by</th>
+                                <th>Company Name</th>
+                                <th>Company Type</th>
+                                <th>Status</th>
+                                <th class="text-right">Action</th>
                             </tr>
-                            </thead>
-                            <tbody class="list">
+                        </thead>
+                            <tbody>
                             <?php
                             $select_query = "SELECT * FROM namesearch ORDER BY date ASC";
                             $result = mysqli_query($conn, $select_query);
@@ -215,36 +213,18 @@ require_once "../config/auth_controller.php";
                             }
                             ?>
                             </tbody>
-                        </table>
-                    </div>
+                        <tfoot>
+                            <tr>
+                                <th>Report ID</th>
+                                <th>Conducted by</th>
+                                <th>Company Name</th>
+                                <th>Company Type</th>
+                                <th>Status</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
-                <!-- Card footer -->
-                <div class="card-footer py-4">
-                <!--
-                    <nav aria-label="...">
-                        <ul class="pagination justify-content-end mb-0">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">
-                                    <i class="fas fa-angle-left"></i>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">
-                                    <i class="fas fa-angle-right"></i>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                -->
                 </div>
             </div>
         </div>

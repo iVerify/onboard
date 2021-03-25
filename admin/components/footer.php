@@ -1,3 +1,41 @@
+<!-- Send Modal -->
+<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb--1">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="employee-reports">
+                                                <img src="../assets/img/icons/send.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <h3>Send Mail</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="card mb--1">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="" onclick="HTMLtoPDF()">
+                                                <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <h3>Download</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Send Modal -->
+
 <!-- Footer -->
 <footer class="footer pt-0">
     <div class="row align-items-center justify-content-center text-center">
@@ -23,9 +61,66 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
 <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 <script src="../assets/js/map.js"></script>
-<script src="../assets/js/jspdf.min.js"></script>
 <script src="../assets/js/app.js"></script>
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script>
+        function HTMLtoPDF(){
+            var doc = new jsPDF()
+            var HTMLelement =  $(".printReport").html()
+            doc.fromHTML(HTMLelement,10,10{
+                'width':190
+            });
+            doc.save(iVerifyReport.pdf )
+        }
+    </script>
+    <!-- Message Modal -->
+    <script>
+        $(document).ready(function(){
+            $('.messageinfo').click(function(){
+            
+                var messageid = $(this).data('id');
+                
+                // AJAX request
+                $.ajax({
+                    url: './select.php',
+                    type: 'post',
+                    data: {messageid: messageid},
+                    success: function(response){ 
+                        // Add response in Modal body
+                        $('.modal-body').html(response);
+                        // Display Modal
+                        $('#viewMessageModal').modal('show'); 
+                    }
+                });
+            });
+        });
+	</script>
+    <!-- Message Modal -->
+
+    <!-- View Employee Modal -->
+    <script>
+        $(document).ready(function(){
+            $('.employeeinfo').click(function(){
+            
+                var employeeid = $(this).data('id');
+                
+                // AJAX request
+                $.ajax({
+                    url: './selectemployee.php',
+                    type: 'post',
+                    data: {employeeid: employeeid},
+                    success: function(response){ 
+                        // Add response in Modal body
+                        $('.modal-body').html(response);
+                        // Display Modal
+                        $('#viewemployeeModal').modal('show'); 
+                    }
+                });
+            });
+        });
+	</script>
+    <!-- View Employee Modal -->
 
     <script>
 		$(function() {
