@@ -5,7 +5,7 @@ include "./components/sidenav.php";
 require_once "../config/auth_controller.php";
 
 $id = $_GET['id'];
-$query = "SELECT * FROM ltdsearch WHERE id='$id'";
+$query = "SELECT * FROM namesearch WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id = $row['id'];
@@ -22,17 +22,6 @@ while ($row = mysqli_fetch_array($results)) {
     $companytype = $row['companytype'];
     $regaddress = $row['regaddress'];
     $mainobjects = $row['mainobjects'];
-    $borrowpower = $row['borrowpower'];
-    $sharecapitalinc = $row['sharecapitalinc'];
-    $sharecapital = $row['sharecapital'];
-    $shareclass = $row['shareclass'];
-    $paidupcapital = $row['paidupcapital'];
-    $issuedbutunpaid = $row['issuedbutunpaid'];
-    $sharetakenup = $row['sharetakenup'];
-    $annualreturns = $row['annualreturns'];
-    $registeredcharges = $row['registeredcharges'];
-    $companysecretary = $row['companysecretary'];
-    $shareholders = $row['shareholders'];
     $directorsNproprietors = $row['directorsNproprietors'];
     $agentremark = $row['agentremark'];
     $status = $row['status'];
@@ -171,75 +160,9 @@ while ($row = mysqli_fetch_array($results)) {
                                 <label class="form-control-label">Company Main Object</label>
                                 <textarea rows="4" name="mainobjects" class="form-control"><? echo $mainobjects ?></textarea>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Borrowing Power (If Any)</label>
-                                        <input type="text" name="borrowpower" class="form-control" value="<? echo $borrowpower ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Share Capital at Incorporation (If Any)</label>
-                                        <input type="text" name="sharecapitalinc" class="form-control" value="<? echo $sharecapitalinc ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Current Share Capital (If Any)</label>
-                                        <input type="text" name="sharecapital" class="form-control" value="<? echo $sharecapital ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Class of Shares (If Any)</label>
-                                        <input type="text" name="shareclass" class="form-control" value="<? echo $shareclass ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Paid up Capital Under Each Class (If Any)</label>
-                                        <input type="text" name="paidupcapital" class="form-control" value="<? echo $paidupcapital ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Issued but Unpaid Shares (If Any)</label>
-                                        <input type="text" name="issuedbutunpaid" class="form-control" value="<? echo $issuedbutunpaid ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Share Taken Up Payable in Cash (If Any)</label>
-                                        <input type="text" name="sharetakenup" class="form-control" value="<? echo $sharetakenup ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Annual Returns Status (If Any)</label>
-                                        <input type="text" name="annualreturns" class="form-control" value="<? echo $annualreturns ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Registered Charges (If Any)</label>
-                                        <input type="text" name="registeredcharges" class="form-control" value="<? echo $registeredcharges ?>">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Company Secretary</label>
-                                        <input type="text" name="companysecretary" class="form-control" value="<? echo $companysecretary ?>">
-                                    </div>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label class="form-control-label">Directors/Proprietors/Trustees</label>
                                 <textarea rows="4" name="directorsNproprietors" class="form-control"><? echo $directorsNproprietors ?></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">Shareholders/Shareholding Structure</label>
-                                <textarea rows="4" name="shareholders" class="form-control"><? echo $shareholders ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label class="form-control-label">Agent Remark</label>
@@ -248,9 +171,9 @@ while ($row = mysqli_fetch_array($results)) {
                         </div>
                         <div class="text-center text-white">
                             <div class="">
-                                <button name="ltd_update_btn" class="btn btn-icon btn-default" type="submit">
+                                <button name="bizname_update_btn" class="btn btn-icon btn-default" type="submit">
                                     <span class="btn-inner--icon"><i class="ni ni-fat-add"></i></span>
-                                    <span class="btn-inner--text">Update LTD Search</span>
+                                    <span class="btn-inner--text">Update Name Search</span>
                                 </button>
                             </div>
                         </div>

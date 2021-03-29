@@ -64,7 +64,7 @@ while ($row = mysqli_fetch_array($results)) {
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="printReport">
+                    <div id="justdownload">
                         <div class="col-xl-12">
                             <div class="card row">
                                 <div class="card-body">
@@ -155,7 +155,7 @@ while ($row = mysqli_fetch_array($results)) {
                                                 <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                 <span class=\"btn-inner--text\">Edit</span>
                                             </a>" ?>
-                                        <a href="javascript:genPDF()" class="btn btn-info">
+                                        <a href="" class="btn btn-info">
                                             <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
                                             <span class="btn-inner--text">Download PDF</span>
                                         </a>

@@ -153,7 +153,6 @@ require_once "../config/auth_controller.php";
                         <thead>
                             <tr>
                                 <th>Report ID</th>
-                                <th>Conducted by</th>
                                 <th>Company Name</th>
                                 <th>Company Type</th>
                                 <th>Status</th>
@@ -162,7 +161,7 @@ require_once "../config/auth_controller.php";
                         </thead>
                             <tbody>
                             <?php
-                            $select_query = "SELECT * FROM namesearch WHERE username = '$username' ORDER BY date ASC";
+                            $select_query = "SELECT * FROM namesearch ORDER BY date ASC";
                             $result = mysqli_query($conn, $select_query);
                             if (mysqli_num_rows($result) > 0) {
                                 // output data of each row
@@ -187,7 +186,6 @@ require_once "../config/auth_controller.php";
 
                                     echo "<tr>";
                                     echo "<td class=\"budget\">" . $reportid . "</td>";
-                                    echo "<td class=\"budget\">" . $conductedby. "</td>";
                                     echo "<td class=\"budget\">" . $companyname . "</td>";
                                     echo "<td class=\"budget\">" . $companytype . "</td>";
                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
@@ -197,10 +195,10 @@ require_once "../config/auth_controller.php";
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                             <span class=\"btn-inner--text\">Edit</span>
                                         </a>
-                                        <a href=\"namesearchdetails?id=$id\" class=\"btn btn-sm btn-icon btn-default\" type=\"button\">
+                                        <button data-id='".$id."' class=\"btn btn-sm btn-icon btn-default namesearchinfo\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                             <span class=\"btn-inner--text\">View</span>
-                                        </a>
+                                        </button>
                                         <a href=\"#?id=$id\" class=\"btn btn-icon btn-sm btn-danger\" type=\"button\">
                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-archive-2\"></i></span>
                                             <span class=\"btn-inner--text\">Delete</span>
@@ -216,7 +214,6 @@ require_once "../config/auth_controller.php";
                         <tfoot>
                             <tr>
                                 <th>Report ID</th>
-                                <th>Conducted by</th>
                                 <th>Company Name</th>
                                 <th>Company Type</th>
                                 <th>Status</th>
@@ -231,4 +228,7 @@ require_once "../config/auth_controller.php";
     </div>
 
 
-<?php include "./components/footer.php"; ?>
+<?php 
+include "./components/modal.php";
+include "./components/footer.php";
+?>

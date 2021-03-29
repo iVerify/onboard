@@ -21,7 +21,7 @@
                                 <div class="card mb--1">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <a href="" onclick="HTMLtoPDF()">
+                                            <a href="" onclick="generatePDF()">
                                                 <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
                                                 <h3>Download</h3>
                                             </a>
@@ -58,20 +58,18 @@
 <script src="../assets/js/main.js?v=1.2.0"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDODKndJ8udk9xrwV_9KZwzziQOgsAR3Ew&callback=myMap"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 <script src="../assets/js/map.js"></script>
 <script src="../assets/js/app.js"></script>
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script>
-        function HTMLtoPDF(){
+        function generatePDF(){
+            var report = document.getElementById('justdownload')
             var doc = new jsPDF()
-            var HTMLelement =  $(".printReport").html()
-            doc.fromHTML(HTMLelement,10,10{
-                'width':190
-            });
-            doc.save(iVerifyReport.pdf )
+
+            doc.fromHTML(report,15,15)
+
+            doc.save("iReport.pdf")
         }
     </script>
     <!-- Message Modal -->
@@ -98,29 +96,53 @@
 	</script>
     <!-- Message Modal -->
 
-    <!-- View Employee Modal -->
+    <!-- View Name Search Modal -->
     <script>
         $(document).ready(function(){
-            $('.employeeinfo').click(function(){
+            $('.namesearchinfo').click(function(){
             
-                var employeeid = $(this).data('id');
+                var namesearchid = $(this).data('id');
                 
                 // AJAX request
                 $.ajax({
-                    url: './selectemployee.php',
+                    url: './namesearch_select.php',
                     type: 'post',
-                    data: {employeeid: employeeid},
+                    data: {namesearchid: namesearchid},
                     success: function(response){ 
                         // Add response in Modal body
                         $('.modal-body').html(response);
                         // Display Modal
-                        $('#viewemployeeModal').modal('show'); 
+                        $('#viewNameSearchModal').modal('show'); 
                     }
                 });
             });
         });
 	</script>
-    <!-- View Employee Modal -->
+    <!-- View Name Search Modal -->
+
+    <!-- View LTD Search Modal -->
+    <script>
+        $(document).ready(function(){
+            $('.ltdsearchinfo').click(function(){
+            
+                var ltdsearchid = $(this).data('id');
+                
+                // AJAX request
+                $.ajax({
+                    url: './ltdsearch_select.php',
+                    type: 'post',
+                    data: {ltdsearchid: ltdsearchid},
+                    success: function(response){ 
+                        // Add response in Modal body
+                        $('.modal-body').html(response);
+                        // Display Modal
+                        $('#viewLtdModal').modal('show'); 
+                    }
+                });
+            });
+        });
+	</script>
+    <!-- View LTD Search Modal -->
 
     <script>
 		$(function() {
@@ -300,7 +322,7 @@ if (isset($_SESSION['name_search_message']))
     <script>
         swal({
             title: "<?php echo $_SESSION['name_search_message_title']; ?>",
-            text: "<?php echo $_SESSION['rname_search_message']; ?>",
+            text: "<?php echo $_SESSION['name_search_message']; ?>",
             icon: "success",
             button: false,
             timer: 2000,
@@ -310,6 +332,26 @@ if (isset($_SESSION['name_search_message']))
     </script>
     <?php
     unset($_SESSION['name_search_message']);
+}
+?>
+
+<?php
+if (isset($_SESSION['ltd_search_message']))
+{
+    ?>
+    <script>
+        swal({
+            title: "<?php echo $_SESSION['ltd_search_message_title']; ?>",
+            text: "<?php echo $_SESSION['ltd_search_message']; ?>",
+            icon: "success",
+            button: false,
+            timer: 2000,
+        }).then(function() {
+            window.location = "./ltd-search";
+        });
+    </script>
+    <?php
+    unset($_SESSION['ltd_search_message']);
 }
 ?>
 

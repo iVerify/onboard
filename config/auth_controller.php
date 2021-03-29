@@ -31,7 +31,7 @@ if (isset($_POST['add_agent_btn'])) {
 
 //Agent Profile Update
 if (isset($_POST['agentupdate_btn'])) {
-    
+
     $id = $conn->real_escape_string($_POST['id']);
     $firstname = $conn->real_escape_string($_POST['firstname']);
     $lastname = $conn->real_escape_string($_POST['lastname']);
@@ -409,6 +409,39 @@ if (isset($_POST['bizname_search_btn'])) {
 }
 
 
+
+//Business Name Search Update Query
+if (isset($_POST['bizname_update_btn'])) {
+
+    $id = $conn->real_escape_string($_POST['id']);
+    $conductedby = $conn->real_escape_string($_POST['conductedby']);
+    $clientname = $conn->real_escape_string($_POST['clientname']);
+    $searchdate = $conn->real_escape_string($_POST['searchdate']);
+    $searchvenue = $conn->real_escape_string($_POST['searchvenue']);
+    $companyname = $conn->real_escape_string($_POST['companyname']);
+    $formername = $conn->real_escape_string($_POST['formername']);
+    $regnumber = $conn->real_escape_string($_POST['regnumber']);
+    $regdate = $conn->real_escape_string($_POST['regdate']);
+    $companytype = $conn->real_escape_string($_POST['companytype']);
+    $regaddress = $conn->real_escape_string($_POST['regaddress']);
+    $mainobjects = $conn->real_escape_string($_POST['mainobjects']);
+    $directorsNproprietors = $conn->real_escape_string($_POST['directorsNproprietors']);
+    $agentremark = $conn->real_escape_string($_POST['agentremark']);
+    $status = $conn->real_escape_string($_POST['status']);
+
+    $businessname_update_query = "UPDATE namesearch SET conductedby='$conductedby', clientname='$clientname', searchdate='$searchdate', searchvenue='$searchvenue', companyname='$companyname', formername='$formername', regnumber='$regnumber', regdate='$regdate', companytype='$companytype', regaddress='$regaddress', mainobjects='$mainobjects', directorsNproprietors='$directorsNproprietors', agentremark='$agentremark', status='$status' WHERE id='$id'";
+    mysqli_query($conn, $businessname_update_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['name_search_message_title'] = "Business Name Updated";
+        $_SESSION['name_search_message'] = "Welldone Chief 👍";
+    } else {
+        $_SESSION['message_title']  = "Update Failed";
+        $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;
+    }
+}
+
+
+
 //Add LTD Name Search Query
 if (isset($_POST['ltd_search_btn'])) {
 
@@ -461,8 +494,6 @@ if (isset($_POST['ltd_search_btn'])) {
 if (isset($_POST['ltd_update_btn'])) {
 
     $id = $conn->real_escape_string($_POST['id']);
-    $reportid = 'LTDS'.rand(10000000000, 9999);
-    $username = $conn->real_escape_string($_POST['username']);
     $conductedby = $conn->real_escape_string($_POST['conductedby']);
     $clientname = $conn->real_escape_string($_POST['clientname']);
     $searchdate = $conn->real_escape_string($_POST['searchdate']);
@@ -490,17 +521,13 @@ if (isset($_POST['ltd_update_btn'])) {
     $status = $conn->real_escape_string($_POST['status']);
 
 
-    $ltd_add_query = "INSERT INTO ltdsearch (reportid, username, conductedby, clientname, searchdate, searchvenue, companyname, formername, regnumber, regdate, companytype, regaddress, mainobjects, borrowpower, sharecapitalinc, sharecapital, shareclass, paidupcapital, issuedbutunpaid, sharetakenup, annualreturns, registeredcharges, companysecretary, shareholders, directorsNproprietors, agentremark)"
-        . "VALUES ('$reportid', '$username', '$conductedby', '$clientname', '$searchdate', '$searchvenue', '$companyname', '$formername', '$regnumber', '$regdate', '$companytype', '$regaddress', '$mainobjects', '$borrowpower', '$sharecapitalinc', '$sharecapital', '$shareclass', '$paidupcapital', '$issuedbutunpaid', '$sharetakenup', '$annualreturns', '$registeredcharges', '$companysecretary', '$shareholders', '$directorsNproprietors', '$agentremark')";
-        
-    mysqli_query($conn, $ltd_add_query);
-    if (mysqli_affected_rows($conn) > 0) {
-        $_SESSION['success_message_title'] = "Nice one Chief";
-        $_SESSION['success_message'] = "Limited Liability Report has been added 👍";
-    }
-    else {
-        $error=$conn->error;
-        $_SESSION['error_report_title'] = "Error Occurred";
-        $_SESSION['error_report_message'] = $error;
+    $businessname_update_query = "UPDATE ltdsearch SET conductedby='$conductedby', clientname='$clientname', searchdate='$searchdate', searchvenue='$searchvenue', companyname='$companyname', formername='$formername', regnumber='$regnumber', regdate='$regdate', companytype='$companytype', regaddress='$regaddress', mainobjects='$mainobjects', borrowpower='$borrowpower', sharecapitalinc='$sharecapitalinc', sharecapital='$sharecapital', shareclass='$shareclass', paidupcapital='$paidupcapital', issuedbutunpaid='$issuedbutunpaid', sharetakenup='$sharetakenup', annualreturns='$annualreturns', registeredcharges='$registeredcharges', companysecretary='$companysecretary', shareholders='$shareholders', directorsNproprietors='$directorsNproprietors', agentremark='$agentremark', status='$status' WHERE id='$id'";
+    mysqli_query($conn, $businessname_update_query);
+    if (mysqli_affected_rows($conn) > 0 ) {
+        $_SESSION['ltd_search_message_title'] = "Limited Liability Search Updated";
+        $_SESSION['ltd_search_message'] = "Welldone Chief 👍";
+    } else {
+        $_SESSION['message_title']  = "Update Failed";
+        $_SESSION['message']    = "Error updating record now: ".mysqli_error($conn).$id;
     }
 }
