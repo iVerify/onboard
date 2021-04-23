@@ -21,7 +21,7 @@
                                 <div class="card mb--1">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <a href="" onclick="generatePDF()">
+                                            <a href="#" id="downloadReport">
                                                 <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
                                                 <h3>Download</h3>
                                             </a>
@@ -61,17 +61,22 @@
 <script src="../assets/js/map.js"></script>
 <script src="../assets/js/app.js"></script>
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script>
-        function generatePDF(){
-            var report = document.getElementById('justdownload')
-            var doc = new jsPDF()
-
-            doc.fromHTML(report,15,15)
-
-            doc.save("iReport.pdf")
-        }
+    function goBack() {
+        window.history.back();
+    }
     </script>
+
+    <script>
+        document.getElementById("doPrint").addEventListener("click", function() {
+            var printContents = document.getElementById('printDiv').innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        });
+    </script>
+
     <!-- Message Modal -->
     <script>
         $(document).ready(function(){

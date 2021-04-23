@@ -13,10 +13,10 @@ include "./components/sidenav.php";
         <div class="header-body">
             <div class="row align-items-center text-center py-4">
                 <div class="pl-3">
-                    <a href="send-report" class="btn btn-icon btn-default" type="button">
+                    <button onclick="goBack()" class="btn btn-icon btn-default" type="button">
                         <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
                         <span class="btn-inner--text">Go Back</span>
-                    </a>
+                    </button>
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">

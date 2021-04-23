@@ -49,6 +49,12 @@ while ($row = mysqli_fetch_array($results)) {
         <div class="container-fluid">
             <div class="header-body">
                 <div class="row align-items-center py-4">
+                    <div class="pl-3">
+                        <button onclick="goBack()" class="btn btn-icon btn-secondary" type="button">
+                            <span class="btn-inner--icon"><i class="ni ni-bold-left"></i></span>
+                            <span class="btn-inner--text">Go Back</span>
+                        </button>
+                    </div>
                     <div class="col-12">
                         <h1 class="header-title1 text-white text-center pt-3"><? echo $companyname?>'s Details</h1>
                     </div>

@@ -60,13 +60,13 @@
                             <span class="nav-link-text">News</span>
                         </a>
                     </li>
-                    -->
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="ni ni-books text-default"></i>
                             <span class="nav-link-text">Schedule Verification</span>
                         </a>
                     </li>
+                    -->
                     <li class="nav-item">
                         <a class="nav-link <?php if($page=='send-report'){echo 'active';}?>" href="send-report">
                             <i class="ni ni-send text-default"></i>
