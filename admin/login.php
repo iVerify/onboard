@@ -45,6 +45,8 @@ if (isset($_POST['admin_btn'])) {
                 header('location: dashboard');
             }if ($position == 'Super Admin') {
                 header('location: dashboard');
+            }if ($position == 'Coordinator') {
+                header('location: overview');
             }
         }
     }else {

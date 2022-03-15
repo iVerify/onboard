@@ -9,7 +9,7 @@
                                     <div class="card-body">
                                         <div class="text-center">
                                             <a href="employee-reports">
-                                                <img src="../assets/img/icons/send.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <img src="../../assets/img/icons/send.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
                                                 <h3>Send Mail</h3>
                                             </a>
                                         </div>
@@ -22,7 +22,7 @@
                                     <div class="card-body">
                                         <div class="text-center">
                                             <a href="#" id="downloadReport">
-                                                <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <img src="../../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
                                                 <h3>Download</h3>
                                             </a>
                                         </div>
@@ -48,18 +48,18 @@
 </footer>
 </div>
 </div>
-<script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="../assets/vendor/chart.js/dist/Chart.min.js"></script>
-<script src="../assets/vendor/chart.js/dist/Chart.extension.js"></script>
-<script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-<script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-<script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-<script src="../assets/js/main.js?v=1.2.0"></script>
+<script src="../../assets/vendor/jquery/dist/jquery.min.js"></script>
+<script src="../../assets/vendor/chart.js/dist/Chart.min.js"></script>
+<script src="../../assets/vendor/chart.js/dist/Chart.extension.js"></script>
+<script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../assets/vendor/js-cookie/js.cookie.js"></script>
+<script src="../../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+<script src="../../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+<script src="../../assets/js/main.js?v=1.2.0"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDODKndJ8udk9xrwV_9KZwzziQOgsAR3Ew&callback=myMap"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="../assets/js/map.js"></script>
-<script src="../assets/js/app.js"></script>
+<script src="../../assets/js/map.js"></script>
+<script src="../../assets/js/app.js"></script>
 <script src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script>
     function goBack() {

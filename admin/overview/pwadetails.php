@@ -4,7 +4,7 @@ include "./components/header.php";
 include "./components/sidenav.php";
 
 $id = $_GET['id'];
-$query = "SELECT * FROM employee WHERE id='$id'";
+$query = "SELECT * FROM previouswork WHERE id='$id'";
 $results = mysqli_query($conn, $query);
 while ($row = mysqli_fetch_array($results)) {
     $id = $row['id'];
@@ -21,6 +21,9 @@ while ($row = mysqli_fetch_array($results)) {
     $mwfirstname = $row['mwfirstname'];
     $mwlastname = $row['mwlastname'];
     $mwoccupation = $row['mwoccupation'];
+    $eduration = $row['eduration'];
+    $conduct = $row['conduct'];
+    $wresignation = $row['wresignation'];
     $rpagentremark = $row['rpagentremark'];
     $rpupload = $row['rpupload'];
     $rpupload1 = $row['rpupload1'];
@@ -64,26 +67,23 @@ while ($row = mysqli_fetch_array($results)) {
             </div>
             <div class="container">
                 <div class="row">
-                    <div id="reportDownload">
-                        <div class="col-xl-12">
-                            <div class="card row hidden">
-                                <div class="card-body" id="printDiv" style="margin-bottom: -40px;">
-                                    <div class="text-center pb-3">
-                                        <img src="../assets/images/logo.png" style="width: 150px;"><br>
-                                        <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
-                                    </div>
+                    <div class="col-xl-12" id="pdf">
+                        <div class="card row">
+                            <div class="card-body">
+                                <div class="text-center pb-3">
+                                    <img src="../../assets/images/logo.png" style="width: 150px;"><br>
+                                    <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
+                                </div>
+                                <div class="table-responsive">
                                     <table class="table table-bordered">
-                                        <?php $status = 'Approved';
-                                        echo 
-                                        "<tr>";
-                                            "<th style='background-color: #ececef; '><strong>Agent ID:</strong></th>";
-                                            "<td><? echo $agentid ?></td>";
-                                        "</tr>";
-                                        "<tr>";
-                                            "<th style='background-color: #ececef; '><strong>Agent Full Name:</strong></th>";
-                                            "<td><? echo $firstname ?>  <? echo $lastname ?></td>";
-                                        "</tr>";
-                                        ?>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Agent ID:</strong></th>
+                                            <td><? echo $agentid ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Agent Full Name:</strong></th>
+                                            <td><? echo $firstname ?>  <? echo $lastname ?></td>
+                                        </tr>
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Client:</strong></th>
                                             <td><? echo $clientname ?> </td>
@@ -121,10 +121,22 @@ while ($row = mysqli_fetch_array($results)) {
                                             <td><? echo $mwoccupation ?></td>
                                         </tr>
                                         <tr>
+                                            <th style="background-color: #ececef; "><strong>Duration of Employment:</strong></th>
+                                            <td><? echo $eduration ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Attitude and Conduct:</strong></th>
+                                            <td><? echo $conduct ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #ececef; "><strong>Reason for Leaving:</strong></th>
+                                            <td><? echo $wresignation ?></td>
+                                        </tr>
+                                        <tr>
                                             <th style="background-color: #ececef; "><strong>Picture:</strong></th>
-                                            <td class="text-center">
-                                                <img id="myImg" class="card-img mr-5 ml-5" src="../<? echo $rpupload ?>" style="width:300px;height:300px;">
-                                                <img class="card-img mr-5 ml-5" src="../<? echo $rpupload1 ?>" style="width:300px;height:300px;">
+                                            <td>
+                                                <img id="myImg" class="card-img" src="../../<? echo $rpupload ?>" style="width:300px;height:300px;">
+                                                <img class="card-img" src="../../<? echo $rpupload1 ?>" style="width:300px;height:300px;">
                                             </td>
                                         </tr>
                                         <tr>
@@ -147,26 +159,24 @@ while ($row = mysqli_fetch_array($results)) {
                                             </td>
                                         </tr>
                                     </table>
-                                    <h3 class="text-center pt-3"><strong>Observation:</strong></h3>
+                                    <h3 class="text-center pt-3"><strong>Agent Remark:</strong></h3>
                                     <p class="text-center"><? echo $rpagentremark ?></p>
-                                    </div>
-                                <div class="card-body">
                                     <hr class="my-4">
                                     <p class="text-center pt-1">I <strong><? echo $firstname ?> <? echo $lastname ?></strong> hereby confirm that the information above are correct and accurate.</p>
-                                    <div class="text-center pb-3" id="funcBtn">
-                                        <? echo "<a class=\"btn btn-icon btn-default\" href=\"employeeedit?id=$id\">
-                                                <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
-                                                <span class=\"btn-inner--text\">Edit</span>
-                                            </a>" ?>
-                                        <button id="doPrint" class="btn btn-info" type="button">
-                                            <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
-                                            <span class="btn-inner--text">Download PDF</span>
-                                        </button>
-                                        <button type="button" class="btn btn-danger" id="delete">
-                                            <span class="btn-inner--icon"><i class="ni ni-archive-2"></i></span>
-                                            <span class="btn-inner--text">Delete</span>
-                                        </button>
-                                    </div>
+                                </div>
+                                <div class="text-center pb-3">
+                                    <? echo "<a class=\"btn btn-icon btn-default\" href=\"pwaedit?id=$id\">
+                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
+                                            <span class=\"btn-inner--text\">Edit</span>
+                                        </a>" ?>
+                                    <button type="button" class="btn btn-info" onclick="saveDiv('pdf','Title')">
+                                        <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
+                                        <span class="btn-inner--text">Download PDF</span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" id="delete">
+                                        <span class="btn-inner--icon"><i class="ni ni-archive-2"></i></span>
+                                        <span class="btn-inner--text">Delete</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>

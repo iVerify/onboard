@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="65c3e7b3-2de3-414e-b27c-63d9d8b496d7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/admin/components/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/components/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/employee-reports.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/employee-reports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/employeedetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/employeedetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/vendor/prismjs/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vendor/prismjs/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth_controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth_controller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/db.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guarantor-reports.php" beforeDir="false" afterPath="$PROJECT_DIR$/guarantor-reports.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1zM4KC6U1MA2LXTlVZwXY62sXcC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65c3e7b3-2de3-414e-b27c-63d9d8b496d7" name="Changes" comment="" />
+      <created>1633944556592</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633944556592</updated>
+    </task>
+    <servers />
+  </component>
+</project>

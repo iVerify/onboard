@@ -1,5 +1,5 @@
 <?php
-$page = 'send-report';
+$page = 'verifications';
 include "./components/header.php";
 include "./components/sidenav.php";
 ?>
@@ -20,7 +20,7 @@ include "./components/sidenav.php";
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Employee Approved Verifications
+                        PWA Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -49,7 +49,7 @@ include "./components/sidenav.php";
                                         </thead>
                                             <tbody>
                                             <?php
-                                            $select_query = "SELECT * FROM employee WHERE status='Approved' ORDER BY date ASC";;
+                                            $select_query = "SELECT * FROM previouswork WHERE status='Pending' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                                 // output data of each row
@@ -76,27 +76,27 @@ include "./components/sidenav.php";
                                                     echo "<tr>";
                                                     echo "<td class=\"budget\">" .$firstname." ".$lastname. "</td>";
                                                     echo "<td class=\"budget\">" .$reportid. "</td>";
-                                                    echo "<td class=\"budget\">" .$rpfirstname. " " . $rplastname . "</td>";
+                                                    echo "<td class=\"budget\">" .$rpfirstname." ".$rplastname. "</td>";
                                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<a href=\"employeedetails?id=$id\" class=\"btn btn-sm btn-icon btn-info\">
-                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
-                                                            <span class=\"btn-inner--text\">Send</span>
-                                                        </a>
-                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\">
+                                                        ."<a href=\"pwaedit?id=$id\" class=\"btn btn-icon btn-sm btn-info\">
+                                                                <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
+                                                                <span class=\"btn-inner--text\">Edit</span>
+                                                            </a>
+                                                        <a href=\"pwadetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
                                                         </a>
-                                                        <a href=\"employeeedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
-                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
-                                                            <span class=\"btn-inner--text\">Edit</span>
+                                                        <a href=\"#?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
+                                                            <span class=\"btn-inner--icon\"><i class=\"ni ni-archive-2\"></i></span>
+                                                            <span class=\"btn-inner--text\">Delete</span>
                                                         </a>".
                                                         "</td >";
                                                     "</tr>";
                                                 }
                                             }else {
-                                                echo "<td><p>No Approved Report Yet!</p></td>";
+                                                echo "<td><p>No Pending Report Yet!</p></td>";
                                             }
                                             ?>
                                             </tbody>
@@ -118,6 +118,7 @@ include "./components/sidenav.php";
             </div>
         </div>
     </div>
+
 
 
 <?php include "./components/footer.php"; ?>

@@ -48,6 +48,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link <?php if($page=='applicants'){echo 'active';}?>" href="applicants">
+                            <i class="ni ni-paper-diploma text-default"></i>
+                            <span class="nav-link-text">Applicants</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link <?php if($page=='messages'){echo 'active';}?>" href="messages">
                             <i class="ni ni-chat-round text-default"></i>
                             <span class="nav-link-text">Messages</span>

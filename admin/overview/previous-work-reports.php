@@ -20,7 +20,7 @@ include "./components/sidenav.php";
                 </div>
                 <div class="col-lg-12">
                     <h1 class="header-title1 pt-3">
-                        Employee Approved Verifications
+                    PWA Approved Verifications
                     </h1>
                     <p>Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                 </div>
@@ -49,7 +49,7 @@ include "./components/sidenav.php";
                                         </thead>
                                             <tbody>
                                             <?php
-                                            $select_query = "SELECT * FROM employee WHERE status='Approved' ORDER BY date ASC";;
+                                            $select_query = "SELECT * FROM previouswork WHERE status='Approved' ORDER BY date ASC";;
                                             $result = mysqli_query($conn, $select_query);
                                             if (mysqli_num_rows($result) > 0) {
                                                 // output data of each row
@@ -80,15 +80,15 @@ include "./components/sidenav.php";
                                                     echo "<td>" ."<span class=\"badge badge-dot mr-4\"> <i class=\"$class\"></i> <span class=\"status\" >$status</span> </span>". "</td>";
 
                                                     echo "<td class='text-right'>"
-                                                        ."<a href=\"employeedetails?id=$id\" class=\"btn btn-sm btn-icon btn-info\">
+                                                        ."<button data-toggle=\"modal\" data-target=\"#sendModal\" class=\"btn btn-sm btn-icon btn-info\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-send\"></i></span>
                                                             <span class=\"btn-inner--text\">Send</span>
-                                                        </a>
-                                                        <a href=\"employeedetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\">
+                                                        </button>
+                                                        <a href=\"pwadetails?id=$id\" class=\"btn btn-icon btn-sm btn-default\" type=\"button\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-zoom-split-in\"></i></span>
                                                             <span class=\"btn-inner--text\">View</span>
                                                         </a>
-                                                        <a href=\"employeeedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
+                                                        <a href=\"pwaedit?id=$id\" class=\"btn btn-icon btn-sm btn-danger\">
                                                             <span class=\"btn-inner--icon\"><i class=\"ni ni-ruler-pencil\"></i></span>
                                                             <span class=\"btn-inner--text\">Edit</span>
                                                         </a>".
@@ -118,6 +118,45 @@ include "./components/sidenav.php";
             </div>
         </div>
     </div>
+
+
+    <!-- Send Modal -->
+    <div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card mb--1">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="employee-reports">
+                                                <img src="../assets/img/icons/send.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <h3>Send</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="card mb--1">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <a href="tenant-reports">
+                                                <img src="../assets/img/icons/downloadpdf.svg" class="rounded-circle" style="left: 50%; width: 80px; transition: all .15s ease; border: 3px solid #fff; border-radius: .375rem;">
+                                                <h3>Download</h3>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Send Modal -->
 
 
 <?php include "./components/footer.php"; ?>

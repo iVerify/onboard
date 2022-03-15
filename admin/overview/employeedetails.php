@@ -69,7 +69,7 @@ while ($row = mysqli_fetch_array($results)) {
                             <div class="card row hidden">
                                 <div class="card-body" id="printDiv" style="margin-bottom: -40px;">
                                     <div class="text-center pb-3">
-                                        <img src="../assets/images/logo.png" style="width: 150px;"><br>
+                                        <img src="../../assets/images/logo.png" style="width: 150px;"><br>
                                         <label class="form-control-label"><strong>Verification Status:</strong> <span class="badge <? echo $class ?>"><? echo $status ?></span></label>
                                     </div>
                                     <table class="table table-bordered">
@@ -123,8 +123,8 @@ while ($row = mysqli_fetch_array($results)) {
                                         <tr>
                                             <th style="background-color: #ececef; "><strong>Picture:</strong></th>
                                             <td class="text-center">
-                                                <img id="myImg" class="card-img mr-5 ml-5" src="../<? echo $rpupload ?>" style="width:300px;height:300px;">
-                                                <img class="card-img mr-5 ml-5" src="../<? echo $rpupload1 ?>" style="width:300px;height:300px;">
+                                                <img id="myImg" class="card-img mr-5 ml-5" src="../../<? echo $rpupload ?>" style="width:300px;height:300px;">
+                                                <img class="card-img mr-5 ml-5" src="../../<? echo $rpupload1 ?>" style="width:300px;height:300px;">
                                             </td>
                                         </tr>
                                         <tr>
