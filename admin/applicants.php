@@ -16,7 +16,7 @@ require_once "../config/auth_controller.php";
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-12">
-                        <h1 class="header-title1 text-white text-center pt-3">Agents Apllication</h1>
+                        <h1 class="header-title1 text-white text-center pt-3">Agents Application</h1>
                         <p class="text-center text-white">Integrity is the seed for achievement <span style='font-size:15px;'>&#128519;</span></p>
                     </div>
                 </div>
